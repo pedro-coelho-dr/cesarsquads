@@ -1,8 +1,7 @@
-<h1 align="center">CESAR Squads</h1>
+![cesarsquadslogosmall](https://user-images.githubusercontent.com/111138996/222937406-ceec455c-ab76-4edc-a618-96c7d752550d.png)
 
 <h3 align="center">
-    👨‍💻 Seu aplicativo para criação de grupos. Aplicação criada para ajudar as pessoas a formar equipes de uma maneira eficiente e prática.
-</h3>
+    👨‍💻 Aplicativo para formação de grupos no modelo Squads.
 
 Tabela de conteúdos
 =================
@@ -12,9 +11,11 @@ Tabela de conteúdos
 
 ### 💻 Sobre o projeto
 
-CESAR Squads: é uma forma de facilitar a vida dos usuários que desejam formar equipes, pois é sistema prático e objetivo.
+**cesar.squads** é uma Aplicação Web com design adaptável, desenvolvido em Python com Django e Banco de Dados usando Sqlite.
 
-Projeto desenvolvido durante a disciplina de **Fundamentos de desenvolvimento de software** presente no curso de CC da [CESAR School](https://www.cesar.school/).
+Projeto desenvolvido para a disciplina de **Fundamentos de desenvolvimento de software** presente no curso de Ciência da Computação da [CESAR School](https://www.cesar.school/).
+
+![squadfw](https://user-images.githubusercontent.com/111138996/222937388-9d80d95e-6ff7-4ca9-ba14-0c0897bffe78.png)
 
 ---
 
@@ -22,9 +23,11 @@ Projeto desenvolvido durante a disciplina de **Fundamentos de desenvolvimento de
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
+
 -   **[Figma](https://www.figma.com/)**  →  **[Protótipo (CESAR Squads)](link)**
+-   **[Jira](https://projetofds.atlassian.net/)** 
+-   **[Django](https://www.djangoproject.com/)**
 -   **[Visual Studio Code](https://code.visualstudio.com/)** 
--   **[Django](https://www.djangoproject.com/)** 
 
 ---
 
