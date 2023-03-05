@@ -14,9 +14,11 @@ Tabela de conteúdos
 **cesar.squads** é uma Aplicação Web com design adaptável, desenvolvido em Python com Django e Banco de Dados usando Sqlite.
 
 O aplicativo utiliza como referência o [Modelo Spotify](https://www.atlassian.com/agile/agile-at-scale/spotify) de organização de trabalho em times ágeis:
-![squadfw](https://user-images.githubusercontent.com/111138996/222937388-9d80d95e-6ff7-4ca9-ba14-0c0897bffe78.png)
+    
+![squadfw](https://user-images.githubusercontent.com/111138996/222938051-d1dce37f-c48f-4710-b6eb-42eb2693c22b.png)
 
 Projeto desenvolvido para a disciplina de **Fundamentos de desenvolvimento de software** presente no curso de Ciência da Computação da [CESAR School](https://www.cesar.school/).
+    
 ---
 
 ### 🛠 Ferramentas
