@@ -1,9 +1,10 @@
 ![cesarsquadslogosmall](https://user-images.githubusercontent.com/111138996/222937406-ceec455c-ab76-4edc-a618-96c7d752550d.png)
 
    * [Sobre o projeto](#-sobre-o-projeto)
+   * [Instalação](#-instalação)
    * [Ferramentas](#-ferramentas)
    * [Contribuidores](#-contribuidores)
-   * [Instalação](#-instalação)
+
 
 ### 💻 Sobre o projeto
 
