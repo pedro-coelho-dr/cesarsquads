@@ -71,7 +71,7 @@ python manage.py createsuperuser
 email=~~****@cesar.school~~  
 password=~~******~~</sub>  
 
-As pastam devem ficar assim:  
+As pastas devem ficar assim:  
 ![image](https://user-images.githubusercontent.com/111138996/223016134-0659262e-d8ef-478f-a7a6-803d073a4aa7.png)  
 <sub>*A extensão *SQLite Viewer* permite visualizar o banco de dados.</sub>  
 
