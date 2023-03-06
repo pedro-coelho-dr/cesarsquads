@@ -23,7 +23,9 @@ Projeto da disciplina de **Fundamentos de Desenvolvimento de Software** da gradu
 
 ### 🤖 Instalação
 
-Após clonar a pasta para a IDE,  
+Após clonar o repositório no seu diretório local: 
+  
+  
 Instalar o ambiente virtual:
 ```
 pip install virtualenv
@@ -66,7 +68,12 @@ python manage.py createsuperuser
 ```
 <sub>username=~~****~~  
 email=~~****@cesar.school~~  
-password=~~******~~</sub>
+password=~~******~~</sub>  
+
+As pastam devem ficar assim:  
+![image](https://user-images.githubusercontent.com/111138996/223016134-0659262e-d8ef-478f-a7a6-803d073a4aa7.png)  
+<sub>*A extensão *SQLite Viewer* permite visualizar o banco de dados.</sub>  
+
 
 ---
 
@@ -91,5 +98,3 @@ password=~~******~~</sub>
     
   </tr>
 </table>
-
----
