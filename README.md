@@ -1,32 +1,77 @@
 ![cesarsquadslogosmall](https://user-images.githubusercontent.com/111138996/222937406-ceec455c-ab76-4edc-a618-96c7d752550d.png)
 
-<h3>
-    👨‍💻 Aplicativo para formação de grupos no modelo Squads.
-
-Tabela de conteúdos
-=================
    * [Sobre o projeto](#-sobre-o-projeto)
    * [Ferramentas](#-ferramentas)
    * [Contribuidores](#-contribuidores)
+   * [Instalação](#-instalação)
 
 ### 💻 Sobre o projeto
 
-**cesar.squads** é uma Aplicação Web com design adaptável, desenvolvido em Python com Django e Banco de Dados usando Sqlite.
+**cesar.squads** é um App de criação e visualização rápida de grupos no formato *squads*.
 
-O aplicativo utiliza como referência o [Modelo Spotify](https://www.atlassian.com/agile/agile-at-scale/spotify) de organização de trabalho em times ágeis:
+Aplicação Web com design adaptável, desenvolvido em Python com Django e Banco de Dados usando Sqlite.
+
+Usa como referência o [Modelo Spotify](https://www.atlassian.com/agile/agile-at-scale/spotify) de organização de trabalho em times ágeis:
     
 ![squadfw](https://user-images.githubusercontent.com/111138996/222938051-d1dce37f-c48f-4710-b6eb-42eb2693c22b.png)
 
-Projeto desenvolvido para a disciplina de **Fundamentos de desenvolvimento de software** presente no curso de Ciência da Computação da [CESAR School](https://www.cesar.school/).
-    
+Projeto da disciplina de **Fundamentos de Desenvolvimento de Software** da graduação em **Ciência da Computação** da [CESAR School](https://www.cesar.school/).
+  
+  
+---
+
+
+### 🤖 Instalação
+
+Após clonar a pasta para a IDE,  
+Instalar o ambiente virtual:
+```
+pip install virtualenv
+```
+Criar o ambiente virtual:
+```
+virtualenv venv
+```
+Ativar ambiente virtual:
+```
+source venv/Scripts/activate
+```
+
+<sub>*(venv) aparece no terminal</sub>
+
+
+Desativar ambiente virtual:
+```
+deactivate
+```
+Instalar django no venv:
+```
+pip install django
+```
+Criar banco de dados:
+```
+python manage.py migrate
+```
+Rodar servidor:
+```
+python manage.py runserver
+```
+<sub>*link de acesso ao preview  
+*ctrl+c stop no servidor</sub>
+
+
+Criar superuser:
+```
+python manage.py createsuperuser
+```
+<sub>username=~~****~~  
+email=~~****@cesar.school~~  
+password=~~******~~</sub>
+
 ---
 
 ### 🛠 Ferramentas
 
-As seguintes ferramentas foram usadas na construção do projeto:
-
-
--   **[Figma](https://www.figma.com/)**  →  **[Protótipo (CESAR Squads)](link)**
 -   **[Jira](https://projetofds.atlassian.net/)** 
 -   **[Django](https://www.djangoproject.com/)**
 -   **[Visual Studio Code](https://code.visualstudio.com/)** 
@@ -46,3 +91,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
     
   </tr>
 </table>
+
+---
