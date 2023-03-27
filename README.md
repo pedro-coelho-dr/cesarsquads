@@ -98,6 +98,8 @@ As pastas devem ficar assim:
 
 [Figma](https://www.figma.com/proto/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?node-id=27-178&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=27%3A178)
 
+-Screencast Protótipo
+
 [Youtube](https://youtu.be/oxeSl30gNEc)
 
 [![https://youtu.be/oxeSl30gNEc](https://img.youtube.com/vi/oxeSl30gNEc/0.jpg)](https://youtu.be/oxeSl30gNEc)
