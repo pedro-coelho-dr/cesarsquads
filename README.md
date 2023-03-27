@@ -25,7 +25,7 @@ Projeto da disciplina de **Fundamentos de Desenvolvimento de Software** da gradu
 ### 🤖 Instalação
 
 Após clonar o repositório no seu diretório local: 
-  
+
   
 Instalar o ambiente virtual:
 ```
