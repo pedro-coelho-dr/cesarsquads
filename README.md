@@ -83,7 +83,8 @@ As pastas devem ficar assim:
 
 -   **[Jira](https://projetofds.atlassian.net/)** 
 -   **[Django](https://www.djangoproject.com/)**
--   **[Visual Studio Code](https://code.visualstudio.com/)** 
+-   **[Visual Studio Code](https://code.visualstudio.com/)**
+-   **[Figma](https://www.figma.com/)**  →  **[Protótipo (CESAR Squads)](https://www.figma.com/proto/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?node-id=27-178&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=27%3A178)**
 
 ---
 
