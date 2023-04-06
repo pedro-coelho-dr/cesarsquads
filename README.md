@@ -23,7 +23,7 @@ Usa como referência o [Modelo Spotify](https://www.atlassian.com/agile/agile-at
 Projeto da disciplina de **Fundamentos de Desenvolvimento de Software** da graduação em **Ciência da Computação** da [CESAR School](https://www.cesar.school/).
   
   
-
+.
 ---
 
 ### 🤖 Instalação
