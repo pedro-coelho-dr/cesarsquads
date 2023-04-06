@@ -13,21 +13,21 @@ class Profile(models.Model):
         return self.name
     
 class Tribo(models.Model):
-    nameExibitionTribe = models.CharField(max_length=100)
+    nameTribe = models.CharField(max_length=100)
     descriptionTribe = models.CharField(max_length=300)
     photoTribe = models.ImageField(upload_to='tribe_images', default='')
-    maxSquads = models.DecimalField(blank=True)
-    maxUserSquads = models.DecimalField(blank=True)
+    maxSquads = models.IntegerField(blank=True)
+    maxUserSquads = models.IntegerField(blank=True)
     
     def __str__(self):
-        return self.nameExibitionTribe
+        return self.nameTribe
     
 class Squad(models.Model):
-    nameExibitionSquad = models.CharField(max_length=100)
+    nameSquad = models.CharField(max_length=100)
     descriptionSquad = models.CharField(max_length=300)
     photoSquad = models.ImageField(upload_to='squad_images', default='')
-    maxUsers = models.DecimalField(blank=True)
+    maxUsers = models.IntegerField(blank=True)
     
     def __str__(self):
-        return self.nameExibitionSquad
+        return self.nameSquad
     

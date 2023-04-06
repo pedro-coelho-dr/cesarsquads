@@ -5,3 +5,5 @@ from .models import Squad
 # Register your models here.
 
 admin.site.register(Profile)
+admin.site.register(Tribo)
+admin.site.register(Squad)
