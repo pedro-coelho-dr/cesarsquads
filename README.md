@@ -43,9 +43,7 @@ Ativar ambiente virtual:
 ```
 source venv/Scripts/activate
 ```
-
 <sub>*(venv) aparece no terminal</sub>
-
 
 Desativar ambiente virtual:
 ```
@@ -55,30 +53,29 @@ Instalar django no venv:
 ```
 pip install django
 ```
+<sub>*A extensão *Django* ajuda na sintaxe e snippets.</sub>
+
 Criar banco de dados:
 ```
 python manage.py migrate
+```
+<sub>*A extensão *SQLite* e *SQLite Viewer* permitem visualizar o banco de dados.</sub>
+
+Instalar requirements:
+```
+pip install -r requirements.txt
+```
+Criar superuser:
+```
+python manage.py createsuperuser
 ```
 Rodar servidor:
 ```
 python manage.py runserver
 ```
-<sub>*link de acesso ao preview  
+<sub>*link de acesso ao preview *'/admin' -> dashboard 
 *ctrl+c stop no servidor</sub>
 
-
-Criar superuser:
-```
-python manage.py createsuperuser
-```
-<sub>username=~~****~~  
-email=~~****@cesar.school~~  
-password=~~******~~</sub>  
-
-As pastas devem ficar assim:  
-![image](https://user-images.githubusercontent.com/111138996/223016134-0659262e-d8ef-478f-a7a6-803d073a4aa7.png)  
-<sub>*A extensão *SQLite Viewer* permite visualizar o banco de dados.</sub>
-<sub>*A extensão *Django* ajuda na sintaxe e snippets.</sub>  
 
 ---
 
@@ -205,9 +202,15 @@ As pastas devem ficar assim:
 
 ### 🛠 Ferramentas
 
--   **[Jira](https://projetofds.atlassian.net/)** 
 -   **[Django](https://www.djangoproject.com/)**
--   **[Visual Studio Code](https://code.visualstudio.com/)** 
+-   **[Jira](https://projetofds.atlassian.net/)** 
+-   **[Figma](https://www.figma.com/)**
+-   **[Diagrams.net](https://app.diagrams.net/)**
+-   **[SQLite](https://sqlite.org/)**
+-   **[Python](https://www.python.org/)**
+-   **[Virtualenv](https://virtualenv.pypa.io/)**
+-   **[Github](https://github.com/)**
+-   **[Visual Studio Code](https://code.visualstudio.com/)**
 
 ---
 
