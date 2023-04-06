@@ -224,7 +224,5 @@ As pastas devem ficar assim:
 
 
     
-    
-    
   </tr>
-</table>
+</table>    
