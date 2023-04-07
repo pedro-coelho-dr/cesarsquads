@@ -49,9 +49,9 @@ Desativar ambiente virtual:
 ```
 deactivate
 ```
-Instalar django no venv:
+Instalar dependencias no venv:
 ```
-pip install django
+pip install -r requirements.txt
 ```
 <sub>*A extensão *Django* ajuda na sintaxe e snippets.</sub>
 
