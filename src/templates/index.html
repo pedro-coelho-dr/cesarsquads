@@ -87,10 +87,16 @@
   <div class="row">
     {% block start %}
     {% if user.is_authenticated %}
-    <center><h1>welcome back {{user.username}}!</h1></center>
+    <h2>{{ user.get_full_name }}</h2>
+    <ul>
+      <li>Username: {{ user.profile.user }}</li>
+      <li>Bio: {{ user.profile.bio }}</li>
+      <li><img src="{{user.profile.avatar.url}}"></li>
+    </ul>
     {% else %}
-    <center><h1>log in, plz . . .</h1></center>
+    <a href="{% url "login" %}"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Log in</a>
     {% endif %}
+    
     {% endblock %}
   </div>
 </body>
