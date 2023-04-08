@@ -93,8 +93,6 @@
       <li>Bio: {{ user.profile.bio }}</li>
       <li><img src="{{user.profile.avatar.url}}"></li>
     </ul>
-    {% else %}
-    <a href="{% url "login" %}"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Log in</a>
     {% endif %}
     
     {% endblock %}
