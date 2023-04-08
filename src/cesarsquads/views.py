@@ -38,3 +38,19 @@ def Login(request):
             messages.info(request, f'account done not exit plz sign in')
     form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'log in'})
+
+   #TRIBE criada com link de acesso
+#def create_tribe(request):
+
+
+    #SQUAD adicionado a TRIBE
+#def create_squad(request):
+
+    #SQUAD removido de TRIBE
+#def delete_squad(request):
+
+    #USER entra na SQUAD
+#def join_squad(request):
+
+    #USER sai de SQUAD
+#def exit_squad(request):
