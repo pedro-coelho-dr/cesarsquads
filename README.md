@@ -1,13 +1,13 @@
 ![cesarsquadslogosmall](https://user-images.githubusercontent.com/111138996/222937406-ceec455c-ab76-4edc-a618-96c7d752550d.png)
 
-   * [Sobre o projeto](#-sobre-o-projeto)
-   * [Instalação](#-instalação)
-   * [Entrega 01](#-entrega-01)
-   * [Entrega 02](#-entrega-02)
-   * [Entrega 03](#-entrega-03)
-   * [Entrega 04](#-entrega-04)
-   * [Ferramentas](#-ferramentas)
-   * [Contribuidores](#-contribuidores)
+- [.](#)
+  - [🤖 Instalação](#-instalação)
+  - [✅ Entrega 01](#-entrega-01)
+  - [🔲 Entrega 02](#-entrega-02)
+  - [🔲 Entrega 03](#-entrega-03)
+  - [🔲 Entrega 04](#-entrega-04)
+  - [🛠 Ferramentas](#-ferramentas)
+  - [👨‍💻 Contribuidores](#-contribuidores)
 
 
 ### 💻 Sobre o projeto
@@ -206,6 +206,8 @@ python manage.py runserver
 -   **[Jira](https://projetofds.atlassian.net/)** 
 -   **[Figma](https://www.figma.com/)**
 -   **[Diagrams.net](https://app.diagrams.net/)**
+-   **[Django Bootstrap](https://django-bootstrap-v5.readthedocs.io/en/latest/)**
+-   **[Django Crispy Forms](https://django-crispy-forms.readthedocs.io/)**
 -   **[SQLite](https://sqlite.org/)**
 -   **[Python](https://www.python.org/)**
 -   **[Virtualenv](https://virtualenv.pypa.io/)**

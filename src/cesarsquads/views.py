@@ -37,38 +37,3 @@ def Login(request):
             messages.info(request, f'account done not exit plz sign in')
     form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'log in'})
-
-""""
-def signup(request):
-    
-    if request.method == 'POST':
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
-        password2 = request.POST['password2']
-        
-        if password == password2:
-            if User.objects.filter(email=email).exists():
-                messages.info(request, 'Email already registered')
-                return redirect('signup')
-            elif User.objects.filter(username=username).exists():
-                messages.info(request, 'Username registered')
-                return redirect('signup')
-            else:
-                user = User.objects.create_user(username=username, email=email, password=password)
-                user.save()
-                user_model = User.objects.get(username=username)
-                new_profile = Profile.objects.create(user=user_model, id=user_model.id, email=user_model.email)
-                new_profile.save()
-                return redirect('signup')
-            
-        else:
-            messages.info(request, 'Password Not Matching')
-            return redirect('signup')
-        
-    else:
-        return render(request,'signup.html')
-    
-def login(request):
-    return render(request,'login.html')
-"""
