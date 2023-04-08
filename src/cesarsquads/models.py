@@ -1,16 +1,17 @@
 from django.db import models
+from django.contrib.auth import get_user_model
 
+User=get_user_model()
 # Create your models here.
 class Profile(models.Model):
-    name = models.CharField(max_length=100)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    id = models.IntegerField(primary_key=True)
     email = models.EmailField()
-    password = models.CharField(max_length=12)
-    password2 = models.CharField(max_length=12)
-    bio = models.CharField(max_length=500)
-    photo = models.ImageField(upload_to='profile_images',default='')
+    bio = models.TextField(blank=True)
+    profileimg = models.ImageField(upload_to='profile_images',default='blank-profile-picture.png')
     
     def __str__(self):
-        return self.name
+        return self.user.username
     
 class Tribe(models.Model):
     name = models.CharField(max_length=100)
