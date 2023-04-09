@@ -14,11 +14,16 @@
       <nav class="navbar bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url "index" %}">
-            <img src="{% static 'images/logo.png' %}" alt="cesar squads" height="50">
+            <img src="{% static 'images/logo.png' %}" alt="cesar squads" height="50" class="d-inline-block align-text-top">
           </a>
-          <div>
-            <form class="container-fluid justify-content-end">
+          <div  id="navbarSupportedContent">
+            <form class="container-fluid">
               {% if user.is_authenticated %}
+                  <form method="POST" class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Nome da Tribo" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Criar</button>
+                    <button class="btn btn-outline-success" type="submit">Entrar</button>
+                  </form>
               <a href="{% url "logout" %}">
                 <button class="btn btn-outline-secondary" type="button">Logout</button>
               </a>
