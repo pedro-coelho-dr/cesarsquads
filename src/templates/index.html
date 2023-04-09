@@ -14,25 +14,30 @@
       <nav class="navbar bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url "index" %}">
-            <img src="{% static 'images/logo.png' %}" alt="cesar squads" height="50" class="d-inline-block align-text-top">
+            <img src="{% static 'images/logo.png' %}" alt="cesar squads" height="50">
           </a>
-          <div  id="navbarSupportedContent">
+          {% if user.is_authenticated %}
+          <div class="d-flex justify-content-center">
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>&nbsp
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          <div class="d-flex justify-content-end">
             <form class="container-fluid">
-              {% if user.is_authenticated %}
-                  <form method="POST" class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Nome da Tribo" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Criar</button>
-                    <button class="btn btn-outline-success" type="submit">Entrar</button>
-                  </form>
               <a href="{% url "logout" %}">
                 <button class="btn btn-outline-secondary" type="button">Logout</button>
               </a>
-              {% else %}
-              <a href="{% url "register" %}"><button class="btn btn-outline-secondary" type="button">Signup</button></a>
-              <a href="{% url "login" %}"><button class="btn btn-outline-secondary" type="button">Login</button></a>
-              {% endif %}
             </form>
           </div>
+          {% else %}
+          <div class="d-flex justify-content-end">
+            <form class="container-fluid">
+              <a href="{% url "register" %}"><button class="btn btn-outline-secondary" type="button">Signup</button></a>
+              <a href="{% url "login" %}"><button class="btn btn-outline-secondary" type="button">Login</button></a>
+            </form>
+          </div>
+            {% endif %}
         </div>
       </nav>
     </header>
