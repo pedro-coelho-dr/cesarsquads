@@ -30,13 +30,6 @@
           </div>
         </div>
       </nav>
-      {% if messages %}
-        {% for message in messages %}
-          <script>
-            alert("{{ message }}");
-          </script>
-        {% endfor %}
-      {% endif %}
     </header>
     <div class="row">
       {% block content %}
