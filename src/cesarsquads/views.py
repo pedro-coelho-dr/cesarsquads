@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserAuthenticationForm
 # from .models import Profile
 #from django.http import HttpResponse
 
@@ -34,7 +34,7 @@ def Login(request):
             return redirect('index')
         else:
             messages.info(request, f'Usuário ou senha inválido!')
-    form = AuthenticationForm()
+    form = UserAuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'Login'})
 
    #TRIBE criada com link de acesso

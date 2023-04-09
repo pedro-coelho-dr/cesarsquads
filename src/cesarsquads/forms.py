@@ -1,12 +1,13 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from .models import Profile, Squad, Tribe
 from crispy_forms.helper import FormHelper
 class UserRegisterForm(UserCreationForm):
-    username = forms.CharField(max_length=30)
-    
-    def __init__(self, *args, **kwargs):
+    username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome do Usuario'}))
+    password1 = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Senha'}))
+    password2 = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Confirme a Senha'}))
+    """def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['password1'].label = False
         self.fields['password2'].label = False
@@ -17,7 +18,7 @@ class UserRegisterForm(UserCreationForm):
         self.fields['password1'].help_text = None
         self.fields['password2'].help_text = None
         self.fields['username'].help_text = None
-        
+    """      
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2' )
@@ -33,4 +34,11 @@ class ProfileForm(forms.ModelForm):
         fields = ['bio', 'avatar']
         
 #class SquadForm(forms.ModelForm):
-    
+
+
+class UserAuthenticationForm(AuthenticationForm):
+    username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome do Usuario'}))
+    password = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Senha'}))
+    class Meta:
+        model = User
+        fields = ('username', 'password')
