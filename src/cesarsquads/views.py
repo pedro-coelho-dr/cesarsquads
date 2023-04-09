@@ -19,11 +19,11 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
-            messages.success(request, f'Your account has been created ! You are now able to log in')
+            messages.success(request, f'Sua conta foi criada! Você é capaz de logar agora!')
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'registration/register.html', {'form': form, 'title':'register here'})
+    return render(request, 'registration/register.html', {'form': form, 'title':'Registro'})
 
 def Login(request):
     if request.method == 'POST':
@@ -32,12 +32,12 @@ def Login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             form = login(request, user)
-            messages.success(request, f' welcome {username} !!')
+            messages.success(request, f' Olá, {username}!')
             return redirect('index')
         else:
-            messages.info(request, f'account done not exit plz sign in')
+            messages.info(request, f'Usuário não encontrado!')
     form = AuthenticationForm()
-    return render(request, 'registration/login.html', {'form':form, 'title':'log in'})
+    return render(request, 'registration/login.html', {'form':form, 'title':'Login'})
 
    #TRIBE criada com link de acesso
 #def create_tribe(request):
