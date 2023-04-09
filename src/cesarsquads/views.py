@@ -19,7 +19,6 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
-            messages.success(request, f'Sua conta foi criada! Você é capaz de logar agora!')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -32,10 +31,9 @@ def Login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             form = login(request, user)
-            messages.success(request, f' Olá, {username}!')
             return redirect('index')
         else:
-            messages.info(request, f'Usuário não encontrado!')
+            messages.info(request, f'Usuário ou senha inválido!')
     form = AuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'Login'})
 
