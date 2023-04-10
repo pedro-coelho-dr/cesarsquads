@@ -5,12 +5,15 @@ from .models import Profile, Squad, Tribe
 
 #REGISTRO DE USUÁRIO
 class UserRegisterForm(UserCreationForm):
+    first_name = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome Completo'}))
     username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome de usuário'}))
+    email = forms.EmailField(label=False,widget=forms.TextInput(attrs={'placeholder':'Digite seu e-mail'}))
     password1 = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Senha'}))
     password2 = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Confirmar senha'}))
+    
     class Meta:
         model = User
-        fields = ('username', 'password1', 'password2' )
+        fields = ('first_name', 'username', 'email', 'password1', 'password2' )
 
 #AUTENTICAÇÃO DE USUÁRIO
 class UserAuthenticationForm(AuthenticationForm):
