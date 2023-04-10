@@ -23,9 +23,6 @@ from django.contrib.auth import views as auth
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cesarsquads.urls')),
-    path('login/', user_view.Login, name ='login'),
-    path('logout/', auth.LogoutView.as_view(next_page='index'), name='logout'),
-    path('register/', user_view.register, name ='register'),
 ]
 
 urlpatterns = urlpatterns+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

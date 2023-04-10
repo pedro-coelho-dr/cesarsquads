@@ -5,8 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import UserRegisterForm, UserAuthenticationForm
 
-#INDEX
-@login_required(login_url='login/')
+# Create your views here.
+
 def index(request):
     return render(request,'index.html')
 
@@ -38,7 +38,13 @@ def Login(request):
     form = UserAuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'Login'})
 
-    #TRIBE criada com link de acesso
+
+
+@login_required(login_url='login/')
+def profile(request):
+    return render(request,'profile.html')
+
+   #TRIBE criada com link de acesso
 #def create_tribe(request):
 
     #SQUAD adicionado a TRIBE
