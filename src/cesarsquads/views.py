@@ -32,7 +32,7 @@ def Login(request):
         user = authenticate(request, username = username, password = password)
         if user is not None:
             form = login(request, user)
-            return redirect('index')
+            return redirect('profile')
         else:
             messages.info(request, f'Usuário ou senha inválido!')
     form = UserAuthenticationForm()
