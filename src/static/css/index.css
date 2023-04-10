@@ -4,6 +4,5 @@
     box-sizing: border-box;
   }
   .gradient-custom {
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right, rgb(203, 135, 17), rgb(252, 205, 37))
     }

@@ -4,14 +4,14 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import UserRegisterForm, UserAuthenticationForm
-# from .models import Profile
-#from django.http import HttpResponse
 
-# Create your views here.
+#INDEX
 @login_required(login_url='login/')
 def index(request):
     return render(request,'index.html')
 
+
+#REGISTRO DE USUÁRIO
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -24,6 +24,7 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'registration/register.html', {'form': form, 'title':'Registro'})
 
+# AUTENTICAÇÃO DE USUÁRIO
 def Login(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -37,9 +38,8 @@ def Login(request):
     form = UserAuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'Login'})
 
-   #TRIBE criada com link de acesso
+    #TRIBE criada com link de acesso
 #def create_tribe(request):
-
 
     #SQUAD adicionado a TRIBE
 #def create_squad(request):
