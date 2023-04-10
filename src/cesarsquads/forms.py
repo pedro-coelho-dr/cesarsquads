@@ -12,7 +12,7 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ('username', 'password1', 'password2' )
 
-#AUTENTICAÇÃO DE USUÁRIO        
+#AUTENTICAÇÃO DE USUÁRIO
 class UserAuthenticationForm(AuthenticationForm):
     username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Usuário'}))
     password = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Senha'}))
