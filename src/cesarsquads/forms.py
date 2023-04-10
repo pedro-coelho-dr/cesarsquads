@@ -27,8 +27,13 @@ class UserAuthenticationForm(AuthenticationForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['bio', 'avatar']
+        fields = ('bio', 'avatar')
 
 #SQUAD
 
 #TRIBO
+class TribeForm(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Nome da tribo'}))
+    class Meta:
+        model = Tribe
+        fields = ('name',)

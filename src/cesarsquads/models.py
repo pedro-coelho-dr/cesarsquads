@@ -8,12 +8,12 @@ from django.dispatch import receiver
 #TRIBE
 class Tribe(models.Model):
     name = models.CharField(max_length=100)
+    class Meta:
+        db_table = 'cesarsquads_tribe'
 #   description = models.CharField(max_length=300)
 #   photo = models.ImageField(upload_to='tribe_images', default='blank-profile-picture.png')
 #   max_squads = models.IntegerField(blank=True)
 #   max_user_squad = models.IntegerField(blank=True)
-    def __str__(self):
-        return self.name
 
 
 #SQUAD

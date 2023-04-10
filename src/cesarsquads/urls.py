@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout/', auth.LogoutView.as_view(next_page='login'), name='logout'),
     path('register/', user_view.register, name ='register'),
     path('profile/', user_view.profile, name ='profile'),
+    path('tribe/', user_view.create_tribe, name ='tribe'),
 ]
