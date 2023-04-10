@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<section class="vh-100 gradient-custom">
+<ul>
+<li>Username: {{ user.profile.user }}</li>
+<li>Bio: {{ user.profile.bio }}</li>
+<li><img src="{{user.profile.avatar.url}}"></li>
+</ul>
+{% endif %}
+{% endblock %}
