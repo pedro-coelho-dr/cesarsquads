@@ -18,8 +18,8 @@ def create_tribe(request):
         form = TribeForm(request.POST)
         if form.is_valid():
             form.save()
+            return render(request, 'tribe.html', {'form': form })
    #         return render(request, "tribe.html")
-    return render(request, 'tribe.html', {'form': form })
 
 #SQUAD
 def create_squad(request):
@@ -27,8 +27,9 @@ def create_squad(request):
         form = SquadForm(request.POST)
         if form.is_valid():
             form.save()
+            return render(request, 'squad.html', {'form': form })
    #         return render(request, "tribe.html")
-    return render(request, 'squad.html', {'form': form })
+
 
 
 def index(request):
