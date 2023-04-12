@@ -2,14 +2,14 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import AuthenticationForm
-from .forms import UserRegisterForm, UserAuthenticationForm, TribeForm
+from .forms import UserRegisterForm, UserAuthenticationForm
+from .forms import TribeForms
+from .models import Tribe
 
 # Create your views here.
 
 def index(request):
     return render(request,'index.html')
-
 
 #REGISTRO DE USUÁRIO
 def register(request):
@@ -39,22 +39,18 @@ def Login(request):
     form = UserAuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'Login'})
 
-
-
 @login_required(login_url='login/')
 def profile(request):
     return render(request,'profile.html')
 
-
-def create_tribe(request):
-    form = TribeForm()  
+def tribe(request): 
     if request.method == 'POST':
-        form = TribeForm(request.POST)  
+        form = TribeForms(request.POST)  
         if form.is_valid():
-            tribe = form.save(commit=False)
+            tribe = Tribe(**form.cleaned_data)
             tribe.save()
-    return render(request, 'tribe.html', {'form': form})
-
+            messages.success(request, f'Tribo criada com sucesso!')
+    return render(request, 'tribe.html')
 
    #TRIBE criada com link de acesso
 #def create_tribe(request):
