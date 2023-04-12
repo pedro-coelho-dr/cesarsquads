@@ -1,15 +1,44 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserAuthenticationForm
-from .forms import TribeForm
-from .models import Tribe
+
+from .forms import TribeForm, SquadForm
+
 
 # Create your views here.
 
+
+
+#TRIBO
+def create_tribe(request):
+    if request.method == 'POST':
+        form = TribeForm(request.POST)
+        if form.is_valid():
+            form.save()
+   #         return render(request, "tribe.html")
+    return render(request, 'tribe.html', {'form': form })
+
+#SQUAD
+def create_squad(request):
+    if request.method == 'POST':
+        form = SquadForm(request.POST)
+        if form.is_valid():
+            form.save()
+   #         return render(request, "tribe.html")
+    return render(request, 'squad.html', {'form': form })
+
+
 def index(request):
     return render(request,'index.html')
+
+
+@login_required(login_url='login/')
+def profile(request):
+    return render(request,'profile.html')
+
 
 #REGISTRO DE USUÁRIO
 def register(request):
@@ -19,7 +48,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
-            messages.success(request, f'Conta criada com sucesso para {username}!')            
+            messages.success(request, f'Conta criada com sucesso para {username}!')
             return redirect('login')
     else:
         form = UserRegisterForm()
@@ -38,16 +67,3 @@ def Login(request):
             messages.info(request, f'Usuário ou senha inválido!')
     form = UserAuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'Login'})
-
-@login_required(login_url='login/')
-def profile(request):
-    return render(request,'profile.html')
-
-#TRIBO
-def create_tribe(request):
-    if request.method == 'POST':
-        form = TribeForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, "tribe.html")
-    return render(request, 'tribe.html', {'form': form })

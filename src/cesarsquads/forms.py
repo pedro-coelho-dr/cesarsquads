@@ -1,6 +1,5 @@
 from django import forms
-from .models import Profile
-from .models import Tribe
+from .models import Profile, Tribe, Squad
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
@@ -25,13 +24,6 @@ class UserAuthenticationForm(AuthenticationForm):
         model = User
         fields = ('username', 'password')
 
-#PERFIL
-class ProfileForm(forms.ModelForm):
-    class Meta:
-        model = Profile
-        fields = ('bio', 'avatar')
-
-#SQUAD
 
 #TRIBO
 class TribeForm(forms.ModelForm):
@@ -39,3 +31,18 @@ class TribeForm(forms.ModelForm):
         model = Tribe
         fields = ('name',)
 
+#SQUAD
+
+class SquadForm(forms.ModelForm):
+    class Meta:
+        model = Squad
+        fields = ('name',)
+
+
+
+
+#PERFIL
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('bio', 'avatar')

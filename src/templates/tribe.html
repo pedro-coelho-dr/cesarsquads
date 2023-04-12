@@ -59,7 +59,7 @@
                                   <br>
                                   <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
                                   <br>
-                                <form method="POST" class="d-flex justify-content-end">{% csrf_token %}
+                                <form action="/squad/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
                                     <br>
                                     <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Squad" required>
                                     <button class="btn btn-outline-success" type="submit">Criar</button>
