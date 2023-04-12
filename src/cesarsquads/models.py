@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 #TRIBE
 class Tribe(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=50, null=False, blank=False, unique=True)
 #   description = models.CharField(max_length=300)
 #   photo = models.ImageField(upload_to='tribe_images', default='blank-profile-picture.png')
 #   max_squads = models.IntegerField(blank=True)

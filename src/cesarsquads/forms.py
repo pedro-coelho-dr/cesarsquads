@@ -1,7 +1,8 @@
 from django import forms
+from .models import Profile
+from .models import Tribe
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Profile, Squad, Tribe
 
 #REGISTRO DE USUÁRIO
 class UserRegisterForm(UserCreationForm):
@@ -32,3 +33,9 @@ class ProfileForm(forms.ModelForm):
 #SQUAD
 
 #TRIBO
+
+class TribeForms(forms.ModelForm):
+    class Meta:
+        model = Tribe
+        fields = ['name',]
+
