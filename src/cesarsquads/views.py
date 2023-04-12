@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import UserRegisterForm, UserAuthenticationForm, TribeForm
+from .forms import UserRegisterForm, UserAuthenticationForm
 
 # Create your views here.
 
@@ -47,13 +47,7 @@ def profile(request):
 
 
 def create_tribe(request):
-    form = TribeForm()  
-    if request.method == 'POST':
-        form = TribeForm(request.POST)  
-        if form.is_valid():
-            tribe = form.save(commit=False)
-            tribe.save()
-    return render(request, 'tribe.html', {'form': form})
+    return render(request, 'tribe.html')
 
 
    #TRIBE criada com link de acesso

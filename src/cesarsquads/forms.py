@@ -32,8 +32,3 @@ class ProfileForm(forms.ModelForm):
 #SQUAD
 
 #TRIBO
-class TribeForm(forms.ModelForm):
-    name = forms.CharField(widget=forms.TextInput(attrs={'placeholder':'Nome da tribo'}))
-    class Meta:
-        model = Tribe
-        fields = ('name',)
