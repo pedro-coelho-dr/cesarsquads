@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserAuthenticationForm
-from .forms import TribeForms
+from .forms import TribeForm
 from .models import Tribe
 
 # Create your views here.
@@ -44,18 +44,10 @@ def profile(request):
     return render(request,'profile.html')
 
 #TRIBO
-def tribe(request):
+def create_tribe(request):
     if request.method == 'POST':
-        form = TribeForms(request.POST)
+        form = TribeForm(request.POST)
         if form.is_valid():
-            # Cria uma nova instância do modelo Tribe
-            tribe = Tribe()
-            # Define o valor do atributo name com o valor recebido no formulário
-            tribe.name = form.cleaned_data['name']
-            # Salva a nova instância do modelo no banco de dados
-            tribe.save()
-            messages.success(request, f'Tribo criada com sucesso!')
-            return redirect('group_detail', pk=tribe.pk)
-    else:
-        form = TribeForms()
-    return render(request, 'tribe.html', {'form': form})
+            form.save()
+            return render(request, "tribe.html")
+    return render(request, 'tribe.html', {'form': form })
