@@ -43,26 +43,19 @@ def Login(request):
 def profile(request):
     return render(request,'profile.html')
 
-def tribe(request): 
+#TRIBO
+def tribe(request):
     if request.method == 'POST':
-        form = TribeForms(request.POST)  
+        form = TribeForms(request.POST)
         if form.is_valid():
-            tribe = Tribe(**form.cleaned_data)
+            # Cria uma nova instância do modelo Tribe
+            tribe = Tribe()
+            # Define o valor do atributo name com o valor recebido no formulário
+            tribe.name = form.cleaned_data['name']
+            # Salva a nova instância do modelo no banco de dados
             tribe.save()
             messages.success(request, f'Tribo criada com sucesso!')
-    return render(request, 'tribe.html')
-
-   #TRIBE criada com link de acesso
-#def create_tribe(request):
-
-    #SQUAD adicionado a TRIBE
-#def create_squad(request):
-
-    #SQUAD removido de TRIBE
-#def delete_squad(request):
-
-    #USER entra na SQUAD
-#def join_squad(request):
-
-    #USER sai de SQUAD
-#def exit_squad(request):
+            return redirect('group_detail', pk=tribe.pk)
+    else:
+        form = TribeForms()
+    return render(request, 'tribe.html', {'form': form})

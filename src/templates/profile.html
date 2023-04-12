@@ -107,7 +107,7 @@
               <div class="card mb-4 mb-md-0">
                 <div class="card-body">
                     <div class="container">
-                        <form method="POST" class="d-flex justify-content-end">
+                        <form  class="d-flex justify-content-end">
                             <input class="form-control me-2" id="id" name="id" maxlength="100" type="text" placeholder="Código da Tribo" required>
                             <button class="btn btn-outline-success" type="submit">Entrar</button>
                           </form>
@@ -116,7 +116,7 @@
                           <br>
                         <form method="POST" class="d-flex justify-content-end">{% csrf_token %}
                             <br>
-                            <input class="form-control me-2" id="TribeName" name="TribeName" maxlength="100" type="text" placeholder="Nome da Tribo" required>
+                            <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Tribo" required>
                             <button class="btn btn-outline-success" type="submit">Criar</button>
                           </div>
                         </form>

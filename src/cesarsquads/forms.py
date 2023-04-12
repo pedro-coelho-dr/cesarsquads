@@ -37,5 +37,5 @@ class ProfileForm(forms.ModelForm):
 class TribeForms(forms.ModelForm):
     class Meta:
         model = Tribe
-        fields = ['name',]
+        fields = ['name']
 

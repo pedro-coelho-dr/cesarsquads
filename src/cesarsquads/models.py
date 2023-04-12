@@ -3,15 +3,12 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 # Create your models here.
 
 #TRIBE
 class Tribe(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False, unique=True)
-#   description = models.CharField(max_length=300)
-#   photo = models.ImageField(upload_to='tribe_images', default='blank-profile-picture.png')
-#   max_squads = models.IntegerField(blank=True)
-#   max_user_squad = models.IntegerField(blank=True)
     def __str__(self):
         return self.name
 
@@ -19,9 +16,6 @@ class Tribe(models.Model):
 class Squad(models.Model):
     name = models.CharField(max_length=100)
     tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE, blank=True)
-#   description = models.CharField(max_length=300)
-#   photo = models.ImageField(upload_to='squad_images', default='blank-profile-picture.png')
-#   max_users = models.IntegerField(blank=True)
     def __str__(self):
         return self.name
 
@@ -41,3 +35,5 @@ class Profile(models.Model):
         instance.profile.save()
     def __str__(self):
         return self.user.username
+    
+    
