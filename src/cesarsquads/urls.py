@@ -10,5 +10,6 @@ urlpatterns = [
     path('profile/', views.profile, name ='profile'),
     #path('tribe/', views.tribe_detail, name ='tribe'),
     path('tribe/', views.create_tribe, name ='tribe'),
+    path('squad/', views.squad_detail, name ='squad'),
     path('squad/', views.create_squad, name ='squad'),
 ]
