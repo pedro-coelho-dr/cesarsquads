@@ -23,16 +23,16 @@ class SquadForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('bio', 'avatar')
+        fields = ('bio', 'avatar',)
 
 #-------------------------------
 #REGISTRO DE USUÁRIO------------
 class UserRegisterForm(UserCreationForm):
-    first_name = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome Completo'}))
-    username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome de usuário'}))
-    email = forms.EmailField(label=False,widget=forms.TextInput(attrs={'placeholder':'Digite seu e-mail'}))
-    password1 = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Senha'}))
-    password2 = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Confirmar senha'}))
+    first_name = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome Completo', 'class':"form-control me-2"}))
+    username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome de usuário', 'class':"form-control me-2"}))
+    email = forms.EmailField(label=False,widget=forms.TextInput(attrs={'placeholder':'Digite seu e-mail', 'class':"form-control me-2"}))
+    password1 = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Senha', 'class':"form-control me-2"}))
+    password2 = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Confirmar senha', 'class':"form-control me-2"}))
 
     class Meta:
         model = User
@@ -40,8 +40,8 @@ class UserRegisterForm(UserCreationForm):
 
 #AUTENTICAÇÃO DE USUÁRIO--------
 class UserAuthenticationForm(AuthenticationForm):
-    username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Usuário'}))
-    password = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Senha'}))
+    username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Usuário', 'class':"form-control me-2"}))
+    password = forms.CharField(label=False,widget=forms.PasswordInput(attrs={'placeholder':'Senha', 'class':"form-control me-2"}))
     class Meta:
         model = User
         fields = ('username', 'password')
