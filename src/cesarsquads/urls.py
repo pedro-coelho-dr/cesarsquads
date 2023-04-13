@@ -1,5 +1,5 @@
 from django.urls import path
-from cesarsquads import views 
+from cesarsquads import views
 from django.contrib.auth import views as auth
 
 urlpatterns = [

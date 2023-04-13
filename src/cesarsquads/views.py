@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from .forms import TribeForm, SquadForm
 
+#---------
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserAuthenticationForm
 
-from .forms import TribeForm, SquadForm
-
 
 # Create your views here.
-
-
 
 #TRIBO
 def create_tribe(request):
@@ -19,7 +17,7 @@ def create_tribe(request):
         if form.is_valid():
             form.save()
             return render(request, 'tribe.html', {'form': form })
-   #         return render(request, "tribe.html")
+#         return render(request, "tribe.html")
 
 #SQUAD
 def create_squad(request):
@@ -28,9 +26,7 @@ def create_squad(request):
         if form.is_valid():
             form.save()
             return render(request, 'squad.html', {'form': form })
-   #         return render(request, "tribe.html")
-
-
+#         return render(request, "tribe.html")
 
 def index(request):
     return render(request,'index.html')
@@ -40,6 +36,8 @@ def index(request):
 def profile(request):
     return render(request,'profile.html')
 
+
+#--------------------#
 
 #REGISTRO DE USUÁRIO
 def register(request):

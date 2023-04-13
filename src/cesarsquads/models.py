@@ -6,23 +6,23 @@ from django.dispatch import receiver
 
 # Create your models here.
 
-#TRIBE
+#TRIBE------------------
 class Tribe(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False, unique=True)
     def __str__(self):
         return self.name
 
-#SQUAD
+#SQUAD--------------------
 class Squad(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, unique=True)
-    #tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE, blank=True)
+    tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE, blank=True)
     def __str__(self):
         return self.name
 
 
-###################
-#PERFIL DO USUÁRIO#
-###################
+#-------------------#
+#-PERFIL DO USUÁRIO-#
+#-------------------#
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
