@@ -11,7 +11,7 @@ from .forms import UserRegisterForm, UserAuthenticationForm
 
 # Create your views here.
 
-#TRIBO
+#TRIBE
 def create_tribe(request):
     if request.method == 'POST':
         form = TribeForm(request.POST)
@@ -27,9 +27,9 @@ def create_tribe(request):
     #context = {
     #    'name': obj.name,
     #}
-    context = {
+#    context = {
 #        'object': obj,
-    }
+#    }
 #    return render(request,'tribe.html', context)
 
 #SQUAD
@@ -40,8 +40,6 @@ def create_squad(request):
             form.save()
             return render(request, 'squad.html', {'form': form })
 #         return render(request, "tribe.html")
-
-#def edit_tribe(request):
 
 def squad_detail(request):
     return render(request,'squad.html')
