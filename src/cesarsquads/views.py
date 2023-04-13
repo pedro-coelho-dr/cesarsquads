@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import TribeForm, SquadForm
+from .forms import ProfileForm, TribeForm, SquadForm
+from .models import Tribe, Squad, Profile
 
 #---------
 from django.contrib.auth import authenticate, login
@@ -19,6 +20,18 @@ def create_tribe(request):
             return render(request, 'tribe.html', {'form': form })
 #         return render(request, "tribe.html")
 
+#def edit_tribe(request):
+
+def tribe_detail(request):
+    obj = Tribe.objects.get(id=2)
+    #context = {
+    #    'name': obj.name,
+    #}
+    context = {
+        'object': obj,
+    }
+    return render(request,'tribe.html', context)
+
 #SQUAD
 def create_squad(request):
     if request.method == 'POST':
@@ -28,9 +41,15 @@ def create_squad(request):
             return render(request, 'squad.html', {'form': form })
 #         return render(request, "tribe.html")
 
+#def edit_tribe(request):
+
+def squad_detail(request):
+    return render(request,'squad.html')
+
+#----
+
 def index(request):
     return render(request,'index.html')
-
 
 @login_required(login_url='login/')
 def profile(request):

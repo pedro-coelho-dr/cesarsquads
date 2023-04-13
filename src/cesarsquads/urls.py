@@ -8,6 +8,7 @@ urlpatterns = [
     path('logout/', auth.LogoutView.as_view(next_page='login'), name='logout'),
     path('register/', views.register, name ='register'),
     path('profile/', views.profile, name ='profile'),
+    path('tribe/', views.tribe_detail, name ='tribe'),
     path('tribe/', views.create_tribe, name ='tribe'),
     path('squad/', views.create_squad, name ='squad'),
 ]

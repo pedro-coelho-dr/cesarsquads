@@ -28,13 +28,15 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     avatar = models.ImageField(upload_to='profile_images',default='blank-profile-picture.png')
     squads = models.ManyToManyField(Squad, blank=True, related_name="member")
+#
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
             Profile.objects.create(user=instance)
-
+#
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+#
     def __str__(self):
         return self.user.username
