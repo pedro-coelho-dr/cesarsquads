@@ -17,22 +17,20 @@ def create_tribe(request):
         form = TribeForm(request.POST)
         if form.is_valid():
             form.save()
-       # else:
-            #ERRROS goes here
-    return render(request, 'tribe.html', {'form': form })
+            return render(request, 'tribe.html', {'form': form })
 #         return render(request, "tribe.html")
 
 #def edit_tribe(request):
 
-def tribe_detail(request):
-    obj = Tribe.objects.get(id=2)
+#def tribe_detail(request):
+#    obj = Tribe.objects.get(id=2)
     #context = {
     #    'name': obj.name,
     #}
     context = {
-        'object': obj,
+#        'object': obj,
     }
-    return render(request,'tribe.html', context)
+#    return render(request,'tribe.html', context)
 
 #SQUAD
 def create_squad(request):
@@ -40,7 +38,7 @@ def create_squad(request):
         form = SquadForm(request.POST)
         if form.is_valid():
             form.save()
-    return render(request, 'squad.html', {'form': form })
+            return render(request, 'squad.html', {'form': form })
 #         return render(request, "tribe.html")
 
 #def edit_tribe(request):
