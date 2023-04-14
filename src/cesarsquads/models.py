@@ -34,8 +34,8 @@ class Squad(models.Model):
         super(Squad, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return reverse('detalhes_squad', kwargs={'tribo_slug': self.tribe.slug, 'squad_slug': self.slug})
-    
+        return reverse('detalhes_squad', kwargs={'tribe_slug': self.tribe.slug, 'squad_slug': self.slug})
+
     def __str__(self):
         return self.name
 

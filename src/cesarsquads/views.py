@@ -27,15 +27,15 @@ def detalhes_tribo(request, tribe_slug):
     return render(request, 'tribe.html', {'tribe': tribe})
 
 #SQUAD
-def create_squad(request, tribe_slug, squad_slug):
+def create_squad(request, tribe_slug):
     tribe = get_object_or_404(Tribe, slug=tribe_slug)
     if request.method == 'POST':
         form = SquadForm(request.POST)
         if form.is_valid():
             squad = form.save(commit=False)
-            squad.slug = squad_slug
+            squad.tribe = tribe
             squad.save()
-            return redirect('detalhes_squad', tribe_slug=tribe.slug, squad_slug=squad.slug)
+            return redirect('detalhe_squad', tribe_slug=tribe_slug, squad_slug=squad.slug)
     else:
         form = SquadForm()
     return render(request, 'squad.html', {'form': form, 'tribe': tribe})
@@ -44,9 +44,8 @@ def create_squad(request, tribe_slug, squad_slug):
 
 
 def detalhe_squad(request, tribe_slug, squad_slug):
-    tribe = get_object_or_404(Tribe, slug=tribe_slug)
-    squad = get_object_or_404(Squad, slug=squad_slug, tribe=tribe)
-    return render(request, 'squad.html', {'tribe': tribe, 'squad': squad})
+    squad = get_object_or_404(Squad, slug=squad_slug, tribe__slug=tribe_slug)
+    return render(request, 'squad.html', {'squad': squad})
 
 #----
 
