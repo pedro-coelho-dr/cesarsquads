@@ -11,6 +11,10 @@ class Tribe(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False, unique=True)
     def __str__(self):
         return self.name
+    
+    @classmethod
+    def all(cls):
+        return list(cls.objects.all())
 
 #SQUAD--------------------
 class Squad(models.Model):

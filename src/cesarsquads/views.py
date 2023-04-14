@@ -20,6 +20,10 @@ def create_tribe(request):
             return render(request, 'tribe.html', {'form': form })
 #         return render(request, "tribe.html")
 
+# def get_Tribe(request):
+#     if request.method == 'GET':
+#         return Tribe.name
+
 #def edit_tribe(request):
 
 #def tribe_detail(request):
@@ -51,7 +55,8 @@ def index(request):
 
 @login_required(login_url='login/')
 def profile(request):
-    return render(request,'profile.html')
+    list_tribe= Tribe.all()
+    return render(request,'profile.html', {"list_tribe": list_tribe})
 
 
 #--------------------#
