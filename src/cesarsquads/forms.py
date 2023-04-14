@@ -4,6 +4,7 @@ from django.forms import ModelForm
 #-----
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 
 #TRIBO
@@ -11,6 +12,20 @@ class TribeForm(forms.ModelForm):
     class Meta:
         model = Tribe
         fields = ('name',)
+    
+    def clean_nome(self):
+        name = self.cleaned_data['name']
+        slug = slugify(name)
+        if Tribe.objects.filter(slug=slug).exists():
+            raise forms.ValidationError('Este nome já está em uso.')
+        return name
+
+    def save(self, commit=True):
+        tribo = super(TribeForm, self).save(commit=False)
+        tribo.slug = slugify(tribo.name)
+        if commit:
+            tribo.save()
+        return tribo
 
 #SQUAD
 class SquadForm(forms.ModelForm):

@@ -2,13 +2,20 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
+from django.utils.text import slugify
+from django.urls import reverse
 
 # Create your models here.
 
 #TRIBE------------------
 class Tribe(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False, unique=True)
+    slug = models.SlugField(unique=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super(Tribe, self).save(*args, **kwargs)
+        
     def __str__(self):
         return self.name
     
@@ -19,7 +26,16 @@ class Tribe(models.Model):
 #SQUAD--------------------
 class Squad(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, unique=True)
-    #tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE, blank=True)
+    tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE)
+    slug = models.SlugField(unique=True)
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Squad, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('detalhes_squad', kwargs={'tribo_slug': self.tribe.slug, 'squad_slug': self.slug})
+    
     def __str__(self):
         return self.name
 

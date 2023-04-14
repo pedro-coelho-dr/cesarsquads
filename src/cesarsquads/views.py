@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import ProfileForm, TribeForm, SquadForm
 from .models import Tribe, Squad, Profile
@@ -16,10 +16,18 @@ def create_tribe(request):
     if request.method == 'POST':
         form = TribeForm(request.POST)
         if form.is_valid():
-            form.save()
-            return render(request, 'tribe.html', {'form': form })
+            tribe = form.save()
+            return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+    else:
+        form = TribeForm()
+    return render(request, 'tribe.html', {'form': form})
+        
 #         return render(request, "tribe.html")
 
+
+def detalhes_tribo(request, tribe_slug):
+    tribe = get_object_or_404(Tribe, slug=tribe_slug)
+    return render(request, 'tribe.html', {'tribe': tribe})
 # def get_Tribe(request):
 #     if request.method == 'GET':
 #         return Tribe.name
@@ -37,16 +45,24 @@ def create_tribe(request):
 #    return render(request,'tribe.html', context)
 
 #SQUAD
-def create_squad(request):
+def create_squad(request, tribe_slug, squad_slug):
+    tribe = get_object_or_404(Tribe, slug=tribe_slug)
     if request.method == 'POST':
         form = SquadForm(request.POST)
         if form.is_valid():
-            form.save()
-            return render(request, 'squad.html', {'form': form })
-#         return render(request, "tribe.html")
+            squad = form.save(commit=False)
+            squad.slug = squad_slug
+            squad.save()
+            return redirect('detalhes_squad', tribe_slug=tribe.slug, squad_slug=squad.slug)
+    else:
+        form = SquadForm()
+    return render(request, 'squad.html', {'form': form, 'tribe': tribe})
 
-def squad_detail(request):
-    return render(request,'squad.html')
+
+def detalhe_squad(request, tribe_slug, squad_slug):
+    tribe = get_object_or_404(Tribe, slug=tribe_slug)
+    squad = get_object_or_404(Squad, slug=squad_slug, tribe=tribe)
+    return render(request, 'squad.html', {'tribe': tribe, 'squad': squad})
 
 #----
 

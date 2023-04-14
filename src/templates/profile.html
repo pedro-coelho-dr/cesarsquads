@@ -57,26 +57,23 @@
                 <div class="card-body">
                     <h1>Tribos</h1>
                     <br>
-                    
+                    {% for tribe in list_tribe %}
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                           <h2 class="accordion-header">
-                             {% comment %} {{tribe.name}} {% endcomment %}
-                              {% for tribe in list_tribe %}
                                 <button method='GET' class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 {{ tribe.name }}
-                                </button>
-                              {% endfor %}
+                                </button>    
                           </h2>
                           <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                {% comment %} <button>{{tribe.name}}</button> {% endcomment %}
-                                {% comment %} <br/><button class="btn btn-outline-light btn-dark px-5" type="submit">Acessar</button> {% endcomment %}
+                                <p>Descrição {{tribe}}</p> 
+                                <br/><button class="btn btn-outline-light btn-dark px-5" type="submit">Acessar</button> 
                             </div>
                           </div>
                         </div>
-
                       </div>
+                      {% endfor %}
                 </div>
               </div>
             </div>
@@ -101,11 +98,6 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 {% endif %}
 {% endblock %}
