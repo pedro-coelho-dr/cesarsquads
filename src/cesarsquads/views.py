@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import ProfileForm, TribeForm, SquadForm
 from .models import Tribe, Squad, Profile
-
-#---------
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserAuthenticationForm
@@ -22,27 +20,11 @@ def create_tribe(request):
         form = TribeForm()
     return render(request, 'tribe.html', {'form': form})
         
-#         return render(request, "tribe.html")
 
 
 def detalhes_tribo(request, tribe_slug):
     tribe = get_object_or_404(Tribe, slug=tribe_slug)
     return render(request, 'tribe.html', {'tribe': tribe})
-# def get_Tribe(request):
-#     if request.method == 'GET':
-#         return Tribe.name
-
-#def edit_tribe(request):
-
-#def tribe_detail(request):
-#    obj = Tribe.objects.get(id=2)
-    #context = {
-    #    'name': obj.name,
-    #}
-#    context = {
-#        'object': obj,
-#    }
-#    return render(request,'tribe.html', context)
 
 #SQUAD
 def create_squad(request, tribe_slug, squad_slug):
@@ -57,6 +39,8 @@ def create_squad(request, tribe_slug, squad_slug):
     else:
         form = SquadForm()
     return render(request, 'squad.html', {'form': form, 'tribe': tribe})
+
+
 
 
 def detalhe_squad(request, tribe_slug, squad_slug):
@@ -85,7 +69,6 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
-            #messages.success(request, f'Conta criada com sucesso para {username}!')
             return redirect('login')
     else:
         form = UserRegisterForm()

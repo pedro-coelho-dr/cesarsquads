@@ -32,6 +32,20 @@ class SquadForm(forms.ModelForm):
     class Meta:
         model = Squad
         fields = ('name',)
+        
+    def clean_nome(self):
+        name = self.cleaned_data['name']
+        slug = slugify(name)
+        if Squad.objects.filter(slug=slug).exists():
+            raise forms.ValidationError('Este nome já está em uso.')
+        return name
+    
+    def save(self, commit=True):
+        squad = super(SquadForm, self).save(commit=False)
+        squad.slug = slugify(squad.name)
+        if commit:
+            squad.save()
+        return squad
 
 
 #PERFIL
@@ -40,8 +54,7 @@ class ProfileForm(forms.ModelForm):
         model = Profile
         fields = ('bio', 'avatar',)
 
-#-------------------------------
-#REGISTRO DE USUÁRIO------------
+#-------------REGISTRO DE USUÁRIO------------#
 class UserRegisterForm(UserCreationForm):
     first_name = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome Completo', 'class':"form-control me-2"}))
     username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome de usuário', 'class':"form-control me-2"}))
