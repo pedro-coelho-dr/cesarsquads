@@ -46,7 +46,7 @@ class Squad(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
-    avatar = models.ImageField(upload_to='profile_images',default='blank-profile-picture.png')
+    avatar = models.ImageField(upload_to='profile_images',default='images/blank-profile-picture.png')
     squads = models.ManyToManyField(Squad, blank=True, related_name="member")
 #
     @receiver(post_save, sender=User)

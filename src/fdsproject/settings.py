@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=obv^@j2gb!t9-&k4c$e0r_*0azw(_^1v@lf*+=9-ml29o!=ws
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','Cesarsquads-env-4.eba-3ghckqxt.us-east-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['127.0.0.1','cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com']
 
 
 # Application definition
@@ -38,10 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cesarsquads',
+    "cesarsquads",
     'bootstrap5',
-    "crispy_forms",
-    "crispy_bootstrap5",
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -123,8 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+STATIC_ROOT = 'static'
 
 
 # Default primary key field type
