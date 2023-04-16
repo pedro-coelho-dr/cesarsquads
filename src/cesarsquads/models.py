@@ -26,19 +26,18 @@ class Tribe(models.Model):
 #SQUAD--------------------
 class Squad(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, unique=True)
-    tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE)
     slug = models.SlugField(unique=True)
-    
+
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
+        self.slug = slugify(self.name)
         super(Squad, self).save(*args, **kwargs)
-
-    def get_absolute_url(self):
-        return reverse('detalhes_squad', kwargs={'tribe_slug': self.tribe.slug, 'squad_slug': self.slug})
-
+        
     def __str__(self):
         return self.name
+    
+    @classmethod
+    def all(cls):
+        return list(cls.objects.all())
 
 
 #-------------------#

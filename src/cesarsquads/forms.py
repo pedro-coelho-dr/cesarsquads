@@ -33,11 +33,10 @@ class SquadForm(forms.ModelForm):
         model = Squad
         fields = ('name',)
         
-        
-    def clean_name(self):
+    def clean_nome(self):
         name = self.cleaned_data['name']
         slug = slugify(name)
-        if Squad.objects.filter(slug=slug, tribe=self.instance.tribe).exists():
+        if Squad.objects.filter(slug=slug).exists():
             raise forms.ValidationError('Este nome já está em uso.')
         return name
 
@@ -47,6 +46,8 @@ class SquadForm(forms.ModelForm):
         if commit:
             squad.save()
         return squad
+        
+        
 
 
 #PERFIL
