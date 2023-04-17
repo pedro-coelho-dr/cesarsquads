@@ -107,26 +107,43 @@ python manage.py runserver
 
 17/04
 
-- Diagrama de atividades do sistema
-    Acessível através do README do projeto no Github
+  - 
+  - 3 histórias do sprint backlog na coluna **Done**
+   **[Jira](https://projetofds.atlassian.net/)** 
+   
+    ![cesarsquad-jiraprint-sprint1](https://user-images.githubusercontent.com/111138996/232496019-c01cfe48-b09b-4c61-87ec-0c3a7bddc377.png)
+
+  
+  - Acesso ao App em produção:
+    http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/
     
-- Ambiente de versionamento atuante
-    Com commits frequentes (no mínimo semanais)
+    Instruções:
+    ```
+    Ao acessar o link acima:
+    - Clicar em 'Entrar' ou 'Cadastrar'
+      - Entrar com usuário 'teste' 'senha1234'
+      - (ou) Cadastrar novo usuário e entrar.
+    - Na página do Perfil, digitar no campo 'Nome da Tribo' e clicar em 'Criar'
+    - Na página da Tribo, digitar no campo 'Nome da Squad' e clicar em 'Criar'   
     
-- Issue/bug tracker atualizado (no GitHub)
-    Enviar print da tela no dia da entrega
+    ```
+    ##############################Enviar screencast do uso do sistema (com áudio ou legenda)#########################
+  
+  **[Jira](https://projetofds.atlassian.net/)** 
+
+  - Diagrama de atividades do sistema
+  
+    ![cesarsquad drawio](https://user-images.githubusercontent.com/111138996/232489312-24a2851d-b89d-4da2-a936-ceea9d2e29a9.png)
+
+  -  Issue/bug tracker no dia 17/04
+  
+    ![cesarsquads_issues-bug-tracker17-04](https://user-images.githubusercontent.com/111138996/232491723-b1d1d0f5-194c-4b55-bdcf-fa3c5570a5cd.png)
+
     
-- Deploy de algumas histórias (mínimo 3)
-    Aplicação em produção
-    Enviar link e instruções de acesso
-    Enviar screencast do uso do sistema (com áudio ou legenda)
-    
-- Programação em Par experimentada e usado
+################- Programação em Par experimentada e usado ########
     Se não utilizado, com boa justificativa
     Relato acessível através do README do projeto no Github
     
-- Quadro da Sprint 01 atualizado refletindo a entrega
-    Enviar print do quadro da sprint
 
 ---
 
@@ -204,10 +221,10 @@ python manage.py runserver
 
 -   **[Django](https://www.djangoproject.com/)**
 -   **[Jira](https://projetofds.atlassian.net/)** 
+-   **[AWS Elastic Beanstalker](https://aws.amazon.com/elasticbeanstalk/)** 
 -   **[Figma](https://www.figma.com/)**
 -   **[Diagrams.net](https://app.diagrams.net/)**
 -   **[Django Bootstrap](https://django-bootstrap-v5.readthedocs.io/en/latest/)**
--   **[Django Crispy Forms](https://django-crispy-forms.readthedocs.io/)**
 -   **[SQLite](https://sqlite.org/)**
 -   **[Python](https://www.python.org/)**
 -   **[Virtualenv](https://virtualenv.pypa.io/)**
