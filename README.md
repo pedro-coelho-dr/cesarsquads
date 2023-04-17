@@ -141,15 +141,14 @@ python manage.py runserver
    ![cesarsquads_issues-bug-tracker17-04](https://user-images.githubusercontent.com/111138996/232498226-cc1a8375-bad9-43f5-bc3e-d012b007abc7.png)
 
   - Nosso relato sobre a utilização de pair programming:
-    ```
-      Foi nossa primeira vez trabalhando com pair programming em um grupo de 6 pessoas, mas foi uma experiência interessante. Nossas duplas eram alternadas, porque nem      sempre os mesmos integrantes estavam disponíveis para produzir alguma tarefa e, assim, tivemos a oportunidade de trabalhar com diferentes colegas de equipe e          trocar conhecimentos.
 
-     Uma das principais vantagens desse modelo que seguimos foi conseguirmos aprender muito mais sobre o Django. Trabalhando com diferentes pessoas, fomos capazes de       ver abordagens diferentes para resolver os problemas, aprender novas técnicas de programação e aprimorar nossa capacidade de trabalhar em equipe.
+  Foi nossa primeira vez trabalhando com pair programming em um grupo de 6 pessoas, mas foi uma experiência interessante. Nossas duplas eram alternadas, porque nem sempre os mesmos integrantes estavam disponíveis para produzir alguma tarefa e, assim, tivemos a oportunidade de trabalhar com diferentes colegas de equipe e trocar conhecimentos.
 
-     No entanto, também houveram alguns desafios em trabalhar em grupo dessa maneira. Como as duplas eram alternadas, às vezes precisávamos explicar para o novo           parceiro(a) onde estávamos no projeto, o que já tínhamos feito e o que precisava ser feito. Isso foi um pouco cansativo e consumiu algum tempo, mas no final,           todos nós conseguimos nos comunicar bem e trabalhar juntos de maneira eficaz.
+  Uma das principais vantagens desse modelo que seguimos foi conseguirmos aprender muito mais sobre o Django. Trabalhando com diferentes pessoas, fomos capazes de ver abordagens diferentes para resolver os problemas, aprender novas técnicas de programação e aprimorar nossa capacidade de trabalhar em equipe.
 
-     No geral, trabalhar em grupo dessa maneira foi uma experiência positiva e produtiva. Embora tenha havido alguns desafios, as vantagens superaram as dificuldades.     Foi uma ótima maneira de aprender mais sobre o Django e trabalhar em equipe de forma colaborativa.
-    ```
+  No entanto, também houveram alguns desafios em trabalhar em grupo dessa maneira. Como as duplas eram alternadas, às vezes precisávamos explicar para o novo parceiro(a) onde estávamos no projeto, o que já tínhamos feito e o que precisava ser feito. Isso foi um pouco cansativo e consumiu algum tempo, mas no final, todos nós conseguimos nos comunicar bem e trabalhar juntos de maneira eficaz.
+
+  No geral, trabalhar em grupo dessa maneira foi uma experiência positiva e produtiva. Embora tenha havido alguns desafios, as vantagens superaram as dificuldades. Foi uma ótima maneira de aprender mais sobre o Django e trabalhar em equipe de forma colaborativa.
 
 ---
 
