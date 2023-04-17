@@ -1,9 +1,9 @@
 ![cesarsquadslogosmall](https://user-images.githubusercontent.com/111138996/222937406-ceec455c-ab76-4edc-a618-96c7d752550d.png)
 
-- [.](#)
+  - [.](#)
   - [🤖 Instalação](#-instalação)
   - [✅ Entrega 01](#-entrega-01)
-  - [🔲 Entrega 02](#-entrega-02)
+  - [✅ Entrega 02](#-entrega-02)
   - [🔲 Entrega 03](#-entrega-03)
   - [🔲 Entrega 04](#-entrega-04)
   - [🛠 Ferramentas](#-ferramentas)
@@ -103,7 +103,7 @@ python manage.py runserver
 
 ---
 
-### 🔲 Entrega 02
+### ✅ Entrega 02
 
 17/04
 
@@ -111,7 +111,7 @@ python manage.py runserver
   - 3 histórias do sprint backlog na coluna **Done**
    **[Jira](https://projetofds.atlassian.net/)** 
    
-    ![cesarsquad-jiraprint-sprint1](https://user-images.githubusercontent.com/111138996/232496019-c01cfe48-b09b-4c61-87ec-0c3a7bddc377.png)
+   ![cesarsquad-jiraprint-sprint1](https://user-images.githubusercontent.com/111138996/232496019-c01cfe48-b09b-4c61-87ec-0c3a7bddc377.png)
 
   
   - Acesso ao App em produção:
@@ -133,11 +133,12 @@ python manage.py runserver
 
   - Diagrama de atividades do sistema
   
-    ![cesarsquad drawio](https://user-images.githubusercontent.com/111138996/232489312-24a2851d-b89d-4da2-a936-ceea9d2e29a9.png)
+   ![cesarsquad drawio](https://user-images.githubusercontent.com/111138996/232489312-24a2851d-b89d-4da2-a936-ceea9d2e29a9.png)
 
   -  Issue/bug tracker no dia 17/04
-  
-    ![cesarsquads_issues-bug-tracker17-04](https://user-images.githubusercontent.com/111138996/232491723-b1d1d0f5-194c-4b55-bdcf-fa3c5570a5cd.png)
+
+   ![cesarsquads_issues-bug-tracker17-04](https://user-images.githubusercontent.com/111138996/232498226-cc1a8375-bad9-43f5-bc3e-d012b007abc7.png)
+
 
     
 ################- Programação em Par experimentada e usado ########
