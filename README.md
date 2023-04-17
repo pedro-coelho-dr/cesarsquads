@@ -107,12 +107,6 @@ python manage.py runserver
 
 17/04
 
-  - 
-  - 3 histórias do sprint backlog na coluna **Done**
-   **[Jira](https://projetofds.atlassian.net/)** 
-   
-   ![cesarsquad-jiraprint-sprint1](https://user-images.githubusercontent.com/111138996/232496019-c01cfe48-b09b-4c61-87ec-0c3a7bddc377.png)
-
   
   - Acesso ao App em produção:
     http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/
@@ -127,9 +121,16 @@ python manage.py runserver
     - Na página da Tribo, digitar no campo 'Nome da Squad' e clicar em 'Criar'   
     
     ```
-    ##############################Enviar screencast do uso do sistema (com áudio ou legenda)#########################
+   - Screencast:
+
+  [Youtube](https://youtu.be/tzg8IfKUan8)
+
+  [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/tzg8IfKUan8/0.jpg)](https://youtu.be/tzg8IfKUan8)
   
-  **[Jira](https://projetofds.atlassian.net/)** 
+  - 3 histórias do sprint backlog na coluna **Done**
+   **[Jira](https://projetofds.atlassian.net/)** 
+   
+   ![cesarsquad-jiraprint-sprint1](https://user-images.githubusercontent.com/111138996/232496019-c01cfe48-b09b-4c61-87ec-0c3a7bddc377.png)
 
   - Diagrama de atividades do sistema
   
@@ -138,7 +139,6 @@ python manage.py runserver
   -  Issue/bug tracker no dia 17/04
 
    ![cesarsquads_issues-bug-tracker17-04](https://user-images.githubusercontent.com/111138996/232498226-cc1a8375-bad9-43f5-bc3e-d012b007abc7.png)
-
 
     
 ################- Programação em Par experimentada e usado ########
