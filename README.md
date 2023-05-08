@@ -85,7 +85,7 @@ python manage.py runserver
 
 - Stories / Board / Backlog
 
-**[Jira](https://projetofds.atlassian.net/)** 
+**[Jira](https://projetofds.atlassian.net/jira/software/projects/SQUAD/boards/2/backlog)** 
 
 ![03-27-board-jira](https://user-images.githubusercontent.com/111138996/228053541-ba425351-bbc6-4d9d-90ea-6346bd3a9670.png)
 
@@ -128,7 +128,7 @@ python manage.py runserver
   [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/tzg8IfKUan8/0.jpg)](https://youtu.be/tzg8IfKUan8)
   
   - 3 histórias do sprint backlog na coluna **Done**
-   **[Jira](https://projetofds.atlassian.net/)** 
+   **[Jira](https://projetofds.atlassian.net/jira/software/projects/SQUAD/boards/2/backlog)** 
    
    ![cesarsquad-jiraprint-sprint1](https://user-images.githubusercontent.com/111138996/232496019-c01cfe48-b09b-4c61-87ec-0c3a7bddc377.png)
 
@@ -225,7 +225,7 @@ python manage.py runserver
 ### 🛠 Ferramentas
 
 -   **[Django](https://www.djangoproject.com/)**
--   **[Jira](https://projetofds.atlassian.net/)** 
+-   **[Jira](https://projetofds.atlassian.net/jira/software/projects/SQUAD/boards/2/backlog)** 
 -   **[AWS Elastic Beanstalker](https://aws.amazon.com/elasticbeanstalk/)** 
 -   **[Figma](https://www.figma.com/)**
 -   **[Diagrams.net](https://app.diagrams.net/)**
