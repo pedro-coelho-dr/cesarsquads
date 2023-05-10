@@ -27,11 +27,13 @@ def detalhes_tribo(request, tribe_slug):
     return render(request, 'tribe.html', {'tribe': tribe})
 
 #SQUAD
-def create_squad(request):
+def create_squad(request, tribe_id):
     if request.method == 'POST':
         form = SquadForm(request.POST)
         if form.is_valid():
-            squad = form.save()
+            squad = form.save(commit=False)
+            squad.tribe_id = tribe_id  # Associa o ID da tribo à squad
+            squad.save()
             return redirect('detalhes_squad', squad_slug=squad.slug)
     else:
         form = SquadForm()
@@ -40,10 +42,24 @@ def create_squad(request):
 
 
 
-def detalhes_squad(request, squad_slug):
-    squad = get_object_or_404(Squad, slug=squad_slug)
+def detalhes_squad(request, squad_slug, tribe_id):
+    squad = get_object_or_404(Squad, slug=squad_slug, tribe__id=tribe_id)
     return render(request, 'squad.html', {'squad': squad})
 
+def enter_squad(request, squad_slug):
+    squad = get_object_or_404(Squad, slug=squad_slug)
+
+    if request.method == 'POST':
+        entered_slug = request.POST.get('slug')
+        if entered_slug == squad.slug:
+            # O usuário entrou na squad com sucesso
+            # Realize as ações necessárias ao entrar na squad, como adicionar o usuário à squad
+            # ...
+            return render(request, 'squad.html', {'squad': squad})
+        else:
+            messages.error(request, 'A slug inserida é inválida.')
+
+    return render(request, 'squad.html', {'squad': squad})
 #----
 
 def index(request):

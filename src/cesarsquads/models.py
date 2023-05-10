@@ -27,6 +27,7 @@ class Tribe(models.Model):
 class Squad(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, unique=True)
     slug = models.SlugField(unique=True)
+    tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

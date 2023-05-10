@@ -51,36 +51,41 @@
                       <div class="card mb-4 mb-md-0">
                         <div class="card-body">
                             <div class="container">
-                                <form  class="d-flex justify-content-end">
-                                    <input class="form-control me-2" id="id" name="id" maxlength="100" type="text" placeholder="Código da Squad" required>
+                              <form action="/squad/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
+                                    <input class="form-control me-2" id="slug" name="slug" maxlength="100" type="text" placeholder="Código da Squad" required>
                                     <button class="btn btn-outline-success" type="submit">Entrar</button>
                                   </form>
                                   <br>
                                   <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
-                                  <br>
-                                <form action="/squad/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
-                                    <br>
-                                    <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Squad" required>
-                                    <button class="btn btn-outline-success" type="submit">Criar</button>
-                                  </div>
-                                </form>
+                                  <br> 
+                                    <form action="/tribe/{{tribe.id}}/squad/" method="POST" class="d-flex justify-content-end">
+                                      {% csrf_token %}
+                                      <br>
+                                      <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Squad" required>  
+                                      <button class="btn btn-outline-success" type="submit">Criar</button>
+                                    </form>
                               </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <br/>
+                    
                     <div class="card mb-4 mb-md-0">
+                      <h3>Squads da Tribo</h3>
                       <div class="container">
+                        {% for squad in list_squad %}
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                           <div class="col">
                             <div class="card shadow-sm">
                               <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Imagem da Squad" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="30%" y="50%" fill="#eceeef" dy=".3em">Imagem da Squad</text></svg>
                               <div class="card-body">
-                                <button class="card-text">Nome da Squad</button>
+                                <button class="card-text">{{squad.name}}</button>
                               </div>
+                              {% endfor %}
                             </div>
                           </div>
+                          
           </div>
         </div>
       </div>
