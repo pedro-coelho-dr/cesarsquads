@@ -11,7 +11,7 @@ from django.utils.text import slugify
 class TribeForm(forms.ModelForm):
     class Meta:
         model = Tribe
-        fields = ('name',)
+        fields = ('name','bio', 'avatar')
     
     def clean_nome(self):
         name = self.cleaned_data['name']
@@ -19,7 +19,7 @@ class TribeForm(forms.ModelForm):
         if Tribe.objects.filter(slug=slug).exists():
             raise forms.ValidationError('Este nome já está em uso.')
         return name
-
+    
     def save(self, commit=True):
         tribo = super(TribeForm, self).save(commit=False)
         tribo.slug = slugify(tribo.name)
