@@ -78,29 +78,27 @@
                 </div>
               </div>
             </div>
-<div class="col-md-6 bg">
-  <div class="card mb-4 mb-md-0">
-    <div class="card-body">
-      <div class="container">
-        <form class="d-flex justify-content-end">
-          <input class="form-control me-2" id="id" name="id" maxlength="100" type="text" placeholder="Código da Tribo" required>
-          <button class="btn btn-outline-success" type="submit">Entrar</button>
-        </form>
-        <br>
-        <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
-        <br>
-        <form action="/tribe/" method="POST" class="d-flex justify-content-end">
-          {% csrf_token %}
-          <br>
-          <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Tribo" required>
-          <button class="btn btn-outline-success" type="submit">Criar</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</section>
+            <div class="col-md-6 bg">
+              <div class="card mb-4 mb-md-0">
+                <div class="card-body">
+                    <div class="container">
+                        <form  action="/tribe/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
+                            <input class="form-control me-2" id="id" name="id" maxlength="100" type="text" placeholder="Código da Tribo" required>
+                            <button class="btn btn-outline-success" type="submit">Entrar</button>
+                          </form>
+                          <br>
+                          <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
+                          <br>
+                        <form action="/tribe/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
+                            <br>
+                            <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Tribo" required>
+                            <button class="btn btn-outline-success" type="submit">Criar</button>
+                          </div>
+                        </form>
+                      </div>
+                  </div>
+                </div>
+              </div>
+  </section>
 {% endif %}
 {% endblock %}
