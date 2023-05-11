@@ -34,7 +34,7 @@ def create_squad(request, tribe_id):
             squad = form.save(commit=False)
             squad.tribe_id = tribe_id  # Associa o ID da tribo à squad
             squad.save()
-            return redirect('detalhes_squad', squad_slug=squad.slug)
+            return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
     else:
         form = SquadForm()
     return render(request, 'squad.html', {'form': form})
