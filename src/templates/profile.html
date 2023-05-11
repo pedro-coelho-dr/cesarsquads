@@ -59,45 +59,48 @@
                     <br>
                     {% for tribe in list_tribe %}
                     <div class="accordion" id="accordionExample">
-                        <div class="accordion-item">
-                          <h2 class="accordion-header">
-                                <button method='GET' class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                {{ tribe.name }}
-                                </button>    
-                          </h2>
-                          <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <p>Descrição {{tribe}}</p> 
-                                <br/><button class="btn btn-outline-light btn-dark px-5" type="submit">Acessar</button> 
-                            </div>
+                      <div class="accordion-item">
+                        <h2 class="accordion-header">
+                          <button method='GET' class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne{{ forloop.counter }}">
+                            {{ tribe.name }}
+                          </button>    
+                        </h2>
+                        <div id="collapseOne{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                          <div class="accordion-body">
+                            <p>Descrição {{ tribe }}</p> 
+                            <br/>
+                            <button class="btn btn-outline-light btn-dark px-5" type="submit">Acessar</button> 
                           </div>
                         </div>
                       </div>
-                      {% endfor %}
+                    </div>
+                    {% endfor %}
                 </div>
               </div>
             </div>
-            <div class="col-md-6 bg">
-              <div class="card mb-4 mb-md-0">
-                <div class="card-body">
-                    <div class="container">
-                        <form  class="d-flex justify-content-end">
-                            <input class="form-control me-2" id="id" name="id" maxlength="100" type="text" placeholder="Código da Tribo" required>
-                            <button class="btn btn-outline-success" type="submit">Entrar</button>
-                          </form>
-                          <br>
-                          <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
-                          <br>
-                        <form action="/tribe/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
-                            <br>
-                            <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Tribo" required>
-                            <button class="btn btn-outline-success" type="submit">Criar</button>
-                          </div>
-                        </form>
-                      </div>
-                  </div>
-                </div>
-              </div>
-  </section>
+<div class="col-md-6 bg">
+  <div class="card mb-4 mb-md-0">
+    <div class="card-body">
+      <div class="container">
+        <form class="d-flex justify-content-end">
+          <input class="form-control me-2" id="id" name="id" maxlength="100" type="text" placeholder="Código da Tribo" required>
+          <button class="btn btn-outline-success" type="submit">Entrar</button>
+        </form>
+        <br>
+        <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
+        <br>
+        <form action="/tribe/" method="POST" class="d-flex justify-content-end">
+          {% csrf_token %}
+          <br>
+          <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Tribo" required>
+          <button class="btn btn-outline-success" type="submit">Criar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</section>
 {% endif %}
 {% endblock %}
