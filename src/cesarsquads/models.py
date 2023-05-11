@@ -11,6 +11,8 @@ from django.urls import reverse
 class Tribe(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False, unique=True)
     slug = models.SlugField(unique=True)
+    bio = models.TextField(max_length=500, blank=True)
+    avatar = models.ImageField(upload_to='profile_images',default='blank-profile-picture.png')
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -28,6 +30,8 @@ class Squad(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, unique=True)
     slug = models.SlugField(unique=True)
     tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE)
+    bio = models.TextField(max_length=500, blank=True)
+    avatar = models.ImageField(upload_to='profile_images',default='blank-profile-picture.png')
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
