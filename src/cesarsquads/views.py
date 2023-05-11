@@ -21,10 +21,20 @@ def create_tribe(request):
     return render(request, 'tribe.html', {'form': form})
         
 
-
 def detalhes_tribo(request, tribe_slug):
     tribe = get_object_or_404(Tribe, slug=tribe_slug)
     return render(request, 'tribe.html', {'tribe': tribe})
+
+def edit_tribe(request, tribe_slug):
+    tribe = get_object_or_404(Tribe, slug=tribe_slug)
+    if request.method == 'POST':
+        form = TribeForm(request.POST, instance=tribe)
+        if form.is_valid():
+            tribe = form.save()
+            return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+    else:
+        form = TribeForm(instance=tribe)
+    return render(request, 'tribe.html', {'form': form})
 
 #SQUAD
 def create_squad(request, tribe_id):
