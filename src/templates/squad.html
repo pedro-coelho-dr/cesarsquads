@@ -129,27 +129,27 @@
             </div>
           </div>
         </div>
-      </div>
-      
-    
-      
-          
-          <div class="row">
-            <div class="col-md-5-lg-5">
+        <div class="row">
+          <div class="col-md-5-lg-5">
+            <div class="card-body">
+              <div class="card mb-5 mb-md-5">
+                <h2 class="text-center">Integrantes</h2>
                 <div class="card-body">
-                    <div class="card mb-5 mb-md-5">
-                      <h2 class="text-center">Integrantes</h2>
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-4">
-                            <img src="{{user.profile.avatar.url}}" alt="avatar"
-                              class="rounded-circle img-fluid" style="width: 150px;">
-                            <h6 class="my-3">{{user.first_name}}</h6>
-                          </div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <img src="{{ user.profile.avatar.url }}"
+                           alt="avatar"
+                           class="rounded-circle img-fluid"
+                           style="width: 150px">
+                      <h6 class="my-3">{{ user.first_name }}</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-{% endif %}
+  {% endif %}
 {% endblock %}
