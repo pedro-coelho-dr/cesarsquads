@@ -32,6 +32,8 @@ class Squad(models.Model):
     tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     avatar = models.ImageField(upload_to='profile_images',default='blank-profile-picture.png')
+    members = models.ManyToManyField(User, related_name='squads')
+    
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

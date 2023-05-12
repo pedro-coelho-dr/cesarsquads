@@ -23,7 +23,8 @@ def create_tribe(request):
 
 def detalhes_tribo(request, tribe_slug):
     tribe = get_object_or_404(Tribe, slug=tribe_slug)
-    return render(request, 'tribe.html', {'tribe': tribe})
+    squads = Squad.objects.filter(tribe=tribe)
+    return render(request, 'tribe.html', {'tribe': tribe, 'list_squad': squads})
 
 def edit_tribe(request, tribe_slug):
     tribe = get_object_or_404(Tribe, slug=tribe_slug)
@@ -44,6 +45,7 @@ def create_squad(request, tribe_id):
             squad = form.save(commit=False)
             squad.tribe_id = tribe_id  # Associa o ID da tribo à squad
             squad.save()
+            squad.members.add(request.user)
             return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
     else:
         form = SquadForm()
@@ -62,9 +64,6 @@ def enter_squad(request, squad_slug):
     if request.method == 'POST':
         entered_slug = request.POST.get('slug')
         if entered_slug == squad.slug:
-            # O usuário entrou na squad com sucesso
-            # Realize as ações necessárias ao entrar na squad, como adicionar o usuário à squad
-            # ...
             return render(request, 'squad.html', {'squad': squad})
         else:
             messages.error(request, 'A slug inserida é inválida.')
