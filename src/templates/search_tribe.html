@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{% for tribe in tribes %}
+  <div>
+    <h3>{{ tribe.name }}</h3>
+    <p>{{ tribe.description }}</p>
+    <button class="btn btn-outline-light btn-dark px-5" type="submit">
+        <a href={% url 'entrar_tribo' tribe_slug=tribe.slug %}>Acessar</a> 
+    </button>
+    <!-- Exiba outras informações relevantes da tribo -->
+  </div>
+{% empty %}
+  <p>Nenhuma tribo encontrada.</p>
+{% endfor %}
+{% endif %}
+{% endblock %}

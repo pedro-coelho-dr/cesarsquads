@@ -64,6 +64,7 @@ class Profile(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     avatar = models.ImageField(upload_to='profile_images',default='blank-profile-picture.png')
     squads = models.ManyToManyField(Squad, blank=True, related_name="member")
+    tribe_search = models.CharField(max_length=100, blank=True)
 #
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
