@@ -25,6 +25,15 @@ def create_tribe(request):
 
 def detalhes_tribo(request, tribe_slug):
     tribe = get_object_or_404(Tribe, slug=tribe_slug)
+    if request.method == 'POST':
+        bio = request.POST.get('bio')
+        tribe.bio = bio
+        if 'avatar' in request.FILES:
+            avatar = request.FILES['avatar']
+            tribe.avatar = avatar
+
+        tribe.save()
+        return redirect('detalhes_tribo', tribe_slug=tribe.slug)
     squads = Squad.objects.filter(tribe=tribe)
     return render(request, 'tribe.html', {'tribe': tribe, 'list_squad': squads})
 
@@ -40,8 +49,6 @@ def entrar_tribo(request, tribe_slug):
         tribe = get_object_or_404(Tribe, slug=tribe_slug)
         tribe.members.add(request.user)
     return redirect('detalhes_tribo', tribe_slug=tribe.slug)
-
-
 
 #SQUAD
 def create_squad(request, tribe_id):

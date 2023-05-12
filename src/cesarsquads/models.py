@@ -4,6 +4,8 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.utils.text import slugify
 from django.urls import reverse
+from PIL import Image
+from django.core.exceptions import ValidationError
 
 # Create your models here.
 
@@ -11,8 +13,7 @@ from django.urls import reverse
 class Tribe(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False, unique=True)
     slug = models.SlugField(unique=True)
-    bio = models.TextField(max_length=500, blank=True)
-    avatar = models.ImageField(upload_to='tribe_photos',default='blank-profile-picture.png')
+    bio = models.TextField(max_length=500, blank=True, null=True)
     avatar = models.ImageField(upload_to='tribe',default='blank-profile-picture.png')
     members = models.ManyToManyField(User, related_name='tribes')
     
@@ -29,6 +30,7 @@ class Tribe(models.Model):
     @classmethod
     def all(cls):
         return list(cls.objects.all())
+    
 
 #SQUAD--------------------
 class Squad(models.Model):
