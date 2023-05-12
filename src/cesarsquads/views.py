@@ -5,6 +5,7 @@ from .models import Tribe, Squad, Profile
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserAuthenticationForm
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -47,17 +48,25 @@ def detalhes_squad(request, squad_slug, tribe_id):
     squad = get_object_or_404(Squad, slug=squad_slug, tribe__id=tribe_id)
     return render(request, 'squad.html', {'squad': squad})
 
-def enter_squad(request, squad_slug):
-    squad = get_object_or_404(Squad, slug=squad_slug)
+def entrar_squad(request, squad_slug, tribe_id):
+    squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
+    squad.members.add(request.user)
+    return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=squad.tribe.id)
 
-    if request.method == 'POST':
-        entered_slug = request.POST.get('slug')
-        if entered_slug == squad.slug:
-            return render(request, 'squad.html', {'squad': squad})
-        else:
-            messages.error(request, 'A slug inserida é inválida.')
 
-    return render(request, 'squad.html', {'squad': squad})
+# def enter_squad(request, squad_slug):
+#     squad = get_object_or_404(Squad, slug=squad_slug)
+#     if request.method == 'POST':
+#         entered_slug = request.POST.get('slug')
+#         if entered_slug == squad.slug:
+#             # Adicione o usuário ao esquadrão
+#             squad.members.add(request.user)
+#             messages.success(request, 'Você entrou no squad {{squad.slug}} com sucesso!')
+#             return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=squad.tribe_id)
+#         else:
+#             messages.error(request, 'Squad inexistente ou inválida!')
+#     return render(request, 'squad.html', {'squad': squad})
+
 #----
 
 def index(request):
