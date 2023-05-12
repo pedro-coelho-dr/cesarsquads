@@ -3,6 +3,12 @@
 {% block content %}
 {% if user.is_authenticated %}
     <div class="container py-5">
+      <style>
+        a.no-underline {
+          text-decoration: none;
+          color: #fff;
+        }
+      </style>
       <div class="row">
         <div class="col">
         </div>
@@ -66,7 +72,9 @@
                           <div class="accordion-body">
                             <p>Descrição {{ tribe }}</p> 
                             <br/>
-                            <button class="btn btn-outline-light btn-dark px-5" type="submit">Acessar</button> 
+                            <button class="btn btn-outline-light btn-dark px-5" type="submit">
+                              <a href={% url 'entrar_tribo' tribe_slug=tribe.slug %}>Acessar</a> 
+                            </button> 
                           </div>
                         </div>
                       </div>
@@ -79,10 +87,11 @@
               <div class="card mb-4 mb-md-0">
                 <div class="card-body">
                     <div class="container">
-                        <form  action="/tribe/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
-                            <input class="form-control me-2" id="id" name="id" maxlength="100" type="text" placeholder="Código da Tribo" required>
-                            <button class="btn btn-outline-success" type="submit">Entrar</button>
-                          </form>
+                      <form action="/tribe/" method="POST" class="d-flex justify-content-end">
+                        {% csrf_token %}
+                        <input class="form-control me-2" id="id" name="tribe_name" maxlength="100" type="text" placeholder="Código da Tribo" required>
+                        <button class="btn btn-outline-success" type="submit">Entrar</button>
+                    </form>
                           <br>
                           <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
                           <br>

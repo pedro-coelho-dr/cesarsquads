@@ -28,6 +28,20 @@ def detalhes_tribo(request, tribe_slug):
     squads = Squad.objects.filter(tribe=tribe)
     return render(request, 'tribe.html', {'tribe': tribe, 'list_squad': squads})
 
+def entrar_tribo(request, tribe_slug):
+    if request.method == 'POST':
+        tribe_name = request.POST.get('tribe_name')
+        try:
+            tribe = Tribe.objects.get(name=tribe_name)
+            return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+        except Tribe.DoesNotExist:
+            return redirect('pagina_erro')
+    else:
+        tribe = get_object_or_404(Tribe, slug=tribe_slug)
+        tribe.members.add(request.user)
+    return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+
+
 
 #SQUAD
 def create_squad(request, tribe_id):
@@ -52,20 +66,6 @@ def entrar_squad(request, squad_slug, tribe_id):
     squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
     squad.members.add(request.user)
     return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=squad.tribe.id)
-
-
-# def enter_squad(request, squad_slug):
-#     squad = get_object_or_404(Squad, slug=squad_slug)
-#     if request.method == 'POST':
-#         entered_slug = request.POST.get('slug')
-#         if entered_slug == squad.slug:
-#             # Adicione o usuário ao esquadrão
-#             squad.members.add(request.user)
-#             messages.success(request, 'Você entrou no squad {{squad.slug}} com sucesso!')
-#             return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=squad.tribe_id)
-#         else:
-#             messages.error(request, 'Squad inexistente ou inválida!')
-#     return render(request, 'squad.html', {'squad': squad})
 
 #----
 
