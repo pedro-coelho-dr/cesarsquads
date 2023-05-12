@@ -12,7 +12,7 @@ class Tribe(models.Model):
     name = models.CharField(max_length=50, null=False, blank=False, unique=True)
     slug = models.SlugField(unique=True)
     bio = models.TextField(max_length=500, blank=True)
-    avatar = models.ImageField(upload_to='tribe',default='blank-profile-picture.png')
+    avatar = models.ImageField(upload_to='tribe_photos',default='blank-profile-picture.png')
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

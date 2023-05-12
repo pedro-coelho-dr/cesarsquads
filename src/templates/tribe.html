@@ -20,7 +20,7 @@
                 Editar
               </button>
               <!---->
-              <!-- Upload Modal -->
+              <!-- Modal -->
               <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -29,16 +29,17 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form>
+                      <form id="uploadForm" method="POST" enctype="multipart/form-data" action="">
+                        {% csrf_token %}
                         <div class="mb-3">
-                          <label for="upload-photo" class="col-form-label">Selecione uma nova foto:</label>
-                          <input type="file" class="form-control" id="upload-photo">
+                          <label for="upload-photo" class="col-form-label">Select a new photo:</label>
+                          <input type="file" class="form-control" id="upload-photo" name="avatar">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" class="btn btn-primary">Upload</button>
                         </div>
                       </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                      <button type="button" class="btn btn-primary">Upload</button>
                     </div>
                   </div>
                 </div>
