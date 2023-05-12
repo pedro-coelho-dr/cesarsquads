@@ -26,16 +26,6 @@ def detalhes_tribo(request, tribe_slug):
     squads = Squad.objects.filter(tribe=tribe)
     return render(request, 'tribe.html', {'tribe': tribe, 'list_squad': squads})
 
-def edit_tribe(request, tribe_slug):
-    tribe = get_object_or_404(Tribe, slug=tribe_slug)
-    if request.method == 'POST':
-        form = TribeForm(request.POST, instance=tribe)
-        if form.is_valid():
-            tribe = form.save()
-            return redirect('detalhes_tribo', tribe_slug=tribe.slug)
-    else:
-        form = TribeForm(instance=tribe)
-    return render(request, 'tribe.html', {'form': form})
 
 #SQUAD
 def create_squad(request, tribe_id):
@@ -50,8 +40,6 @@ def create_squad(request, tribe_id):
     else:
         form = SquadForm()
     return render(request, 'squad.html', {'form': form})
-
-
 
 
 def detalhes_squad(request, squad_slug, tribe_id):
