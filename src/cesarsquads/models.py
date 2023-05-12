@@ -14,6 +14,9 @@ class Tribe(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     avatar = models.ImageField(upload_to='tribe',default='blank-profile-picture.png')
     members = models.ManyToManyField(User, related_name='tribes')
+    
+    def get_creator(self):
+        return self.members.order_by('id').first()
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
@@ -34,6 +37,9 @@ class Squad(models.Model):
     bio = models.TextField(max_length=500, blank=True)
     avatar = models.ImageField(upload_to='squad',default='blank-profile-picture.png')
     members = models.ManyToManyField(User, related_name='squads')
+    
+    def get_creator(self):
+        return self.members.order_by('id').first()
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)

@@ -95,7 +95,9 @@
             <p class="mb-0">Criador da tribo:</p>
           </div>
           <div class="col-sm-9">
-            <p class="text-muted mb-0 text-light">{{user.first_name}}</p>
+            {% with creator=tribe.get_creator %}
+            <p class="text-muted mb-0 text-light">{{ creator.first_name }}</p>
+            {% endwith %}
           </div>
         </div>
         <hr>
