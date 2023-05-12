@@ -15,6 +15,7 @@ def create_tribe(request):
         form = TribeForm(request.POST)
         if form.is_valid():
             tribe = form.save()
+            tribe.members.add(request.user)
             return redirect('detalhes_tribo', tribe_slug=tribe.slug)
     else:
         form = TribeForm()
