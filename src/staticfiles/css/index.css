@@ -1,0 +1,8 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .gradient-custom {
+    background: linear-gradient(to right, rgb(203, 135, 17), rgb(252, 205, 37))
+    }
