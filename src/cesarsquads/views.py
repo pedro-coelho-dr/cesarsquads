@@ -25,30 +25,46 @@ def create_tribe(request):
 
 def detalhes_tribo(request, tribe_slug):
     tribe = get_object_or_404(Tribe, slug=tribe_slug)
+    try:
+        tribe = Tribe.objects.get(slug=tribe_slug)
+    except Tribe.DoesNotExist:
+        return HttpResponse("Tribo não encontrada!")
     if request.method == 'POST':
         bio = request.POST.get('bio')
         tribe.bio = bio
         if 'avatar' in request.FILES:
             avatar = request.FILES['avatar']
             tribe.avatar = avatar
-
         tribe.save()
         return redirect('detalhes_tribo', tribe_slug=tribe.slug)
     squads = Squad.objects.filter(tribe=tribe)
+    
     return render(request, 'tribe.html', {'tribe': tribe, 'list_squad': squads})
+
 
 def entrar_tribo(request, tribe_slug):
     if request.method == 'POST':
-        tribe_name = request.POST.get('tribe_name')
-        try:
-            tribe = Tribe.objects.get(name=tribe_name)
-            return redirect('detalhes_tribo', tribe_slug=tribe.slug)
-        except Tribe.DoesNotExist:
-            return redirect('pagina_erro')
+        if request.POST.get('action') == 'entrar':
+            tribe_name = request.POST.get('tribe_name')
+            try:
+                tribe = Tribe.objects.get(name=tribe_name)
+                return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+            except Tribe.DoesNotExist:
+                return redirect('pagina_erro')
     else:
         tribe = get_object_or_404(Tribe, slug=tribe_slug)
         tribe.members.add(request.user)
     return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+
+
+def search_tribe(request):
+    query = request.GET.get('tribe_search')
+    tribes = Tribe.objects.filter(name__icontains=query)
+    return render(request, 'search_tribe.html', {'tribes': tribes})
+
+
+
+
 
 #SQUAD
 def create_squad(request, tribe_id):
