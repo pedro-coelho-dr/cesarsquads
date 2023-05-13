@@ -2,18 +2,62 @@
 {% load static %}
 
 {% block content %}
+<style>
+  .tribe-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    gap: 20px;
+  }
+  .tribe-item {
+    text-align: center;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+  .tribe-item-inner {
+    background-color: white;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .tribe-title {
+    margin-bottom: 0;
+  }
+  .tribe-description {
+    margin-top: 10px;
+  }
+  .tribe-link {
+    text-decoration: none;
+    color: white;
+    background-color: #343a40;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+  .no-tribe {
+    text-align: center;
+  }
+</style>
+
 {% if user.is_authenticated %}
-{% for tribe in tribes %}
-  <div>
-    <h3>{{ tribe.name }}</h3>
-    <p>{{ tribe.description }}</p>
-    <button class="btn btn-outline-light btn-dark px-5" type="submit">
-        <a href={% url 'entrar_tribo' tribe_slug=tribe.slug %}>Acessar</a> 
-    </button>
-    <!-- Exiba outras informações relevantes da tribo -->
+
+  <div class="tribe-container">
+    {% for tribe in tribes %}
+      <div class="tribe-item">
+        <div class="tribe-item-inner">
+          <h3 class="tribe-title">{{ tribe.name }}</h3>
+          <p class="tribe-description">{{ tribe.bio }}</p>
+          <button href="{% url 'entrar_tribo' tribe_slug=tribe.slug %}" class="tribe-link">
+            Acessar
+          </button>
+        </div>
+      </div>
+    {% empty %}
+      <p class="no-tribe">Nenhuma tribo encontrada.</p>
+    {% endfor %}
   </div>
-{% empty %}
-  <p>Nenhuma tribo encontrada.</p>
-{% endfor %}
 {% endif %}
 {% endblock %}
