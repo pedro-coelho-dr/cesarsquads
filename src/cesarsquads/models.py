@@ -37,7 +37,7 @@ class Squad(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False, unique=True)
     slug = models.SlugField(unique=True)
     tribe = models.ForeignKey(Tribe, on_delete=models.CASCADE)
-    bio = models.TextField(max_length=500, blank=True)
+    bio = models.TextField(max_length=500, blank=True, null=True)
     avatar = models.ImageField(upload_to='squad',default='blank-profile-picture.png')
     members = models.ManyToManyField(User, related_name='squads')
     

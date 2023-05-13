@@ -56,7 +56,7 @@ def create_squad(request, tribe_id):
         form = SquadForm(request.POST)
         if form.is_valid():
             squad = form.save(commit=False)
-            squad.tribe_id = tribe_id  # Associa o ID da tribo à squad
+            squad.tribe_id = tribe_id
             squad.save()
             squad.members.add(request.user)
             return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
@@ -66,8 +66,17 @@ def create_squad(request, tribe_id):
 
 
 def detalhes_squad(request, squad_slug, tribe_id):
-    squad = get_object_or_404(Squad, slug=squad_slug, tribe__id=tribe_id)
-    return render(request, 'squad.html', {'squad': squad})
+    squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
+    if request.method == 'POST':
+        bio = request.POST.get('bio')
+        squad.bio = bio
+        if 'avatar' in request.FILES:
+            avatar = request.FILES['avatar']
+            squad.avatar = avatar
+
+        squad.save()
+        return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
+    return render(request, 'squad.html', {'squad': squad, 'tribe_id': tribe_id})
 
 def entrar_squad(request, squad_slug, tribe_id):
     squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)

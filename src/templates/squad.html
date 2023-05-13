@@ -13,35 +13,36 @@
               <img src="{{squad.avatar.url}}" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
                 <p>
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-sm btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
-                    Editar
-                  </button>
-                  <!---->
-                  <!-- Upload Modal -->
-                  <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-sm btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                Editar
+              </button>
+              <!---->
+              <!-- Modal -->
+              <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
                         <div class="modal-header">
-                          <h1 class="modal-title fs-5" id="exampleModalLabel">Mude o avatar da Squad</h1>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Photo</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                          <form>
-                            <div class="mb-3">
-                              <label for="upload-photo" class="col-form-label">Selecione uma nova foto:</label>
-                              <input type="file" class="form-control" id="upload-photo">
-                            </div>
-                          </form>
+                            <form method="POST" enctype="multipart/form-data" action="{% url 'detalhes_squad' squad_slug=squad.slug tribe_id=tribe_id %}">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="avatar" class="col-form-label">Select a new photo:</label>
+                                    <input type="file" class="form-control" id="avatar" name="avatar">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                          <button type="button" class="btn btn-primary">Upload</button>
-                        </div>
-                      </div>
                     </div>
-                  </div>
-                  <!---->
+                </div>
+              </div>
+              <!---->
                   </p>
             </div>
           </div>
@@ -105,41 +106,40 @@
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0 text-light">{{squad.bio}}
-                <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    Editar
-                  </button>
-                  <!---->
-                </p>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                Editar
+              </button>
+              </p>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
                     <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <form>
-                          <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Nova descrição da squad:</label>
-                            <textarea class="form-control" id="message-text"></textarea>
-                          </div>
+                        <form method="post" id="bio-form">
+                            {% csrf_token %}
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="bio-text" class="col-form-label">Nova descrição da squad:</label>
+                                    <textarea class="form-control" id="bio-text" name="bio">{{ squad.bio }}</textarea>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
                         </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary">Salvar</button>
-                      </div>
                     </div>
-                  </div>
                 </div>
-                <!---->
-              </div>
             </div>
-            <br>
           </div>
         </div>
+        <br>
+      </div>
+    </div>
         <div class="row">
           <div class="col-md-5-lg-5">
             <div class="card-body">
