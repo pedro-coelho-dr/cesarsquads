@@ -4,7 +4,7 @@
   - [🤖 Instalação](#-instalação)
   - [✅ Entrega 01](#-entrega-01)
   - [✅ Entrega 02](#-entrega-02)
-  - [🔲 Entrega 03](#-entrega-03)
+  - [✅ Entrega 03](#-entrega-03)
   - [🔲 Entrega 04](#-entrega-04)
   - [🛠 Ferramentas](#-ferramentas)
   - [👨‍💻 Contribuidores](#-contribuidores)
@@ -152,34 +152,29 @@ python manage.py runserver
 
 ---
 
-### 🔲 Entrega 03
+### ✅ Entrega 03
 
 15/05
-
-- Seleção de mais histórias para implementar (pelo menos 3)
-    Criação de nova sprint no JIRA
-    
-- Atualização dos protótipos de Lo-Fi
+   
+- Atualização dos protótipos de Lo-Fi WIP
     Sketches e storyboards para as novas histórias
     Envio de novo screencast (ênfase nas novas histórias)
     
-- Atualização do diagrama de atividades
+- Diagrama de atividades do sistema
+![cesarsquad](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/834f0a6a-d3bf-4936-9bde-18a7d5b6e5c3)
 
-- Ambiente de versionamento atuante
-    Com commits frequentes (no mínimo semanais)
-    
-- Deploy das novas histórias
+- Deploy das novas histórias WIP
     Envio de novo screencast (ênfase nas novas histórias)
     
-- Issue/bug tracker atualizado (no GitHub)
+- Issue/bug tracker atualizado (no GitHub) WIP
     Enviar print da tela no dia da entrega
     
-- Testes de Sistema (E2E) Automatizados
+- Testes de Sistema (E2E) Automatizados WIP
     Enviar screencast da execução dos testes
     
-- Atualização sobre o uso da programação em pares
+- Atualização sobre o uso da programação em pares WIP
 
-- Quadro da Sprint 02 atualizado refletindo a entrega
+- Quadro da Sprint 02 atualizado refletindo a entrega WIP
     Enviar print do quadro da sprint
 
 ---
@@ -235,6 +230,10 @@ python manage.py runserver
 -   **[Virtualenv](https://virtualenv.pypa.io/)**
 -   **[Github](https://github.com/)**
 -   **[Visual Studio Code](https://code.visualstudio.com/)**
+-   **[Selenium](https://www.selenium.dev/)**
+-   **[Pillow](https://pypi.org/project/Pillow/)**
+-   **[Bootstrap](https://getbootstrap.com/)**
+-   **[Selenium](https://www.selenium.dev/)**
 
 ---
 
