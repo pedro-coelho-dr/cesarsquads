@@ -39,6 +39,7 @@ def detalhes_tribo(request, tribe_slug):
             avatar = request.FILES['avatar']
             
             image = Image.open(avatar)
+            image = image.convert('RGB')
             max_size = (500, 500)
             image.thumbnail(max_size)
             
@@ -105,6 +106,7 @@ def detalhes_squad(request, squad_slug, tribe_id):
             avatar = request.FILES['avatar']
             
             image = Image.open(avatar)
+            image = image.convert('RGB')
             max_size = (500, 500)
             image.thumbnail(max_size)
             
