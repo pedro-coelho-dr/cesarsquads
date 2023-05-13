@@ -6,6 +6,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserAuthenticationForm
 from django.http import HttpResponse
+from django.conf import settings
+from PIL import Image
+import os
 
 
 # Create your views here.
@@ -34,7 +37,19 @@ def detalhes_tribo(request, tribe_slug):
         tribe.bio = bio
         if 'avatar' in request.FILES:
             avatar = request.FILES['avatar']
-            tribe.avatar = avatar
+            
+            image = Image.open(avatar)
+            max_size = (500, 500)
+            image.thumbnail(max_size)
+            
+            original_path, original_filename = os.path.split(avatar.name)
+            resized_avatar_filename = f"{tribe_slug}_resized.jpg"
+            resized_avatar_path = os.path.join('tribe', resized_avatar_filename)
+            resized_avatar_full_path = os.path.join(settings.MEDIA_ROOT, resized_avatar_path)
+            image.save(resized_avatar_full_path, optimize=True, quality=95)
+            
+            tribe.avatar.name = resized_avatar_path
+
         tribe.save()
         return redirect('detalhes_tribo', tribe_slug=tribe.slug)
     squads = Squad.objects.filter(tribe=tribe)
@@ -88,7 +103,18 @@ def detalhes_squad(request, squad_slug, tribe_id):
         squad.bio = bio
         if 'avatar' in request.FILES:
             avatar = request.FILES['avatar']
-            squad.avatar = avatar
+            
+            image = Image.open(avatar)
+            max_size = (500, 500)
+            image.thumbnail(max_size)
+            
+            original_path, original_filename = os.path.split(avatar.name)
+            resized_avatar_filename = f"{squad_slug}_resized.jpg"
+            resized_avatar_path = os.path.join('squad', resized_avatar_filename)
+            resized_avatar_full_path = os.path.join(settings.MEDIA_ROOT, resized_avatar_path)
+            image.save(resized_avatar_full_path, optimize=True, quality=95)
+            
+            squad.avatar.name = resized_avatar_path
 
         squad.save()
         return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
