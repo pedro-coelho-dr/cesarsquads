@@ -155,27 +155,53 @@ python manage.py runserver
 ### ✅ Entrega 03
 
 15/05
-   
-- Atualização dos protótipos de Lo-Fi WIP
-    Sketches e storyboards para as novas histórias
-    Envio de novo screencast (ênfase nas novas histórias)
+  
+  - Acesso ao App em produção:
+    {{{ LINKK }}}
+    
+    Instruções:
+    ```
+    Ao acessar o link acima:
+    - Clicar em 'Entrar' ou 'Cadastrar'
+      - Entrar com usuário 'teste' 'senha1234' {{!!!!!!!!CRIAR USUÁRIO!!!!!!!!!!!!}}
+      - (ou) Cadastrar novo usuário e entrar.
+    - Na página do Perfil é possível:
+      - Acessar tribos que faz parte.
+      - Pesquisar tribos
+      - Criar tribo  
+    - Na página da Tribo:
+      -  Alterar avatar da tribo
+      -  Alterar descrição da tribo
+      -  Criar squad
+      -  Participar de squad
+    - Na página da Squad:
+      -  Alterar avatar da squad
+      -  Editar descrição da squad
+    
+    ```
+
+ - Deploy:
+  {{{ SCREENCAST DO DEPLOY }}}}
+  
+ - Teste de Sistema:
+    {{ SCREENCAST DA EXECUÇÃO DO TESTE}}
+  
+ - Protótipo Lo-fi: 
+  {{ SCREENCAST DO PROTOTIPO LOFI! }}
+  {{!!!!!!!!!!!!!link para o figma!!!!!!!!!!!!!!!!}
     
 - Diagrama de atividades do sistema
+
 ![cesarsquad](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/834f0a6a-d3bf-4936-9bde-18a7d5b6e5c3)
 
-- Deploy das novas histórias WIP
-    Envio de novo screencast (ênfase nas novas histórias)
+- Quadro da Sprint:
+  {{ PRINT DO QUADRO DA SPRINT }}
+  
+- Issue/bug tracker:
+   {{ PRINT NO DIA DA ENTREGA GITHUB }}
     
-- Issue/bug tracker atualizado (no GitHub) WIP
-    Enviar print da tela no dia da entrega
-    
-- Testes de Sistema (E2E) Automatizados WIP
-    Enviar screencast da execução dos testes
-    
-- Atualização sobre o uso da programação em pares WIP
-
-- Quadro da Sprint 02 atualizado refletindo a entrega WIP
-    Enviar print do quadro da sprint
+- Atualização sobre o uso da programação em pares:
+   {{ RELATO PROGRAMAÇÃO EM PARES }}
 
 ---
 
@@ -224,16 +250,15 @@ python manage.py runserver
 -   **[AWS Elastic Beanstalker](https://aws.amazon.com/elasticbeanstalk/)** 
 -   **[Figma](https://www.figma.com/)**
 -   **[Diagrams.net](https://app.diagrams.net/)**
--   **[Django Bootstrap](https://django-bootstrap-v5.readthedocs.io/en/latest/)**
+-   **[Bootstrap](https://getbootstrap.com/)**
+-   **[Pillow](https://pypi.org/project/Pillow/)**
 -   **[SQLite](https://sqlite.org/)**
 -   **[Python](https://www.python.org/)**
 -   **[Virtualenv](https://virtualenv.pypa.io/)**
+-   **[Selenium](https://www.selenium.dev/)**
 -   **[Github](https://github.com/)**
 -   **[Visual Studio Code](https://code.visualstudio.com/)**
--   **[Selenium](https://www.selenium.dev/)**
--   **[Pillow](https://pypi.org/project/Pillow/)**
--   **[Bootstrap](https://getbootstrap.com/)**
--   **[Selenium](https://www.selenium.dev/)**
+
 
 ---
 
