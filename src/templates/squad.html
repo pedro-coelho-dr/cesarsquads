@@ -126,7 +126,7 @@
               <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form <form method="POST" enctype="multipart/form-data" action="{% url 'detalhes_squad' squad_slug=squad.slug tribe_id=squad.tribe_id %}">
+                        <form form method="POST" enctype="multipart/form-data" action="{% url 'detalhes_squad' squad_slug=squad.slug tribe_id=squad.tribe_id %}">
                             {% csrf_token %}
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
