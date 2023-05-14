@@ -157,7 +157,7 @@ python manage.py runserver
 15/05
   
   - Acesso ao App em produção:
-    {{{ LINKK }}}
+    [cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com)](http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/)
     
     Instruções:
     ```
@@ -181,10 +181,14 @@ python manage.py runserver
     ```
 
  - Deploy:
-  {{{ SCREENCAST DO DEPLOY }}}}
+    [Youtube](https://youtu.be/DUQ1nYiun9o)
+
+    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/DUQ1nYiun9o/0.jpg)](https://youtu.be/DUQ1nYiun9o)
   
  - Teste de Sistema:
-    {{ SCREENCAST DA EXECUÇÃO DO TESTE}}
+    [Youtube](https://youtu.be/SnuYZ8s_vmM)
+
+    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/SnuYZ8s_vmM/0.jpg)](https://youtu.be/SnuYZ8s_vmM)
   
  - Protótipo Lo-fi: 
   {{ SCREENCAST DO PROTOTIPO LOFI! }}
@@ -195,10 +199,13 @@ python manage.py runserver
 ![cesarsquad](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/834f0a6a-d3bf-4936-9bde-18a7d5b6e5c3)
 
 - Quadro da Sprint:
-  {{ PRINT DO QUADRO DA SPRINT }}
-  
+
+![quadro_entrega3](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/f9f1c1d3-3bc6-4c2d-bcae-1320f922f9a0)
+
 - Issue/bug tracker:
-   {{ PRINT NO DIA DA ENTREGA GITHUB }}
+
+ ![github_issues_bug_tracker_entrega3](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/2aaca34f-f71c-4167-942e-53aa4bc6f277)
+
     
 - Atualização sobre o uso da programação em pares:
    {{ RELATO PROGRAMAÇÃO EM PARES }}
