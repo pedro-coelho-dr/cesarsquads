@@ -33,7 +33,7 @@
                 class="rounded-circle img-fluid" style="width: 150px;">
               <p>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-sm btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
+              <button id='change-avatar' type="button" class="btn btn-sm btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
                 Editar
               </button>
               <!---->
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                    <button id='submit-avatar' type="submit" class="btn btn-primary">Upload</button>
                                 </div>
                             </form>
                         </div>
@@ -94,7 +94,7 @@
             <p class="mb-0">Descrição:</p>
           </div>
           <div class="col-sm-9">
-            <p class="text-muted mb-0 text-light">{{tribe.bio}}
+            <p id='bio-tribo' class="text-muted mb-0 text-light">{{tribe.bio}}
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 Editar
@@ -109,7 +109,7 @@
                             {% csrf_token %}
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button id='editar-bio-tribo' type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
@@ -119,7 +119,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button id='salvar-bio-tribo' type="submit" class="btn btn-primary">Salvar</button>
                             </div>
                         </form>
                     </div>

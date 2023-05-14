@@ -92,15 +92,15 @@
                     <div class="container">
                       <form action="{% url 'search_tribe' %}" method="GET" class="d-flex justify-content-end">
                         <input class="form-control me-2" type="text" name="tribe_search" placeholder="Pesquisar tribo">
-                        <button class="btn btn-dark btn-sm" type="submit">Pesquisar</button>
+                        <button id="search-button" class="btn btn-dark btn-sm" type="submit">Pesquisar</button>
                       </form>
                           <br>
                           <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
                           <br>
                         <form action="/tribe/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
                             <br>
-                            <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Tribo" required>
-                            <button class="btn btn-dark btn-sm" type="submit">Criar</button>
+                            <input class="form-control me-2" id="name-tribe" name="name" maxlength="100" type="text" placeholder="Nome da Tribo" required>
+                            <button id='criar-tribo' class="btn btn-dark btn-sm" type="submit">Criar</button>
                           </div>
                         </form>
                       </div>
