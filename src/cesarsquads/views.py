@@ -12,6 +12,7 @@ from PIL import Image
 import os
 
 
+
 # Create your views here.
 
 #TRIBE
@@ -35,34 +36,51 @@ def create_tribe(request):
 
 def detalhes_tribo(request, tribe_slug):
     tribe = get_object_or_404(Tribe, slug=tribe_slug)
+    avatar_upload_error = None
+    
     try:
         tribe = Tribe.objects.get(slug=tribe_slug)
     except Tribe.DoesNotExist:
         return HttpResponse("Tribo não encontrada!")
+    
     if request.method == 'POST':
         bio = request.POST.get('bio')
         tribe.bio = bio
+        
         if 'avatar' in request.FILES:
             avatar = request.FILES['avatar']
             
-            image = Image.open(avatar)
-            image = image.convert('RGB')
-            max_size = (500, 500)
-            image.thumbnail(max_size)
+            if not avatar.name.lower().endswith(('.jpg', '.jpeg', '.png')):
+                avatar_upload_error = 'Tipo de arquivo inválido. Por favor, faça o upload de um arquivo JPG, JPEG ou PNG.'
             
-            original_path, original_filename = os.path.split(avatar.name)
-            resized_avatar_filename = f"{tribe_slug}_resized.jpg"
-            resized_avatar_path = os.path.join('tribe', resized_avatar_filename)
-            resized_avatar_full_path = os.path.join(settings.MEDIA_ROOT, resized_avatar_path)
-            image.save(resized_avatar_full_path, optimize=True, quality=95)
+            if avatar.size > 5 * 1024 * 1024:
+                avatar_upload_error = 'O tamanho do arquivo excede o limite de 5MB.'
             
-            tribe.avatar.name = resized_avatar_path
-
-        tribe.save()
-        return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+            if not avatar_upload_error:
+                try:
+                    image = Image.open(avatar)
+                    image = image.convert('RGB')
+                    max_size = (500, 500)
+                    image.thumbnail(max_size)
+                    
+                    original_path, original_filename = os.path.split(avatar.name)
+                    resized_avatar_filename = f"{tribe_slug}_resized.jpg"
+                    resized_avatar_path = os.path.join('tribe', resized_avatar_filename)
+                    resized_avatar_full_path = os.path.join(settings.MEDIA_ROOT, resized_avatar_path)
+                    image.save(resized_avatar_full_path, optimize=True, quality=95)
+                    
+                    tribe.avatar.name = resized_avatar_path
+                
+                except (OSError, ValidationError):
+                    avatar_upload_error = 'Erro ao processar o arquivo de imagem.'
+        
+        if not avatar_upload_error:
+            tribe.save()
+            return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+    
     squads = Squad.objects.filter(tribe=tribe)
     
-    return render(request, 'tribe.html', {'tribe': tribe, 'list_squad': squads})
+    return render(request, 'tribe.html', {'tribe': tribe, 'list_squad': squads, 'avatar_upload_error': avatar_upload_error})
 
 
 def entrar_tribo(request, tribe_slug):
@@ -113,28 +131,44 @@ def create_squad(request, tribe_id):
 
 def detalhes_squad(request, squad_slug, tribe_id):
     squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
+    avatar_upload_error = None
+    
     if request.method == 'POST':
         bio = request.POST.get('bio')
         squad.bio = bio
+        
         if 'avatar' in request.FILES:
             avatar = request.FILES['avatar']
             
-            image = Image.open(avatar)
-            image = image.convert('RGB')
-            max_size = (500, 500)
-            image.thumbnail(max_size)
+            if not avatar.name.lower().endswith(('.jpg', '.jpeg', '.png')):
+                avatar_upload_error = 'Tipo de arquivo inválido. Por favor, faça o upload de um arquivo JPG, JPEG ou PNG.'
             
-            original_path, original_filename = os.path.split(avatar.name)
-            resized_avatar_filename = f"{squad_slug}_resized.jpg"
-            resized_avatar_path = os.path.join('squad', resized_avatar_filename)
-            resized_avatar_full_path = os.path.join(settings.MEDIA_ROOT, resized_avatar_path)
-            image.save(resized_avatar_full_path, optimize=True, quality=95)
+            if avatar.size > 5 * 1024 * 1024:
+                avatar_upload_error = 'O tamanho do arquivo excede o limite de 5MB.'
             
-            squad.avatar.name = resized_avatar_path
-
-        squad.save()
-        return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
-    return render(request, 'squad.html', {'squad': squad, 'tribe_id': tribe_id})
+            if not avatar_upload_error:
+                try:
+                    image = Image.open(avatar)
+                    image = image.convert('RGB')
+                    max_size = (500, 500)
+                    image.thumbnail(max_size)
+                    
+                    original_path, original_filename = os.path.split(avatar.name)
+                    resized_avatar_filename = f"{squad_slug}_resized.jpg"
+                    resized_avatar_path = os.path.join('squad', resized_avatar_filename)
+                    resized_avatar_full_path = os.path.join(settings.MEDIA_ROOT, resized_avatar_path)
+                    image.save(resized_avatar_full_path, optimize=True, quality=95)
+                    
+                    squad.avatar.name = resized_avatar_path
+                
+                except (OSError, ValidationError):
+                    avatar_upload_error = 'Erro ao processar o arquivo de imagem.'
+        
+        if not avatar_upload_error:
+            squad.save()
+            return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
+    
+    return render(request, 'squad.html', {'squad': squad, 'tribe_id': tribe_id, 'avatar_upload_error': avatar_upload_error})
 
 def entrar_squad(request, squad_slug, tribe_id):
     squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)

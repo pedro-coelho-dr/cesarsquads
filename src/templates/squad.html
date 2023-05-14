@@ -41,6 +41,11 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+                          {% if avatar_upload_error %}
+                              <div class="alert alert-danger mt-3" role="alert">
+                                  {{ avatar_upload_error }}
+                              </div>
+                          {% endif %}
                             <form method="POST" enctype="multipart/form-data" action="{% url 'detalhes_squad' squad_slug=squad.slug tribe_id=squad.tribe_id %}">
                                 {% csrf_token %}
                                 <div class="mb-3">
