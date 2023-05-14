@@ -142,12 +142,19 @@
                 <div class="card-body">
                   <div class="container">
                     <h3>Criar Squad</h3>
-                    <form action="/tribe/{{tribe.id}}/squad/" method="POST" class="d-flex justify-content-end">
+                    {% if messages %}
+                      <ul class="messages">
+                        {% for message in messages %}
+                          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                    <form action="/tribe/{{ tribe.id }}/squad/" method="POST" class="d-flex justify-content-end">
                       {% csrf_token %}
                       <br>
-                      <input type="hidden" name="tribe_id" value="{{tribe.id}}">
-                      <input class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Squad" required>
-                      <button class="btn btn-outline-success" type="submit">Criar</button>
+                      <input type="hidden" name="tribe_id" value="{{ tribe.id }}">
+                      <input id="criar-squad" class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Squad" required>
+                      <button id="criar-squad-button" class="btn btn-outline-success" type="submit">Criar</button>
                     </form>
                   </div>
                 </div>
@@ -163,11 +170,11 @@
                     <div class="card shadow-sm">
                       <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Imagem da Squad" preserveAspectRatio="xMidYMid slice" focusable="false">
                         <rect width="100%" height="100%" fill="#55595c"/>
-                        <text x="44%" y="50%" fill="#eceeef" dy=".3em">{{squad.name}}</text>
+                        <text id='nome-squad' x="44%" y="50%" fill="#eceeef" dy=".3em">{{squad.name}}</text>
                       </svg>
                       <div class="card-body" id="btnParticipate">
                         <button type="button" class="btn btn-dark btn-sm">
-                          <a class="no-underline" href="{% url 'entrar_squad' squad_slug=squad.slug tribe_id=squad.tribe.id %}">Participar da Squad</a>
+                          <a id='entrar-squad' class="no-underline" href="{% url 'entrar_squad' squad_slug=squad.slug tribe_id=squad.tribe.id %}">Participar da Squad</a>
                         </button>
                       </div>
                     </div>

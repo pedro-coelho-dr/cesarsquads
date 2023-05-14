@@ -10,7 +10,7 @@
   <div class="container py-5">
       <div class="row">
         <div class="col">
-          <button class="btn btn-dark btn-sm" onclick="goBack()">🠔 Voltar</button>
+          <button id="voltar" class="btn btn-dark btn-sm" onclick="goBack()">🠔 Voltar</button>
         </div>
       </div>
       <br/>
@@ -25,7 +25,7 @@
                 class="rounded-circle img-fluid" style="width: 150px;">
                 <p>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-sm btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
+              <button id='change-avatar' type="button" class="btn btn-sm btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#uploadModal">
                 Editar
               </button>
               <!---->
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Upload</button>
+                                    <button id='submit-avatar' type="submit" class="btn btn-primary">Upload</button>
                                 </div>
                             </form>
                         </div>
@@ -86,9 +86,9 @@
                 <p class="mb-0">Descrição:</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0 text-light">{{squad.bio}}
+                <p id='bio-squad' class="text-muted mb-0 text-light">{{squad.bio}}
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+              <button id='editar-bio-squad' type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 Editar
               </button>
               </p>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                <button id='salvar-bio-squad' type="submit" class="btn btn-primary">Salvar</button>
                             </div>
                         </form>
                     </div>
