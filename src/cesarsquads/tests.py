@@ -4,8 +4,6 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from time import sleep
-import pyautogui
-
 
 class TesteSelenium(LiveServerTestCase):
     # Set the path to your Chrome driver executable
@@ -27,12 +25,12 @@ class TesteSelenium(LiveServerTestCase):
     username_input.send_keys('selenium')
     password_input.send_keys('sele123456')
     submit_button.click()
-    sleep(1)
+    sleep(2)
 
     # Test the profile page
     profile_link = driver.find_element(By.ID, 'perfil')
     profile_link.click()
-    sleep(1)
+    sleep(2)
 
     # Verify that the user's information is displayed correctly
     username = driver.find_element(By.ID, 'username')
@@ -58,83 +56,88 @@ class TesteSelenium(LiveServerTestCase):
 
     if not acordeon.get_attribute("class").endswith("show"):
         botao_tribo.click()
-    sleep(1)
+    sleep(2)
     driver.find_element(By.ID, "entrar-tribo").click()
-    sleep(1)
+    sleep(2)
 
     # Enter a squad
     squad_desejada = "sele2"
-    card_squad = driver.find_elements(By.ID, "nome-squad")
-
-    card_desejado = None
-    for card in card_squad:
-        if card.text.strip() == squad_desejada:
-            card_desejado = driver.find_element(By.ID, "entrar-squad")
-            break
-
-    assert card_squad is not None, f"Botão da tribo '{squad_desejada}' não foi encontrado"
-
-    sleep(1)
-    card_desejado.click()
-    sleep(1)
+    squad_find = driver.find_element(By.ID, f"entrar-squad-{squad_desejada}").click()
+    sleep(2)
 
     #Back to tribe page
     driver.find_element(By.ID, "voltar").click()
     driver.refresh()
-    sleep(1)
+    sleep(2)
 
+    #Try to create a squad with a name that already exists
+    criar_squad = driver.find_element(By.ID, "criar-squad")
+    criar_squad.send_keys("sele3")
+    sleep(2)
+    driver.find_element(By.ID, "criar-squad-button").click()
+    sleep(2)
+    squad_existe = driver.find_element(By.ID, "squad-existe").text
+    assert squad_existe == "Já existe uma squad com este nome nesta tribo."
+    driver.refresh()
+    
     #Create a Squad
     criar_squad = driver.find_element(By.ID, "criar-squad")
-    criar_squad.send_keys("sele7")
-    sleep(1)
+    criar_squad.send_keys("sele4")
+    sleep(2)
     driver.find_element(By.ID, "criar-squad-button").click()
-    sleep(1)
+    sleep(2)
 
     #Change bio from a Squad
     nova_descricao = "Nova descrição da squad"
     driver.find_element(By.ID, "editar-bio-squad").click()
-    sleep(1)
+    sleep(2)
     descricao_input = driver.find_element(By.ID, "bio-text")
     descricao_input.clear()
     descricao_input.send_keys(nova_descricao)
     driver.find_element(By.ID, "salvar-bio-squad").click()
-    sleep(1)
+    sleep(2)
     descricao_atualizada = driver.find_element(By.ID, "bio-squad")
     assert descricao_atualizada != nova_descricao, "A descrição da squad foi atualizada corretamente"
 
     #Change avatar from a Squad
     change_avatar_button = driver.find_element(By.ID, "change-avatar")
     change_avatar_button.click()
-    sleep(1)
+    sleep(2)
     avatar_input = driver.find_element(By.ID, "avatar")
     avatar_input.send_keys("C:/Users/fcoan/OneDrive/Documentos/Meus Projetos/Cesar Squads/fdsproject/src/media/squad/Final.png")
-    sleep(1)
+    sleep(2)
     submit_avatar_button = driver.find_element(By.ID, "submit-avatar")
     submit_avatar_button.click()
     sleep(2)
     
     driver.find_element(By.ID, "perfil").click()
+    sleep(2)
     
     # Search tribe
-    tribo_desejada="teste"
-    card_tribo = driver.find_elements(By.ID, "tribe-name")
-    bota_tribo = None
-    for card in card_tribo:
-        if card.text.strip() == tribo_desejada:
-            botao_tribo = card
-            break
-    
-    assert card_tribo is not None, f"Botão da tribo '{tribo_desejada}' não foi encontrado"
-    
-    sleep(1)
-    bota_tribo.click()
-    sleep(1)
+    tribo_desejada = "teste"
+    search_input = driver.find_element(By.ID, "search-tribe")
+    search_input.send_keys(tribo_desejada)
+    sleep(2)
+    driver.find_element(By.ID, "search-button").click()
+    sleep(2)
+    link_tribo = driver.find_element(By.ID, f"enter-tribe-{tribo_desejada}")
+    link_tribo.click()
+    sleep(2)
     
     driver.find_element(By.ID, "perfil").click()
+    
+    # Try to create a tribe with a name that already exists
+    input_tribe_name = driver.find_element(By.ID, "name-tribe")
+    input_tribe_name.send_keys("Selenium3")
+    sleep(2)
+    create_tribe_button = driver.find_element(By.ID, "criar-tribo").click()
+    sleep(2)
+    assert driver.find_element(By.ID, "tribo-existe").text == "Esta tribo ja existe! Tente outro nome, ou procure a tribo na barra de pesquisa."
     
     # Create a tribe
     input_tribe_name = driver.find_element(By.ID, "name-tribe")
     input_tribe_name.send_keys("Selenium2")
+    sleep(2)
     create_tribe_button = driver.find_element(By.ID, "criar-tribo")
     create_tribe_button.click()
     sleep(2)
@@ -142,39 +145,30 @@ class TesteSelenium(LiveServerTestCase):
     #Change bio from a tribe
     nova_descricao = "Nova descrição da tribo"
     driver.find_element(By.ID, "editar-bio-tribo").click()
-    sleep(1)
+    sleep(2)
     descricao_input = driver.find_element(By.ID, "bio-text")
     descricao_input.clear()
     descricao_input.send_keys(nova_descricao)
     driver.find_element(By.ID, "salvar-bio-tribo").click()
-    sleep(1)
+    sleep(2)
     descricao_atualizada = driver.find_element(By.ID, "bio-tribo")
     assert descricao_atualizada != nova_descricao, "A descrição da tribo foi atualizada corretamente"
     
     #Change avatar from a Tribe
     change_avatar_button = driver.find_element(By.ID, "change-avatar")
     change_avatar_button.click()
-    sleep(1)
+    sleep(2)
     avatar_input = driver.find_element(By.ID, "avatar")
     avatar_input.send_keys("C:/Users/fcoan/OneDrive/Documentos/Meus Projetos/Cesar Squads/fdsproject/src/media/tribe/marca_cesar_school.webp")
-    sleep(1)
+    sleep(2)
     submit_avatar_button = driver.find_element(By.ID, "submit-avatar")
     submit_avatar_button.click()
     sleep(2)
     
     driver.find_element(By.ID, "perfil").click()
+    sleep(2)
     
-    #
+    driver.find_element(By.ID, "logout").click()
     
-
-    # Test the search functionality
-    # search_input = driver.find_element_by_name('tribe_search')
-    # search_input.send_keys('example')
-    # search_input.send_keys(Keys.ENTER)
-
-    # Verify that the search results are displayed correctly
-    # search_results = driver.find_elements_by_class_name('tribe-title')
-    #assert len(search_results) > 0
-
     # Close the browser
     driver.quit()

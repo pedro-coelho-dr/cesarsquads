@@ -96,7 +96,7 @@
           <div class="col-sm-9">
             <p id='bio-tribo' class="text-muted mb-0 text-light">{{tribe.bio}}
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+              <button id='editar-bio-tribo'type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                 Editar
               </button>
               </p>
@@ -108,8 +108,8 @@
                         <form method="post" id="bio-form">
                             {% csrf_token %}
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar</h1>
-                                <button id='editar-bio-tribo' type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h1 class="modal-title fs-5" >Confirmar</h1>
+                                <button id='confirmar-bio-tribo' typoe="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3">
@@ -152,7 +152,7 @@
                     {% if messages %}
                       <div class="alert alert-warning">
                         {% for message in messages %}
-                          <h6 class= '--bs-danger-text-emphasis'>{{ message }}</h6>
+                          <h6 id="squad-existe" class= '--bs-danger-text-emphasis'>{{ message }}</h6>
                         {% endfor %}
                       </div>
                     {% endif %}
@@ -174,7 +174,7 @@
                       </svg>
                       <div class="card-body" id="btnParticipate">
                         <button type="button" class="btn btn-dark btn-sm">
-                          <a id='entrar-squad' class="no-underline" href="{% url 'entrar_squad' squad_slug=squad.slug tribe_id=squad.tribe.id %}">Participar da Squad</a>
+                          <a id="entrar-squad-{{squad.slug}}" class="no-underline" href="{% url 'entrar_squad' squad_slug=squad.slug tribe_id=squad.tribe.id %}">Participar da Squad</a>
                         </button>
                       </div>
                     </div>

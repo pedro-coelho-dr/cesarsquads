@@ -50,7 +50,7 @@
         <div class="tribe-item-inner">
           <h3 id='tribe-name' class="tribe-title">{{ tribe.name }}</h3>
           <p class="tribe-description">{{ tribe.bio }}</p>
-          <a id="enter-tribe" href="{% url 'entrar_tribo' tribe_slug=tribe.slug %}" class="tribe-link">Entrar</a>
+          <a id="enter-tribe-{{tribe.slug}}" href="{% url 'entrar_tribo' tribe_slug=tribe.slug %}" class="tribe-link">Entrar</a>
         </div>
       </div>
     {% empty %}

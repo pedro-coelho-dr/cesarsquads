@@ -20,7 +20,7 @@ def create_tribe(request):
         form = TribeForm(request.POST)
         nome_tribo = form.data['name'] 
         if Tribe.objects.filter(name=nome_tribo).exists():
-            messages.error(request, 'Esta tribo ja existe! Tente outro nome.')
+            messages.error(request, 'Esta tribo ja existe! Tente outro nome, ou procure a tribo na barra de pesquisa.')
             profile_url = reverse('profile')  
             return redirect(profile_url)
         else: 
