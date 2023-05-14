@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserAuthenticationForm
 from django.http import HttpResponse
 from django.conf import settings
+from django.urls import reverse
 from PIL import Image
 import os
 
@@ -17,10 +18,16 @@ import os
 def create_tribe(request):
     if request.method == 'POST':
         form = TribeForm(request.POST)
-        if form.is_valid():
-            tribe = form.save()
-            tribe.members.add(request.user)
-            return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+        nome_tribo = form.data['name'] 
+        if Tribe.objects.filter(name=nome_tribo).exists():
+            messages.error(request, 'Esta tribo ja existe! Tente outro nome.')
+            profile_url = reverse('profile')  
+            return redirect(profile_url)
+        else: 
+            if form.is_valid():
+                tribe = form.save()
+                tribe.members.add(request.user)
+                return redirect('detalhes_tribo', tribe_slug=tribe.slug)
     else:
         form = TribeForm()
     return render(request, 'tribe.html', {'form': form})
@@ -84,14 +91,21 @@ def search_tribe(request):
 
 #SQUAD
 def create_squad(request, tribe_id):
+    tribe = get_object_or_404(Tribe, id=tribe_id)
     if request.method == 'POST':
         form = SquadForm(request.POST)
-        if form.is_valid():
-            squad = form.save(commit=False)
-            squad.tribe_id = tribe_id
-            squad.save()
-            squad.members.add(request.user)
-            return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
+        nome_squad = form.data['name']
+        if Squad.objects.filter(name=nome_squad, tribe_id=tribe_id).exists():
+            messages.error(request, 'Já existe uma squad com este nome nesta tribo.')
+            return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+        
+        else:
+            if form.is_valid():  
+                squad = form.save(commit=False)
+                squad.tribe_id = tribe_id
+                squad.save()
+                squad.members.add(request.user)
+                return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe.id)
     else:
         form = SquadForm()
     return render(request, 'squad.html', {'form': form})

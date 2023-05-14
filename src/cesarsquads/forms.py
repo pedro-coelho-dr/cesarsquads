@@ -11,21 +11,26 @@ from django.utils.text import slugify
 class TribeForm(forms.ModelForm):
     class Meta:
         model = Tribe
-        fields = ('name','bio', 'avatar')
-    
-    def clean_nome(self):
-        name = self.cleaned_data['name']
-        slug = slugify(name)
-        if Tribe.objects.filter(slug=slug).exists():
-            raise forms.ValidationError('Este nome já está em uso.')
-        return name
-    
+        fields = ('name', 'bio', 'avatar')
+
+    def clean(self):
+        cleaned_data = super().clean()
+        name = cleaned_data.get('name')
+        if name:
+            slug = slugify(name)
+            if Tribe.objects.filter(slug=slug).exists():
+                self.add_error('name', 'Este nome já está em uso.')
+        return cleaned_data
+
     def save(self, commit=True):
-        tribo = super(TribeForm, self).save(commit=False)
+        tribo = super().save(commit=False)
         tribo.slug = slugify(tribo.name)
         if commit:
             tribo.save()
         return tribo
+
+
+
 
 #SQUAD
 class SquadForm(forms.ModelForm):
@@ -33,15 +38,16 @@ class SquadForm(forms.ModelForm):
         model = Squad
         fields = ('name',)
         
-    def clean_nome(self):
-        name = self.cleaned_data['name']
+    def clean(self):
+        cleaned_data = super().clean()
+        name = cleaned_data.get('name')
         slug = slugify(name)
         if Squad.objects.filter(slug=slug).exists():
-            raise forms.ValidationError('Este nome já está em uso.')
-        return name
+            self.add_error('name', 'Este nome já está em uso.')
+        return cleaned_data
 
     def save(self, commit=True):
-        squad = super(SquadForm, self).save(commit=False)
+        squad = super().save(commit=False)
         squad.slug = slugify(squad.name)
         if commit:
             squad.save()

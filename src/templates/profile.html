@@ -97,12 +97,19 @@
                           <br>
                           <h6 class="d-flex justify-content-center" style="color:#000000; padding-right:40px">ou</h6>
                           <br>
-                        <form action="/tribe/" method="POST" class="d-flex justify-content-end">{% csrf_token %}
+                          <form action="{% url 'create_tribe' %}" method="POST" class="d-flex justify-content-end">
+                            {% csrf_token %}
                             <br>
                             <input class="form-control me-2" id="name-tribe" name="name" maxlength="100" type="text" placeholder="Nome da Tribo" required>
                             <button id='criar-tribo' class="btn btn-dark btn-sm" type="submit">Criar</button>
-                          </div>
-                        </form>
+                          </form>           
+                          {% if messages %}
+                            <div class="alert alert-warning">
+                                {% for message in messages %}
+                                  <h6 class= '--bs-danger-text-emphasis'>{{ message }}</h6>
+                                {% endfor %}
+                            </div>
+                          {% endif %}                                                            
                       </div>
                   </div>
                 </div>

@@ -4,6 +4,9 @@
 <script>
   function goBack() {
     window.history.back();
+    setTimeout(function() {
+      location.reload();
+    }, 2000);
   }
   </script>
   {% if user.is_authenticated %}
