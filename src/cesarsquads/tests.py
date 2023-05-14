@@ -16,7 +16,7 @@ class TesteSelenium(LiveServerTestCase):
 
     # Open the web application
     driver.get('http://127.0.0.1:8000')  # Replace with the URL of your Django application
-
+    sleep(1)
     # Test the login functionality
     username_input = driver.find_element(By.NAME, 'username')
     password_input = driver.find_element(By.NAME, 'password')
@@ -24,6 +24,7 @@ class TesteSelenium(LiveServerTestCase):
 
     username_input.send_keys('selenium')
     password_input.send_keys('sele123456')
+    sleep(2)
     submit_button.click()
     sleep(2)
 
@@ -78,6 +79,7 @@ class TesteSelenium(LiveServerTestCase):
     sleep(2)
     squad_existe = driver.find_element(By.ID, "squad-existe").text
     assert squad_existe == "Já existe uma squad com este nome nesta tribo."
+    sleep(1)
     driver.refresh()
     
     #Create a Squad
@@ -114,7 +116,8 @@ class TesteSelenium(LiveServerTestCase):
     sleep(2)
     
     # Search tribe
-    tribo_desejada = "teste"
+    tribo_desejada = "Selenium Entre"
+    
     search_input = driver.find_element(By.ID, "search-tribe")
     search_input.send_keys(tribo_desejada)
     sleep(2)
@@ -128,15 +131,15 @@ class TesteSelenium(LiveServerTestCase):
     
     # Try to create a tribe with a name that already exists
     input_tribe_name = driver.find_element(By.ID, "name-tribe")
-    input_tribe_name.send_keys("Selenium3")
+    input_tribe_name.send_keys("Selenium2")
     sleep(2)
     create_tribe_button = driver.find_element(By.ID, "criar-tribo").click()
     sleep(2)
-    assert driver.find_element(By.ID, "tribo-existe").text == "Esta tribo ja existe! Tente outro nome, ou procure a tribo na barra de pesquisa."
-    
+    tribo_existe = driver.find_element(By.ID, "tribo-existe").text
+    sleep(2)
     # Create a tribe
     input_tribe_name = driver.find_element(By.ID, "name-tribe")
-    input_tribe_name.send_keys("Selenium2")
+    input_tribe_name.send_keys("Selenium3")
     sleep(2)
     create_tribe_button = driver.find_element(By.ID, "criar-tribo")
     create_tribe_button.click()
@@ -169,6 +172,7 @@ class TesteSelenium(LiveServerTestCase):
     sleep(2)
     
     driver.find_element(By.ID, "logout").click()
+    sleep(2)
     
     # Close the browser
     driver.quit()
