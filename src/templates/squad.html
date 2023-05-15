@@ -74,7 +74,7 @@
                 <p class="mb-0">Nome da Squad:</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0 text-light">{{ squad.name }}</p>
+                <p id="nome-squad" class="text-muted mb-0 text-light">{{ squad.name }}</p>
               </div>
             </div>
             <hr>
@@ -94,12 +94,12 @@
                 <p class="mb-0">Descrição:</p>
               </div>
               <div class="col-sm-9">
-                <p id='bio-squad' class="text-muted mb-0 text-light">{{squad.bio}}
-              <!-- Button trigger modal -->
-              <button id='editar-bio-squad' type="button" class="btn btn-sm btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                Editar
-              </button>
-              </p>
+                <p id='bio-squad' class="text-muted mb-0 text-light d-inline-block">{{ squad.bio }}</p>
+                <!-- Button trigger modal -->
+                <button id='editar-bio-squad' type="button" class="btn btn-sm btn-dark ms-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                  Editar
+                </button>
+                
               <!-- Modal -->
               <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">

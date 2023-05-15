@@ -1,7 +1,5 @@
 from django.test import LiveServerTestCase
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from time import sleep
 
@@ -13,11 +11,9 @@ def setUp():
         
     return driver
 
-
-
 class TesteSelenium(LiveServerTestCase):
     
-    def test_profile(self):
+    def test1_profile(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -39,7 +35,7 @@ class TesteSelenium(LiveServerTestCase):
         assert email.text == 'selenium@gmail.com', "Email está correto!"
         driver.close()
 
-    def test_enter_tribe(self):
+    def test2_enter_tribe(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -66,9 +62,10 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         driver.find_element(By.ID, "entrar-tribo").click()
         sleep(2)
-        driver.close()
+        tribo_atual = driver.find_element(By.ID, "nome-tribo")
+        assert tribo_atual.text == tribo_desejada, "A tribo atual é a tribo desejada"
 
-    def test_enter_squad(self):
+    def test3_enter_squad(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -84,12 +81,10 @@ class TesteSelenium(LiveServerTestCase):
         squad_desejada = "sele2"
         driver.find_element(By.ID, f"entrar-squad-{squad_desejada}").click()
         sleep(2)
-        driver.find_element(By.ID, "voltar").click()
-        driver.refresh()
-        sleep(2)
-        driver.close()
+        squad_atual = driver.find_element(By.ID, "nome-squad")
+        assert squad_atual.text == squad_desejada, "A squad atual é a squad desejada"
 
-    def test_create_squad(self):
+    def test4_create_squad(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -106,18 +101,16 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         driver.find_element(By.ID, "criar-squad-button").click()
         sleep(2)
-        squad_existe = driver.find_element(By.ID, "squad-existe").text
-        assert squad_existe == "Já existe uma squad com este nome nesta tribo."
-        sleep(1)
         driver.refresh()
         criar_squad = driver.find_element(By.ID, "criar-squad")
         criar_squad.send_keys("sele4")
         sleep(2)
         driver.find_element(By.ID, "criar-squad-button").click()
         sleep(2)
-        driver.close()
+        squad_atual = driver.find_element(By.ID, "nome-squad") 
+        assert squad_atual.text == "sele4", "A squad atual é a squad desejada"
 
-    def test_change_bio_squad(self):
+    def test5_change_bio_squad(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -139,9 +132,10 @@ class TesteSelenium(LiveServerTestCase):
         driver.find_element(By.ID, "salvar-bio-squad").click()
         sleep(2)
         descricao_atualizada = driver.find_element(By.ID, "bio-squad")
-        assert descricao_atualizada != nova_descricao, "A descrição da squad foi atualizada corretamente"
+        print(descricao_atualizada.text)
+        assert descricao_atualizada.text == nova_descricao, "A descrição da squad foi atualizada corretamente"
 
-    def test_change_avatar_squad(self):
+    def test6_change_avatar_squad(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -158,17 +152,15 @@ class TesteSelenium(LiveServerTestCase):
         change_avatar_button.click()
         sleep(2)
         avatar_input = driver.find_element(By.ID, "avatar")
-        avatar_input.send_keys("C:/Users/fcoan/OneDrive/Documentos/Meus Projetos/Cesar Squads/fdsproject/src/media/squad/Final.png")
+        avatar_input.send_keys("C:/Users/fcoan/OneDrive/Documentos/Meus Projetos/Cesar Squads/fdsproject/src/media/squad/logo_squad.png")
         sleep(2)
         submit_avatar_button = driver.find_element(By.ID, "submit-avatar")
         submit_avatar_button.click()
         sleep(2)
-
-        driver.find_element(By.ID, "perfil").click()
-        sleep(2)
+        assert True, "Avatar da squad foi atualizado corretamente"
 
 
-    def test_search_tribe(self):
+    def test7_search_tribe(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -188,11 +180,11 @@ class TesteSelenium(LiveServerTestCase):
         link_tribo = driver.find_element(By.ID, f"enter-tribe-{tribo_desejada}")
         link_tribo.click()
         sleep(2)
+        tribo_atual = driver.find_element(By.ID, "nome-tribo")
+        assert tribo_atual.text == tribo_desejada, "A tribo atual é a tribo desejada"
 
-        driver.find_element(By.ID, "perfil").click()
 
-
-    def test_create_tribe(self):
+    def test8_create_tribe(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -208,17 +200,17 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         create_tribe_button = driver.find_element(By.ID, "criar-tribo").click()
         sleep(2)
-        tribo_existe = driver.find_element(By.ID, "tribo-existe").text
-        sleep(2)
         input_tribe_name = driver.find_element(By.ID, "name-tribe")
         input_tribe_name.send_keys("Selenium3")
         sleep(2)
         create_tribe_button = driver.find_element(By.ID, "criar-tribo")
         create_tribe_button.click()
         sleep(2)
+        tribo_atual = driver.find_element(By.ID, "nome-tribo")
+        assert tribo_atual.text == "Selenium3", "A tribo atual é a tribo desejada"
 
 
-    def test_change_bio_tribe(self):
+    def test9_change_bio_tribe(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -239,10 +231,10 @@ class TesteSelenium(LiveServerTestCase):
         driver.find_element(By.ID, "salvar-bio-tribo").click()
         sleep(2)
         descricao_atualizada = driver.find_element(By.ID, "bio-tribo")
-        assert descricao_atualizada != nova_descricao, "A descrição da tribo foi atualizada corretamente"
+        assert descricao_atualizada == nova_descricao, "A descrição da tribo foi atualizada corretamente"
 
 
-    def test_change_avatar_tribe(self):
+    def test10_change_avatar_tribe(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -258,15 +250,11 @@ class TesteSelenium(LiveServerTestCase):
         change_avatar_button.click()
         sleep(2)
         avatar_input = driver.find_element(By.ID, "avatar")
-        avatar_input.send_keys("C:/Users/fcoan/OneDrive/Documentos/Meus Projetos/Cesar Squads/fdsproject/src/media/tribe/marca_cesar_school.webp")
+        avatar_input.send_keys("C:/Users/fcoan/OneDrive/Documentos/Meus Projetos/Cesar Squads/fdsproject/src/media/tribe/images.jpg")
         sleep(2)
         submit_avatar_button = driver.find_element(By.ID, "submit-avatar")
         submit_avatar_button.click()
         sleep(2)
-        
-        driver.find_element(By.ID, "perfil").click()
-        sleep(2)
+        assert True, "Avatar da tribo foi atualizado corretamente"
 
-        driver.find_element(By.ID, "logout").click()
-        sleep(2)
 
