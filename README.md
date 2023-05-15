@@ -208,7 +208,13 @@ python manage.py runserver
 
     
 - Atualização sobre o uso da programação em pares:
-   {{ RELATO PROGRAMAÇÃO EM PARES }}
+   	Realizamos mais uma sprint trabalhando com pair programming e agora, optamos por ter pares fixos, onde cada dupla ficou responsável por uma história específica do projeto. Além disso, introduzimos uma nova ferramenta, a extensão [Live Share](https://visualstudio.microsoft.com/pt-br/services/live-share/), que facilitou a troca entre as funções dos pares.
+
+	Essas mudanças trouxeram benefícios excelentes para a nossa equipe. Ao optar pelos pares fixos, conseguimos desenvolver um entendimento mais profundo das histórias que estávamos trabalhando, e isso permitiu cada dupla tornar-se 'especialista' na sua história, o que resultou em uma maior produtividade e melhor qualidade do código produzido.
+
+	A utilização da extensão [Live Share](https://visualstudio.microsoft.com/pt-br/services/live-share/) também foi um passo importante. Com essa ferramenta, pudemos compartilhar facilmente nossos ambientes de desenvolvimento, permitindo que os pares trabalhassem em conjunto de maneira mais fluida. Foi possível alternar entre as funções de piloto e copiloto, possibilitando que ambos os membros da dupla contribuíssem efetivamente no processo de codificação. Embora ainda tenhamos enfrentado alguns desafios de comunicação e coordenação entre as duplas, eles foram minimizados em comparação a abordagem anterior de pares alternados. 
+
+	No geral, essa nova forma de trabalhar em grupo através do pair programming, com pares fixos e a utilização da extensão Live Share, mostrou-se mais produtiva e eficiente. Essa experiência desenvolveu mais a nossa habilidade de colaboração e nos aproximou dos objetivos finais do projeto.
 
 ---
 
