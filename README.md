@@ -183,17 +183,17 @@ python manage.py runserver
  - Deploy:
     [Youtube](https://youtu.be/DUQ1nYiun9o)
 
-    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/DUQ1nYiun9o/0.jpg)](https://youtu.be/DUQ1nYiun9o)
+    [![https://youtu.be/DUQ1nYiun9o](https://img.youtube.com/vi/DUQ1nYiun9o/0.jpg)](https://youtu.be/DUQ1nYiun9o)
   
  - Teste de Sistema:
     [Youtube](https://youtu.be/pONzDeGGR9A)
 
-    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/pONzDeGGR9A/0.jpg)](https://youtu.be/pONzDeGGR9A)
+    [![https://youtu.be/pONzDeGGR9A](https://img.youtube.com/vi/pONzDeGGR9A/0.jpg)](https://youtu.be/pONzDeGGR9A)
   
  - Protótipo Lo-fi: 
      [Youtube](https://youtu.be/Yx6NKMHzndc)
 
-    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/Yx6NKMHzndc/0.jpg)](https://youtu.be/Yx6NKMHzndc)
+    [![https://youtu.be/Yx6NKMHzndc](https://img.youtube.com/vi/Yx6NKMHzndc/0.jpg)](https://youtu.be/Yx6NKMHzndc)
   
   [FIGMA](https://www.figma.com/file/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?type=design&node-id=0%3A1&t=c8ICu2C5opbhbi4f-1)
     
