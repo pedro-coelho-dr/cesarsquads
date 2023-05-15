@@ -205,6 +205,8 @@ python manage.py runserver
 
 ![quadro_entrega3](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/f9f1c1d3-3bc6-4c2d-bcae-1320f922f9a0)
 
+  **[Jira](https://projetofds.atlassian.net/jira/software/projects/SQUAD/boards/2/backlog)** 
+
 - Issue/bug tracker:
 
  ![github_issues_bug_tracker_entrega3](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/2aaca34f-f71c-4167-942e-53aa4bc6f277)
