@@ -157,7 +157,7 @@ python manage.py runserver
 15/05
   
   - Acesso ao App em produção:
-    [cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com)](http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/)
+    [cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com](http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/)
     
     Instruções:
     ```
@@ -186,13 +186,16 @@ python manage.py runserver
     [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/DUQ1nYiun9o/0.jpg)](https://youtu.be/DUQ1nYiun9o)
   
  - Teste de Sistema:
-    [Youtube](https://youtu.be/SnuYZ8s_vmM)
+    [Youtube](https://youtu.be/pONzDeGGR9A)
 
-    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/SnuYZ8s_vmM/0.jpg)](https://youtu.be/SnuYZ8s_vmM)
+    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/pONzDeGGR9A/0.jpg)](https://youtu.be/pONzDeGGR9A)
   
  - Protótipo Lo-fi: 
-  {{ SCREENCAST DO PROTOTIPO LOFI! }}
-  {{!!!!!!!!!!!!!link para o figma!!!!!!!!!!!!!!!!}
+     [Youtube](https://youtu.be/Yx6NKMHzndc)
+
+    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/Yx6NKMHzndc/0.jpg)](https://youtu.be/Yx6NKMHzndc)
+  
+  [FIGMA](https://www.figma.com/file/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?type=design&node-id=0%3A1&t=c8ICu2C5opbhbi4f-1)
     
 - Diagrama de atividades do sistema
 
