@@ -121,7 +121,7 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         submit_button.click()
         sleep(2)
-        driver.get("http://127.0.0.1:8000/tribe/4/squad/sele3/")
+        driver.get("http://127.0.0.1:8000/tribe/4/squad/sele1/")
         sleep(1)
         nova_descricao = "Nova descrição da squad"
         driver.find_element(By.ID, "editar-bio-squad").click()
@@ -132,7 +132,6 @@ class TesteSelenium(LiveServerTestCase):
         driver.find_element(By.ID, "salvar-bio-squad").click()
         sleep(2)
         descricao_atualizada = driver.find_element(By.ID, "bio-squad")
-        print(descricao_atualizada.text)
         assert descricao_atualizada.text == nova_descricao, "A descrição da squad foi atualizada corretamente"
 
     def test6_change_avatar_squad(self):
@@ -146,7 +145,7 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         submit_button.click()
         sleep(2)
-        driver.get("http://127.0.0.1:8000/tribe/4/squad/sele3/")
+        driver.get("http://127.0.0.1:8000/tribe/4/squad/sele1/")
         sleep(1)
         change_avatar_button = driver.find_element(By.ID, "change-avatar")
         change_avatar_button.click()
@@ -221,7 +220,7 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         submit_button.click()
         sleep(2)
-        driver.get("http://127.0.0.1:8000/tribe/selenium2/")
+        driver.get("http://127.0.0.1:8000/tribe/selenium1/")
         nova_descricao = "Nova descrição da tribo"
         driver.find_element(By.ID, "editar-bio-tribo").click()
         sleep(2)
@@ -231,7 +230,7 @@ class TesteSelenium(LiveServerTestCase):
         driver.find_element(By.ID, "salvar-bio-tribo").click()
         sleep(2)
         descricao_atualizada = driver.find_element(By.ID, "bio-tribo")
-        assert descricao_atualizada == nova_descricao, "A descrição da tribo foi atualizada corretamente"
+        assert descricao_atualizada.text == nova_descricao, "A descrição da tribo foi atualizada corretamente"
 
 
     def test10_change_avatar_tribe(self):
@@ -245,7 +244,7 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         submit_button.click()
         sleep(2)
-        driver.get("http://127.0.0.1:8000/tribe/selenium2/")
+        driver.get("http://127.0.0.1:8000/tribe/selenium1/")
         change_avatar_button = driver.find_element(By.ID, "change-avatar")
         change_avatar_button.click()
         sleep(2)
