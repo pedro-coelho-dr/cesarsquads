@@ -157,7 +157,7 @@ python manage.py runserver
 15/05
   
   - Acesso ao App em produção:
-    [cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com)](http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/)
+    [cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com](http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/)
     
     Instruções:
     ```
@@ -183,16 +183,19 @@ python manage.py runserver
  - Deploy:
     [Youtube](https://youtu.be/DUQ1nYiun9o)
 
-    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/DUQ1nYiun9o/0.jpg)](https://youtu.be/DUQ1nYiun9o)
+    [![https://youtu.be/DUQ1nYiun9o](https://img.youtube.com/vi/DUQ1nYiun9o/0.jpg)](https://youtu.be/DUQ1nYiun9o)
   
  - Teste de Sistema:
-    [Youtube](https://youtu.be/SnuYZ8s_vmM)
+    [Youtube](https://youtu.be/pONzDeGGR9A)
 
-    [![https://youtu.be/tzg8IfKUan8](https://img.youtube.com/vi/SnuYZ8s_vmM/0.jpg)](https://youtu.be/SnuYZ8s_vmM)
+    [![https://youtu.be/pONzDeGGR9A](https://img.youtube.com/vi/pONzDeGGR9A/0.jpg)](https://youtu.be/pONzDeGGR9A)
   
  - Protótipo Lo-fi: 
-  {{ SCREENCAST DO PROTOTIPO LOFI! }}
-  {{!!!!!!!!!!!!!link para o figma!!!!!!!!!!!!!!!!}
+     [Youtube](https://youtu.be/Yx6NKMHzndc)
+
+    [![https://youtu.be/Yx6NKMHzndc](https://img.youtube.com/vi/Yx6NKMHzndc/0.jpg)](https://youtu.be/Yx6NKMHzndc)
+  
+  [FIGMA](https://www.figma.com/file/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?type=design&node-id=0%3A1&t=c8ICu2C5opbhbi4f-1)
     
 - Diagrama de atividades do sistema
 
@@ -201,6 +204,8 @@ python manage.py runserver
 - Quadro da Sprint:
 
 ![quadro_entrega3](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/f9f1c1d3-3bc6-4c2d-bcae-1320f922f9a0)
+
+  **[Jira](https://projetofds.atlassian.net/jira/software/projects/SQUAD/boards/2/backlog)** 
 
 - Issue/bug tracker:
 
