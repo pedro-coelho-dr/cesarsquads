@@ -109,7 +109,7 @@ python manage.py runserver
 
   
   - Acesso ao App em produção:
-    http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/
+    http://cesarsquads3-env.eba-shdehrq2.us-east-2.elasticbeanstalk.com/
     
     Instruções:
     ```
@@ -157,7 +157,7 @@ python manage.py runserver
 15/05
   
   - Acesso ao App em produção:
-    [cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com](http://cesarsquads-env.eba-3ghckqxt.us-east-2.elasticbeanstalk.com/)
+    http://cesarsquads3-env.eba-shdehrq2.us-east-2.elasticbeanstalk.com/
     
     Instruções:
     ```
