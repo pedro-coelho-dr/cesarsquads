@@ -5,12 +5,8 @@ from time import sleep
 
 def setUp():
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--incognito")
     driver = webdriver.Chrome(options=chrome_options)
-
-        
     return driver
 
 class TesteSelenium(LiveServerTestCase):
@@ -110,7 +106,7 @@ class TesteSelenium(LiveServerTestCase):
         driver.find_element(By.ID, "criar-squad-button").click()
         sleep(2)
         squad_atual = driver.find_element(By.ID, "nome-squad") 
-        assert squad_atual.text == "sele4", "A squad atual é a squad desejada"
+        assert squad_atual.text == "sele4"
 
     def test5_change_bio_squad(self):
         driver = setUp()
