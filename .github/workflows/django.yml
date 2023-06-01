@@ -34,6 +34,6 @@ jobs:
         chromedriver --url-base=/wd/hub &
     - name: Run local Server
       run: |
-        python manage.py runserver &
+        python src/manage.py runserver &
         sleep 5
-        python manage.py test
+        python src/manage.py test
