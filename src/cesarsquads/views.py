@@ -183,6 +183,41 @@ def index(request):
 
 @login_required(login_url='login/')
 def profile(request):
+    if request.method == 'POST':
+        if 'avatar' in request.FILES:
+            avatar = request.FILES['avatar']
+
+            avatar_upload_error = None
+            
+            if not avatar.name.lower().endswith(('.jpg', '.jpeg', '.png')):
+                avatar_upload_error = 'Tipo de arquivo inválido. Por favor, faça o upload de um arquivo JPG, JPEG ou PNG.'
+            
+            elif avatar.size > 5 * 1024 * 1024:
+                avatar_upload_error = 'O tamanho do arquivo excede o limite de 5MB.'
+            
+            if not avatar_upload_error:
+                try:
+                    image = Image.open(avatar)
+                    image = image.convert('RGB')
+                    max_size = (500, 500)
+                    image.thumbnail(max_size)
+                    
+                    original_path, original_filename = os.path.split(avatar.name)
+                    resized_avatar_filename = f"{request.user.username}_resized.jpg"
+                    resized_avatar_path = os.path.join('profile_images', resized_avatar_filename)
+                    resized_avatar_full_path = os.path.join(settings.MEDIA_ROOT, resized_avatar_path)
+                    image.save(resized_avatar_full_path, optimize=True, quality=95)
+                    
+                    request.user.profile.avatar.name = resized_avatar_path
+                    request.user.profile.save()
+                except (OSError, ValidationError):
+                    avatar_upload_error = 'Erro ao processar o arquivo de imagem.'
+            
+            if avatar_upload_error:
+                messages.error(request, avatar_upload_error)
+            else:
+                messages.success(request, 'Seu avatar foi atualizado!')
+
     list_tribe= Tribe.all()
     return render(request,'profile.html', {"list_tribe": list_tribe})
 
@@ -215,3 +250,4 @@ def Login(request):
             messages.info(request, f'Usuário ou senha inválido!')
     form = UserAuthenticationForm()
     return render(request, 'registration/login.html', {'form':form, 'title':'Login'})
+
