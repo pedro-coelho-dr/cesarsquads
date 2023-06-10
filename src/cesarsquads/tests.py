@@ -29,7 +29,7 @@ class TesteSelenium(LiveServerTestCase):
         submit_button.click()
         sleep(2)
         profile_link = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.ID, 'perfil'))
+            EC.element_to_be_clickable((By.ID, 'perfil'))
         )
         profile_link.click()
         sleep(2)
@@ -53,7 +53,7 @@ class TesteSelenium(LiveServerTestCase):
         submit_button.click()
         sleep(2)
         tribo_desejada = "selenium1"
-        botoes_acordeao = driver.find_element(By.ID, f"botao-accordion-{tribo_desejada}")
+        botoes_acordeao = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, f"botao-accordion-{tribo_desejada}")))
         driver.execute_script("arguments[0].scrollIntoView();", botoes_acordeao)
         sleep(1)
         botoes_acordeao.click()
