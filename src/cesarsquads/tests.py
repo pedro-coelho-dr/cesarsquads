@@ -3,11 +3,13 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 
-def setUp():
+def set_up():
     chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument("--incognito")
-    chrome_options.add_argument("--headless")
+    chrome_options.add_argument('--icognito')
+    chrome_options.add_argument('--headless')
     driver = webdriver.Chrome(options=chrome_options)
+    driver.maximize_window()
+
     return driver
 
 class TesteSelenium(LiveServerTestCase):
