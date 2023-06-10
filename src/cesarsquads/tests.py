@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
 
-def set_up():
+def setUp():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--icognito')
     chrome_options.add_argument('--headless')
