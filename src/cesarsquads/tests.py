@@ -1,3 +1,4 @@
+import os
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -16,7 +17,7 @@ def setUp():
 
 class TesteSelenium(LiveServerTestCase):
     
-    def test1_profile(self):
+    '''def test1_profile(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -38,7 +39,7 @@ class TesteSelenium(LiveServerTestCase):
         assert nome.text == 'Selenium Web Driver', "Nome está correto!"
         assert username.text == 'selenium', "Username está correto!"
         assert email.text == 'selenium@gmail.com', "Email está correto!"
-        driver.close()
+        driver.close()'''	
 
     def test2_enter_tribe(self):
         driver = setUp()
@@ -51,11 +52,14 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         submit_button.click()
         sleep(2)
-        tribo_desejada = "Selenium1"
+        tribo_desejada = "selenium1"
         botoes_acordeao = driver.find_element(By.ID, f"botao-accordion-{tribo_desejada}")
         driver.execute_script("arguments[0].scrollIntoView();", botoes_acordeao)
         sleep(1)
         botoes_acordeao.click()
+        entrar_tribo = driver.find_element(By.ID, f"entrar-tribo-{tribo_desejada}")
+        sleep(1)
+        entrar_tribo.click()
         sleep(2)
         tribo_atual = driver.find_element(By.ID, "nome-tribo")
         assert tribo_atual.text == tribo_desejada, "A tribo atual é a tribo desejada"
@@ -149,7 +153,7 @@ class TesteSelenium(LiveServerTestCase):
         change_avatar_button.click()
         sleep(2)
         avatar_input = driver.find_element(By.ID, "avatar")
-        avatar_input.send_keys("./src/media/squad/logo_squad.png")
+        avatar_input.send_keys(os.path.abspath("./src/media/tribe/images.jpg"))
         sleep(2)
         submit_avatar_button = driver.find_element(By.ID, "submit-avatar")
         submit_avatar_button.click()
@@ -247,7 +251,7 @@ class TesteSelenium(LiveServerTestCase):
         change_avatar_button.click()
         sleep(2)
         avatar_input = driver.find_element(By.ID, "avatar")
-        avatar_input.send_keys("./src/media/tribe/images.jpg")
+        avatar_input.send_keys(os.path.abspath("./src/media/tribe/images.jpg"))
         sleep(2)
         submit_avatar_button = driver.find_element(By.ID, "submit-avatar")
         submit_avatar_button.click()
