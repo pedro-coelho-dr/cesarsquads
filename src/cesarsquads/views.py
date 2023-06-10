@@ -176,6 +176,41 @@ def entrar_squad(request, squad_slug, tribe_id):
     squad.members.add(request.user)
     return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=squad.tribe.id)
 
+class User:
+    def __init__(self, name):
+        self.name = name
+
+    def __str__(self):
+        return self.name
+    
+@login_required(login_url='login/')
+def add_user_to_squad(request, squad_slug, tribe_id):
+    squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
+    
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        try:
+            user = User.objects.get(username=username)
+            squad.members.add(user)
+        except User.DoesNotExist:
+            messages.error(request, 'Usuário não encontrado.')
+        
+    return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
+
+@login_required(login_url='login/')
+def remove_user_from_squad(request, squad_slug, tribe_id):
+    squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
+    
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        try:
+            user = User.objects.get(id=user_id)
+            squad.members.remove(user)
+        except User.DoesNotExist:
+            messages.error(request, 'Usuário não encontrado.')
+        
+    return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
+
 #----
 
 def index(request):

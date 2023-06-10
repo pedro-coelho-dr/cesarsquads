@@ -136,8 +136,29 @@
                 <h2 class="text-center">Integrantes</h2>
                 <div class="card-body">
                   <div class="row">
+                    <h4>Adicionar Usuário</h4>
+                    <form method="POST" action="">
+                      {% csrf_token %}
+                      <input type="text" name="username" placeholder="Nome de usuário" class="form-control me-2" required>
+                      <br/>
+                      <button type="submit" class="btn btn-outline-success">Adicionar</button>
+                    </form>
+                    <p></p> <!-- Apenas para quebra de linha -->
+                    <h4>Remover Usuário</h4>
+                    <form method="POST" action="">
+                      {% csrf_token %}
+                      <select name="user_id" required>
+                        {% for member in squad.members.all %}
+                          <option value="{{ member.id }}">{{ member.username }}</option>
+                        {% endfor %}
+                      </select>
+                      <br/>
+                      <br/>
+                      <button type="submit" class="btn btn-outline-success">Remover</button>
+                    </form>
                     {% for member in squad.members.all %}
                       <div class="col-md-3">
+                        <br/>
                           <img src="{{ member.profile.avatar.url }}"
                                alt="avatar"
                                class="card-img-top rounded-circle"
