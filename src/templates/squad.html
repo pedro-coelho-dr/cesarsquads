@@ -137,7 +137,7 @@
                 <div class="card-body">
                   <div class="row">
                     <h4>Adicionar Usuário</h4>
-                    <form method="POST" action="">
+                    <form method="POST" action="{% url 'add_user_to_squad' squad_slug=squad.slug tribe_id=tribe_id %}">
                       {% csrf_token %}
                       <input type="text" name="username" placeholder="Nome de usuário" class="form-control me-2" required>
                       <br/>
@@ -145,7 +145,7 @@
                     </form>
                     <p></p> <!-- Apenas para quebra de linha -->
                     <h4>Remover Usuário</h4>
-                    <form method="POST" action="">
+                    <form method="POST" action="{% url 'remove_user_from_squad' squad_slug=squad.slug tribe_id=tribe_id %}">
                       {% csrf_token %}
                       <select name="user_id" required>
                         {% for member in squad.members.all %}

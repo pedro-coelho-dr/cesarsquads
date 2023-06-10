@@ -2,9 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from .forms import ProfileForm, TribeForm, SquadForm
 from .models import Tribe, Squad, Profile
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm, UserAuthenticationForm
+from .forms import UserRegisterForm, UserAuthenticationForm, UserSearchForm
 from django.core.exceptions import ValidationError
 from django.http import HttpResponse
 from django.conf import settings
@@ -186,29 +186,38 @@ class User:
 @login_required(login_url='login/')
 def add_user_to_squad(request, squad_slug, tribe_id):
     squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
+    User = get_user_model()
     
     if request.method == 'POST':
-        username = request.POST.get('username')
-        try:
+        form = UserSearchForm(request.POST)
+        username = form.data['username']
+        if User.objects.filter(username=username).exists():
             user = User.objects.get(username=username)
             squad.members.add(user)
-        except User.DoesNotExist:
+            
+            # Verificar se o usuário já é membro da tribo
+            if not squad.tribe.members.filter(id=user.id).exists():
+                squad.tribe.members.add(user)
+        else:
             messages.error(request, 'Usuário não encontrado.')
         
     return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
 
+
 @login_required(login_url='login/')
 def remove_user_from_squad(request, squad_slug, tribe_id):
     squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
-    
+
     if request.method == 'POST':
-        user_id = request.POST.get('user_id')
-        try:
-            user = User.objects.get(id=user_id)
-            squad.members.remove(user)
-        except User.DoesNotExist:
+        form = UserSearchForm(request.POST)
+        user_id = form.data['user_id']
+        CustomUser = get_user_model()
+        if CustomUser.objects.filter(id=user_id).exists():
+            user = CustomUser.objects.get(id=user_id)
+            squad.members.remove(user)  # Usando remove() para remover o usuário da squad
+        else:
             messages.error(request, 'Usuário não encontrado.')
-        
+
     return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
 
 #----
