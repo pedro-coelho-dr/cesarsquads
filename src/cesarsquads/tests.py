@@ -53,6 +53,12 @@ class TesteSelenium(LiveServerTestCase):
         submit_button.click()
         sleep(2)
         tribo_desejada = "selenium1"
+        botoes_accordion = driver.find_elements(By.CLASS_NAME, "accordion-button")
+        driver.execute_script("arguments[0].scrollIntoView();", entrar_tribo)
+        for botao in botoes_accordion:
+            if botao.text == "Selenium1":
+                botao.click()
+                break
         entrar_tribo = driver.find_element(By.ID, f"entrar-tribo-{tribo_desejada}")
         driver.execute_script("arguments[0].scrollIntoView();", entrar_tribo)
         sleep(1)
