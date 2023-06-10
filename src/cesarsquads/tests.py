@@ -2,6 +2,8 @@ from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from time import sleep
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 def setUp():
     chrome_options = webdriver.ChromeOptions()
@@ -25,7 +27,9 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         submit_button.click()
         sleep(2)
-        profile_link = driver.find_element(By.ID, 'perfil')
+        profile_link = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.ID, 'perfil'))
+        )
         profile_link.click()
         sleep(2)
         username = driver.find_element(By.ID, 'username')
@@ -48,20 +52,10 @@ class TesteSelenium(LiveServerTestCase):
         submit_button.click()
         sleep(2)
         tribo_desejada = "Selenium1"
-        botoes_acordeao = driver.find_elements(By.CLASS_NAME, "accordion-button")
-
-        botao_tribo = None
-        for botao in botoes_acordeao:
-            if botao.text.strip() == tribo_desejada:
-                botao_tribo = botao
-                break
-            
-        acordeon = botao_tribo.find_element(By.XPATH, "../..")
-
-        if not acordeon.get_attribute("class").endswith("show"):
-            botao_tribo.click()
-        sleep(2)
-        driver.find_element(By.ID, "entrar-tribo").click()
+        botoes_acordeao = driver.find_element(By.ID, f"botao-accordion-{tribo_desejada}")
+        driver.execute_script("arguments[0].scrollIntoView();", botoes_acordeao)
+        sleep(1)
+        botoes_acordeao.click()
         sleep(2)
         tribo_atual = driver.find_element(By.ID, "nome-tribo")
         assert tribo_atual.text == tribo_desejada, "A tribo atual é a tribo desejada"
@@ -80,7 +74,10 @@ class TesteSelenium(LiveServerTestCase):
         driver.get("http://127.0.0.1:8000/tribe/selenium1")
         sleep(2)
         squad_desejada = "sele2"
-        driver.find_element(By.ID, f"entrar-squad-{squad_desejada}").click()
+        element = driver.find_element(By.ID, f"entrar-squad-{squad_desejada}")
+        driver.execute_script("arguments[0].scrollIntoView();", element)
+        sleep(1)
+        element.click()
         sleep(2)
         squad_atual = driver.find_element(By.ID, "nome-squad")
         assert squad_atual.text == squad_desejada, "A squad atual é a squad desejada"
