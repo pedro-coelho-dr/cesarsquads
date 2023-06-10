@@ -109,11 +109,13 @@
                             {{ tribe.name }}
                           </button>    
                         </h2>
-                        <div id="collapseOne{{ forloop.counter }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div id="collapseOne{{ forloop.counter }}" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                           <div class="accordion-body">
                             <p>{{tribe.bio}}</p> 
                             <br/>
-                            <a id="entrar-tribo-{{tribe.slug}}" class="btn btn-dark px-5" href={% url 'entrar_tribo' tribe_slug=tribe.slug %}>Acessar</a> 
+                            <button type="button" class="btn btn-dark btn-sm">
+                            <a id="entrar-tribo-{{tribe.slug}}" class="btn btn-dark px-5" href={% url 'entrar_tribo' tribe_slug=tribe.slug %}>Acessar</a>
+                            </button>
                           </div>
                         </div>
                       </div>
