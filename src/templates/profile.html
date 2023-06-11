@@ -113,8 +113,8 @@
                           <div class="accordion-body">
                             <p>{{tribe.bio}}</p> 
                             <br/>
-                            <button type="button" class="btn btn-dark btn-sm">
-                            <a id="entrar-tribo-{{tribe.slug}}" class="btn btn-dark px-5" href={% url 'entrar_tribo' tribe_slug=tribe.slug %}>Acessar</a>
+                            <button id="entrar-tribo-{{tribe.slug}}" class="btn btn-dark btn-sm" onclick="window.location.href='{% url 'entrar_tribo' tribe_slug=tribe.slug %}'">
+                              Acessar
                             </button>
                           </div>
                         </div>
