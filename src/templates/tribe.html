@@ -154,6 +154,31 @@
                       <input id="criar-squad" class="form-control me-2" id="name" name="name" maxlength="100" type="text" placeholder="Nome da Squad" required>
                       <button id="criar-squad-button" class="btn btn-outline-success" type="submit">Criar</button>
                     </form>
+                    
+                    <!-- Add User to Tribe -->
+                    <div class="container mt-4">
+                      <h3>Adicionar Usuário à Tribo</h3>
+                      <form method="POST" action="{% url 'add_user_to_tribe' tribe_slug=tribe.slug %}" class="d-flex">
+                          {% csrf_token %}
+                          <input type="text" name="username" placeholder="Nome de usuário" class="form-control me-2" required>
+                          <button type="submit" class="btn btn-outline-success">Adicionar</button>
+                      </form>
+                    </div>
+
+                    <!-- Remove User from Tribe -->
+                    <div class="container mt-4">
+                      <h3>Remover Usuário da Tribo</h3>
+                      <form method="POST" action="{% url 'remove_user_from_tribe' tribe_slug=tribe.slug %}" class="d-flex">
+                          {% csrf_token %}
+                          <select name="user_id" class="form-control me-2" required>
+                              {% for member in tribe.members.all %}
+                                  <option value="{{ member.id }}">{{ member.username }}</option>
+                              {% endfor %}
+                          </select>
+                          <button type="submit" class="btn btn-outline-danger">Remover</button>
+                      </form>
+                    </div>
+
                     {% if messages %}
                       <div class="alert alert-warning">
                         {% for message in messages %}

@@ -5,6 +5,7 @@ from .models import Tribe, Squad, Profile
 from django.contrib.auth import authenticate, login, get_user_model
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserAuthenticationForm, UserSearchForm
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.exceptions import ValidationError
 from django.http import HttpResponse
 from django.conf import settings
@@ -104,6 +105,46 @@ def search_tribe(request):
     tribes = Tribe.objects.filter(name__icontains=query)
     return render(request, 'search_tribe.html', {'tribes': tribes})
 
+
+
+
+
+@login_required(login_url='login/')
+def add_user_to_tribe(request, tribe_slug):
+    tribe = get_object_or_404(Tribe, slug=tribe_slug)
+    User = get_user_model()
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        try:
+            user = User.objects.get(username=username)
+            tribe.members.add(user)
+        except User.DoesNotExist:
+            messages.error(request, 'Usuário não encontrado.')
+
+    return redirect('detalhes_tribo', tribe_slug=tribe.slug)
+
+
+@login_required(login_url='login/')
+def remove_user_from_tribe(request, tribe_slug):
+    tribe = get_object_or_404(Tribe, slug=tribe_slug)
+    User = get_user_model()
+
+    if request.method == 'POST':
+        form = UserSearchForm(request.POST)
+        user_id = form.data['user_id']
+        if User.objects.filter(id=user_id).exists():
+            user = User.objects.get(id=user_id)
+
+            for squad in tribe.squad_set.all():
+                if user in squad.members.all():
+                    squad.members.remove(user)
+
+            tribe.members.remove(user)
+        else:
+            messages.error(request, 'Usuário não encontrado.')
+
+    return redirect('detalhes_tribo', tribe_slug=tribe.slug)
 
 
 
