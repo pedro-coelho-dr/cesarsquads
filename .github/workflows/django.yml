@@ -63,6 +63,14 @@ jobs:
         cd src
         sleep 2
         zip -r deploy.zip . -x '*.git*'
+    
+    - name: Get Last Version
+      id: get_last_version
+      run: |
+          last_version=$(grep -oP '(?<=version_label: )[\d.-]+' django.yml)
+          echo "::set-output name=version::$(echo $last_version | awk -F. -v OFS=. '{$NF++;print}')"
+      
+      
       
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v20
@@ -71,6 +79,6 @@ jobs:
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         application_name: Cesar Squads
         environment_name: CesarSquads-env
-        version_label: 1.0-2
+        version_label: ${{ steps.get_last_version.outputs.version }}
         region: "us-east-2"
         deployment_package:  src/deploy.zip
