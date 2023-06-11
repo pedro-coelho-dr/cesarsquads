@@ -71,6 +71,6 @@ jobs:
   #      aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
   #      application_name: 
   #      environment_name: 
-  #      version_label: 12348
+  #      version_label: ${{ steps.version.outputs.version_label }}
   #      region: "sa-east-1"
   #      deployment_package:  src/deploy.zip
