@@ -260,7 +260,7 @@ def profile(request):
             if avatar_upload_error:
                 messages.error(request, avatar_upload_error)
             else:
-                messages.success(request, 'Seu avatar foi atualizado!')
+                messages.success(request, 'Seu avatar foi atualizado!', extra_tags='avatar_updated')
 
     list_tribe= Tribe.all()
     return render(request,'profile.html', {"list_tribe": list_tribe})
