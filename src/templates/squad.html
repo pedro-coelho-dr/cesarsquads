@@ -136,14 +136,35 @@
                 <h2 class="text-center">Integrantes</h2>
                 <div class="card-body">
                   <div class="row">
+                    <h4>Adicionar Usuário</h4>
+                    <form method="POST" action="{% url 'add_user_to_squad' squad_slug=squad.slug tribe_id=tribe_id %}">
+                      {% csrf_token %}
+                      <input id="nome-usuario" type="text" name="username" placeholder="Nome de usuário" class="form-control me-2" required>
+                      <br/>
+                      <button id="adicionar-usuario" type="submit" class="btn btn-outline-success">Adicionar</button>
+                    </form>
+                    <p></p> <!-- Apenas para quebra de linha -->
+                    <h4>Remover Usuário</h4>
+                    <form method="POST" action="{% url 'remove_user_from_squad' squad_slug=squad.slug tribe_id=tribe_id %}">
+                      {% csrf_token %}
+                      <select name="user_id" required>
+                        {% for member in squad.members.all %}
+                          <option value="{{ member.id }}">{{ member.username }}</option>
+                        {% endfor %}
+                      </select>
+                      <br/>
+                      <br/>
+                      <button id="remover" type="submit" class="btn btn-outline-success">Remover</button>
+                    </form>
                     {% for member in squad.members.all %}
                       <div class="col-md-3">
+                        <br/>
                           <img src="{{ member.profile.avatar.url }}"
                                alt="avatar"
                                class="card-img-top rounded-circle"
                                style="width: 150px">
                           <div class="card-body">
-                            <h6 class="card-title">{{ member.first_name }}</h6>
+                            <h6 id="nome-{{member.username}}" class="card-title">{{ member.first_name }}</h6>
                           </div>
                       </div>
                       {% if forloop.counter|divisibleby:4 and not forloop.last %}

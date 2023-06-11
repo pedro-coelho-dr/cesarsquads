@@ -1,0 +1,76 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ "deploy" ]
+  pull_request:
+    branches: [ "deploy" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 4
+      matrix:
+        python-version: [3.11]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Setup Chrome
+      uses: browser-actions/setup-chrome@v1
+    - name: Install Dependencies
+      run: |
+        cd src
+        set -ex
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt install ./google-chrome-stable_current_amd64.deb
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install msedge-selenium-tools
+    - uses: nanasess/setup-chromedriver@v2
+    - run: |
+        chromedriver --url-base=/wd/hub &
+    - name: Run Tests
+      run: |
+        cd src
+        python manage.py runserver &
+        sleep 5
+        python manage.py test
+
+  #deploy:
+  #  needs: [build]
+  #  runs-on: ubuntu-latest
+  #  
+  #  steps:
+  #  - name: Checkout source code
+  #    uses: actions/checkout@v2
+  #    
+  #  - name: Install dependencies
+  #    run: |
+  #      set -ex
+  #      cd src
+  #      python -m pip install --upgrade pip
+  #      pip install -r requirements.txt
+  #    
+  #  - name: Generate deployment package
+  #    run: |
+  #      set -ex
+  #      cd src
+  #      sleep 2
+  #      zip -r deploy.zip . -x '*.git*'
+  #    
+  #  - name: Deploy to EB
+  #    uses: einaregilsson/beanstalk-deploy@v20
+  #    with:
+  #      aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #      aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #      application_name: 
+  #      environment_name: 
+  #      version_label: ${{ steps.version.outputs.version_label }}
+  #      region: "sa-east-1"
+  #      deployment_package:  src/deploy.zip

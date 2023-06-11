@@ -54,7 +54,8 @@ class SquadForm(forms.ModelForm):
         return squad
         
         
-
+class UserSearchForm(forms.Form):
+    username = forms.CharField(label=False,widget=forms.TextInput(attrs={'placeholder':'Nome de usuário', 'class':"form-control me-2"}))
 
 #PERFIL
 class ProfileForm(forms.ModelForm):
