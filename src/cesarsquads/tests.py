@@ -5,6 +5,9 @@ from selenium.webdriver.common.by import By
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.select import Select
+
+
 
 def setUp():
     chrome_options = webdriver.ChromeOptions()
@@ -41,30 +44,28 @@ class TesteSelenium(LiveServerTestCase):
         assert email.text == 'selenium@gmail.com', "Email está correto!"
         driver.close()'''	
 
-    #def test2_enter_tribe(self):
-    #    driver = setUp()
-    #    driver.get("http://127.0.0.1:8000/")
-    #    username_input = driver.find_element(By.NAME, 'username')
-    #    password_input = driver.find_element(By.NAME, 'password')
-    #    submit_button = driver.find_element(By.ID, 'login')
-    #    username_input.send_keys('selenium')
-    #    password_input.send_keys('sele123456')
-    #    sleep(2)
-    #    submit_button.click()
-    #    sleep(2)
-    #    tribo_desejada = "selenium1"
-    #    botoes_accordion = driver.find_elements(By.CLASS_NAME, "accordion-button")
-    #    for botao in botoes_accordion:
-    #        if botao.text == "Selenium1":
-    #            botao.click()
-    #            break
-    #    entrar_tribo = driver.find_element(By.ID, f"entrar-tribo-{tribo_desejada}")
-    #    driver.execute_script("arguments[0].scrollIntoView();", entrar_tribo)
-    #    sleep(1)
-    #    entrar_tribo.click()
-    #    sleep(2)
-    #    tribo_atual = driver.find_element(By.ID, "nome-tribo")
-    #    assert tribo_atual.text == tribo_desejada, "A tribo atual é a tribo desejada"
+    def test2_enter_tribe(self):
+        driver = setUp()
+        driver.get("http://127.0.0.1:8000/")
+
+        username_input = driver.find_element(By.NAME, 'username')
+        password_input = driver.find_element(By.NAME, 'password')
+        submit_button = driver.find_element(By.ID, 'login')
+
+        username_input.send_keys('selenium')
+        password_input.send_keys('sele123456')
+        sleep(2)
+        submit_button.click()
+        sleep(2)
+
+        tribo_desejada = "selenium1"
+
+        entrar_tribo_buttons = driver.find_elements(By.NAME, "Acessar")
+        for button in entrar_tribo_buttons:
+            if f"entrar-tribo-selenium1" in button.get_attribute("id"):
+                button.click()
+                break
+
 
     def test3_enter_squad(self):
         driver = setUp()
@@ -261,3 +262,46 @@ class TesteSelenium(LiveServerTestCase):
         assert True, "Avatar da tribo foi atualizado corretamente"
 
 
+
+    def test11_add_user_to_squad(self):
+        driver = setUp()
+        driver.get("http://127.0.0.1:8000/")
+        username_input = driver.find_element(By.NAME, 'username')
+        password_input = driver.find_element(By.NAME, 'password')
+        submit_button = driver.find_element(By.ID, 'login')
+        username_input.send_keys('selenium')
+        password_input.send_keys('sele123456')
+        sleep(2)
+        submit_button.click()
+        driver.get("http://127.0.0.1:8000/tribe/4/squad/sele3/")
+        username_input = driver.find_element(By.ID, 'nome-usuario')
+        username_input.send_keys('thas')
+        username_desejado = 'thas'
+        add_button = driver.find_element(By.ID, "adicionar-usuario")
+        driver.execute_script("arguments[0].scrollIntoView();", add_button)
+        sleep(2)
+        add_button.click()
+        sleep(2)
+        squad_members = driver.find_element(By.ID, f'nome-{username_desejado}')
+        assert squad_members.text == "Thiago Araújo", "Usuário adicionado corretamente"
+
+    def test12_remove_user_from_squad(self):
+        driver = setUp()
+        driver.get("http://127.0.0.1:8000/")
+        username_input = driver.find_element(By.NAME, 'username')
+        password_input = driver.find_element(By.NAME, 'password')
+        submit_button = driver.find_element(By.ID, 'login')
+        username_input.send_keys('selenium')
+        password_input.send_keys('sele123456')
+        sleep(2)
+        submit_button.click()
+        driver.get("http://127.0.0.1:8000/tribe/4/squad/sele2/")
+        sleep(2)
+        select_element = driver.find_element(By.NAME, 'user_id')
+        sleep(2)
+        select = Select(select_element)
+        sleep(2)
+        select.select_by_visible_text('thas') 
+        sleep(2)
+        remove_button = driver.find_element(By.ID, 'remover')
+        remove_button.click()
