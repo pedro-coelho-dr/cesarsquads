@@ -42,35 +42,43 @@ jobs:
         sleep 5
         python manage.py test
 
-  #deploy:
-  #  needs: [build]
-  #  runs-on: ubuntu-latest
-  #  
-  #  steps:
-  #  - name: Checkout source code
-  #    uses: actions/checkout@v2
-  #    
-  #  - name: Install dependencies
-  #    run: |
-  #      set -ex
-  #      cd src
-  #      python -m pip install --upgrade pip
-  #      pip install -r requirements.txt
-  #    
-  #  - name: Generate deployment package
-  #    run: |
-  #      set -ex
-  #      cd src
-  #      sleep 2
-  #      zip -r deploy.zip . -x '*.git*'
-  #    
-  #  - name: Deploy to EB
-  #    uses: einaregilsson/beanstalk-deploy@v20
-  #    with:
-  #      aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #      aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  #      application_name: 
-  #      environment_name: 
-  #      version_label: ${{ steps.version.outputs.version_label }}
-  #      region: "sa-east-1"
-  #      deployment_package:  src/deploy.zip
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      run: |
+        set -ex
+        cd src
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+      
+    - name: Generate deployment package
+      run: |
+        set -ex
+        cd src
+        sleep 2
+        zip -r deploy.zip . -x '*.git*'
+    
+    - name: Get Last Version
+      id: get_last_version
+      run: |
+          llast_version=$(cat .github/workflows/django.yml | grep -oP '(?<=version_label: )[\d.-]+')
+          echo "::set-output name=version::$(echo $last_version | awk -F. -v OFS=. '{$NF++;print}')"
+      
+      
+      
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v20
+      with:
+        aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        application_name: Cesar Squads
+        environment_name: CesarSquads-env
+        version_label: ${{ steps.get_last_version.outputs.version }}
+        region: "us-east-2"
+        deployment_package:  src/deploy.zip
