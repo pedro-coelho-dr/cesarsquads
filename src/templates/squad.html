@@ -11,14 +11,16 @@
   </script>
   {% if user.is_authenticated %}
   <div class="container py-5">
-      <div class="row">
-        <div class="col">
-          <button id="voltar" class="btn btn-dark btn-sm" onclick="goBack()">🠔 Voltar</button>
-          <form method="POST" action="{% url 'sair_squad' tribe_id=squad.tribe_id squad_slug=squad.slug %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">SAIR</button>
-          </form>
+    <div class="row">
+      <div class="col">
+        <button id="voltar" class="btn btn-dark btn-sm" onclick="goBack()">🠔 Voltar</button>
       </div>
+      <div class="col-3">
+        <form method="POST" action="{% url 'sair_squad' tribe_id=squad.tribe_id squad_slug=squad.slug %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger">SAIR</button>
+        </form>
+      </div>  
         </div>
       <br/>
       <div class="row">
