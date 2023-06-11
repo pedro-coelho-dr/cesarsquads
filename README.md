@@ -228,7 +228,7 @@ python manage.py runserver
 12/06
 
   - Acesso ao App em produção:
-    {{link final}}
+    CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com
     
     Instruções:
     ```
