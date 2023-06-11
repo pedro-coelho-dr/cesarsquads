@@ -262,12 +262,6 @@ def remove_user_from_squad(request, squad_slug, tribe_id):
     return redirect('detalhes_squad', squad_slug=squad.slug, tribe_id=tribe_id)
 
 #----
-def sair_squad(request, squad_slug, tribe_id):
-    squad = get_object_or_404(Squad, slug=squad_slug, tribe_id=tribe_id)
-    user = request.user
-    squad.members.remove(user)
-    tribe_slug = squad.tribe.slug if squad.tribe else None
-    return redirect('detalhes_tribo', tribe_slug=tribe_slug)
 
 def index(request):
     return render(request,'index.html')
