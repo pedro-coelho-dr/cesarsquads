@@ -5,7 +5,7 @@
   - [✅ Entrega 01](#-entrega-01)
   - [✅ Entrega 02](#-entrega-02)
   - [✅ Entrega 03](#-entrega-03)
-  - [🔲 Entrega 04](#-entrega-04)
+  - [✅ Entrega 04](#-entrega-04)
   - [🛠 Ferramentas](#-ferramentas)
   - [👨‍💻 Contribuidores](#-contribuidores)
 
@@ -163,7 +163,7 @@ python manage.py runserver
     ```
     Ao acessar o link acima:
     - Clicar em 'Entrar' ou 'Cadastrar'
-      - Entrar com usuário 'teste' 'senha1234' {{!!!!!!!!CRIAR USUÁRIO!!!!!!!!!!!!}}
+      - Entrar com usuário 'teste' 'senha1234'
       - (ou) Cadastrar novo usuário e entrar.
     - Na página do Perfil é possível:
       - Acessar tribos que faz parte.
@@ -223,41 +223,76 @@ python manage.py runserver
 
 ---
 
-### 🔲 Entrega 04
+### ✅ Entrega 04
 
 12/06
 
-- Seleção de mais histórias para implementar (pelo menos 3)
-    Criação de nova sprint no JIRA
+  - Acesso ao App em produção:
+    {{link final}}
     
-- Atualização dos protótipos de Lo-Fi
-    Sketches e storyboards para as novas histórias
-    Envio de novo screencast (ênfase nas novas histórias)
+    Instruções:
+    ```
+    Ao acessar o link acima:
+    - Clicar em 'Entrar' ou 'Cadastrar'
+      - Entrar com usuário 'teste' 'senha1234'
+      - (ou) Cadastrar novo usuário e entrar.
+    - Na página do Perfil é possível:
+      - Acessar tribos que faz parte.
+      - Pesquisar tribos
+      - Criar tribo
+      - Alterar avatar do perfil
+    - Na página da Tribo:
+      -  Alterar avatar da tribo
+      -  Alterar descrição da tribo
+      -  Criar squad
+      -  Participar de squad
+      -  Remover usuario da tribo
+      -  Sair da tribo
+    - Na página da Squad:
+      -  Alterar avatar da squad
+      -  Editar descrição da squad
+      -  Remover usuario da squad
+      -  Sair da Squad
     
-- Atualização do diagrama de atividades
+    ```
+   
+- Deploy
+    [Youtube](https://youtu.be/eoy0nFL6FWU)
 
-- Ambiente de versionamento atuante
-    Com commits frequentes (no mínimo semanais)
+    [![https://youtu.be/eoy0nFL6FWU](https://img.youtube.com/vi/eoy0nFL6FWU/0.jpg)](https://youtu.be/eoy0nFL6FWU)
     
-- Deploy das novas histórias
-    Envio de novo screencast (ênfase nas novas histórias)
-    
-- Issue/bug tracker atualizado (no GitHub)
-    Enviar print da tela no dia da entrega
     
 - Testes de Sistema (E2E) Automatizados
-    Enviar screencast da execução dos testes
+    [Youtube](https://youtu.be/VfHJej_yZJ4)
+
+    [![https://youtu.be/VfHJej_yZJ4](https://img.youtube.com/vi/VfHJej_yZJ4/0.jpg)](https://youtu.be/VfHJej_yZJ4)
     
 - CI/CD com build e deployment automatizado
-    Pipeline criada no Github
-    Enviar screencast do processo de build e deployment
-    
-- Atualização sobre o uso da programação em pares
+    [Youtube](https://youtu.be/1DHMIDcagV8)
 
-- Quadro da Sprint 03 atualizado refletindo a entrega
-    Enviar print do quadro da sprint
-    Documentação clara e objetiva conduzindo qualquer 
-    pessoa a montar o ambiente corretamente e contribuir com o projeto (README)
+    [![https://youtu.be/1DHMIDcagV8](https://img.youtube.com/vi/1DHMIDcagV8/0.jpg)](https://youtu.be/1DHMIDcagV8)
+    
+{{{{- Protótipo Lo-fi: 
+    {{YOUTUBE}} [
+
+   {{YOUTUBE}} 
+  
+ {{FIGMA}} [FIGMA](https://www.figma.com/file/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?type=design&node-id=0%3A1&t=c8ICu2C5opbhbi4f-1)
+ 
+{{{{{- Diagrama de atividades do sistema
+
+{{DIAGRAMA}}
+    
+- Quadro da Sprint:
+![print_jira](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/00fc9acb-c26b-4218-8608-550098ac10bd)
+
+  **[Jira](https://projetofds.atlassian.net/jira/software/projects/SQUAD/boards/2/backlog)** 
+
+- Issue/bug tracker:
+![print_issuesbuggithub](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/ccb815bc-8bd1-4741-83ed-c8f1a2740d57)
+    
+- Atualização sobre o uso da programação em pares:
+   	{{atualizacao da programacao em pares}}
 
 ---
 
