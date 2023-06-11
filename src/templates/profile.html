@@ -34,23 +34,25 @@
                   <div class="modal-dialog">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h1 class="modal-title fs-5" id="exampleModalLabel">Upload Photo</h1>
+                              <h1 class="modal-title fs-5" id="exampleModalLabel">Upload foto</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
                               {% for message in messages %}
+                                {% if 'avatar_updated' in message.tags %}
                                   <div class="alert alert-{{ message.tags }} mt-3" role="alert">
                                       {{ message }}
                                   </div>
+                                {% endif %}
                               {% endfor %}
                               <form method="POST" enctype="multipart/form-data" action="{% url 'profile' %}">
                                   {% csrf_token %}
                                   <div class="mb-3">
-                                      <label for="avatar" class="col-form-label">Select a new photo:</label>
+                                      <label for="avatar" class="col-form-label">Selecione novo foto:</label>
                                       <input type="file" class="form-control" id="avatar" name="avatar">
                                   </div>
                                   <div class="modal-footer">
-                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                                       <button id='submit-avatar' type="submit" class="btn btn-primary">Upload</button>
                                   </div>
                               </form>
@@ -144,7 +146,9 @@
                           {% if messages %}
                             <div class="alert alert-warning">
                                 {% for message in messages %}
-                                  <h6 id='tribo-existe' class= '--bs-danger-text-emphasis'>{{ message }}</h6>
+                                  {% if 'avatar_updated' not in message.tags %}
+                                    <h6 id='tribo-existe' class= '--bs-danger-text-emphasis'>{{ message }}</h6>
+                                  {% endif %}
                                 {% endfor %}
                             </div>
                           {% endif %}                                                            
