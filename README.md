@@ -292,7 +292,9 @@ python manage.py runserver
 ![print_issuesbuggithub](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/ccb815bc-8bd1-4741-83ed-c8f1a2740d57)
     
 - Atualização sobre o uso da programação em pares:
-   	{{atualizacao da programacao em pares}}
+	Para a entrega 04, continuamos a realizar sprints e adotando o modelo de pares fixos para o pair programming. Além disso, a extensão Live Share mostrou-se MUITO essencial para a conclusão das nossas entregas.
+
+	O pair programming com pares fixos e o uso da extensão Live Share trouxeram benefícios notáveis para nosso grupo. Essa abordagem foi essencial para alcançarmos os objetivos finais do projeto, fortalecendo nossa capacidade de trabalho em equipe. O pair programming se mostrou uma prática valiosa para o desenvolvimento ágil e aprimorou nossas habilidades.
 
 ---
 
