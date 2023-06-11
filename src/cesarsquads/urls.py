@@ -20,5 +20,6 @@ urlpatterns = [
     path('tribe/<slug:tribe_id>/squad/<slug:squad_slug>/remover/', views.remove_user_from_squad, name='remove_user_from_squad'),
     path('search/', views.search_tribe, name='search_tribe'),
     path('tribe/<slug:tribe_id>/squad/<slug:squad_slug>/sair/', views.sair_squad, name='sair_squad'),
-
+    path('tribe/<slug:tribe_slug>/sair/', views.sair_tribo, name='sair_tribo'),
+    
 ]
