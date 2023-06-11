@@ -67,7 +67,7 @@ jobs:
     - name: Get Last Version
       id: get_last_version
       run: |
-          last_version=$(grep -oP '(?<=version_label: )[\d.-]+' django.yml)
+          llast_version=$(cat .github/workflows/django.yml | grep -oP '(?<=version_label: )[\d.-]+')
           echo "::set-output name=version::$(echo $last_version | awk -F. -v OFS=. '{$NF++;print}')"
       
       
