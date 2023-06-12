@@ -228,7 +228,7 @@ python manage.py runserver
 12/06
 
   - Acesso ao App em produção:
-    CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com
+    [CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com](CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com)
     
     Instruções:
     ```
@@ -240,7 +240,6 @@ python manage.py runserver
       - Acessar tribos que faz parte.
       - Pesquisar tribos
       - Criar tribo
-      - Alterar avatar do perfil
     - Na página da Tribo:
       -  Alterar avatar da tribo
       -  Alterar descrição da tribo
@@ -272,16 +271,17 @@ python manage.py runserver
 
     [![https://youtu.be/1DHMIDcagV8](https://img.youtube.com/vi/1DHMIDcagV8/0.jpg)](https://youtu.be/1DHMIDcagV8)
     
-{{{{- Protótipo Lo-fi: 
-    {{YOUTUBE}} [
+- Protótipo Lo-fi: 
+    [Youtube](https://youtu.be/AC1qABSSOCs)
 
-   {{YOUTUBE}} 
+    [![https://youtu.be/AC1qABSSOCs](https://img.youtube.com/vi/AC1qABSSOCs/0.jpg)](https://youtu.be/AC1qABSSOCs)
   
- {{FIGMA}} [FIGMA](https://www.figma.com/file/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?type=design&node-id=0%3A1&t=c8ICu2C5opbhbi4f-1)
+ [FIGMA](https://www.figma.com/file/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?type=design&node-id=0%3A1&t=c8ICu2C5opbhbi4f-1)
  
-{{{{{- Diagrama de atividades do sistema
+- Diagrama de atividades do sistema
 
-{{DIAGRAMA}}
+![Diagrama sem nome (1)](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/6ab701d1-b948-4c64-ab82-f371b9475530)
+
     
 - Quadro da Sprint:
 ![print_jira](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/00fc9acb-c26b-4218-8608-550098ac10bd)
@@ -295,6 +295,13 @@ python manage.py runserver
 	Para a entrega 04, continuamos a realizar sprints e adotando o modelo de pares fixos para o pair programming. Além disso, a extensão Live Share mostrou-se MUITO essencial para a conclusão das nossas entregas.
 
 	O pair programming com pares fixos e o uso da extensão Live Share trouxeram benefícios notáveis para nosso grupo. Essa abordagem foi essencial para alcançarmos os objetivos finais do projeto, fortalecendo nossa capacidade de trabalho em equipe. O pair programming se mostrou uma prática valiosa para o desenvolvimento ágil e aprimorou nossas habilidades.
+	
+- Apresentação final
+	
+	[Cesar Squads.pdf](https://github.com/pedro-coelho-dr/fdsproject/files/11724260/Cesar.Squads.pdf)
+	
+	[Canvas](https://www.canva.com/design/DAFliAkrGAo/SaFM9pRV7rXyTO0mcEokfw/view?utm_content=DAFliAkrGAo&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
 
 ---
 
