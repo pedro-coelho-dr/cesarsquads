@@ -267,9 +267,9 @@ python manage.py runserver
     [![https://youtu.be/n8R2FJ7mQjU](https://img.youtube.com/vi/n8R2FJ7mQjU/0.jpg)](https://youtu.be/n8R2FJ7mQjU)
     
 - CI/CD com build e deployment automatizado
-    [Youtube](https://youtu.be/1DHMIDcagV8)
+    [Youtube](https://youtu.be/jOkyyjQw71k)
 
-    [![https://youtu.be/1DHMIDcagV8](https://img.youtube.com/vi/1DHMIDcagV8/0.jpg)](https://youtu.be/1DHMIDcagV8)
+    [![https://youtu.be/jOkyyjQw71k](https://img.youtube.com/vi/jOkyyjQw71k/0.jpg)](https://youtu.be/jOkyyjQw71k)
     
 - Protótipo Lo-fi: 
     [Youtube](https://youtu.be/AC1qABSSOCs)
