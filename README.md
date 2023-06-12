@@ -228,7 +228,7 @@ python manage.py runserver
 12/06
 
   - Acesso ao App em produção:
-    ![CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com](CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com)
+    <a href="CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com">CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com</href>
     
     Instruções:
     ```
