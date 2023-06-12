@@ -262,9 +262,9 @@ python manage.py runserver
     
     
 - Testes de Sistema (E2E) Automatizados
-    [Youtube](https://youtu.be/VfHJej_yZJ4)
+    [Youtube](https://youtu.be/n8R2FJ7mQjU)
 
-    [![https://youtu.be/VfHJej_yZJ4](https://img.youtube.com/vi/VfHJej_yZJ4/0.jpg)](https://youtu.be/VfHJej_yZJ4)
+    [![https://youtu.be/n8R2FJ7mQjU](https://img.youtube.com/vi/n8R2FJ7mQjU/0.jpg)](https://youtu.be/n8R2FJ7mQjU)
     
 - CI/CD com build e deployment automatizado
     [Youtube](https://youtu.be/1DHMIDcagV8)
