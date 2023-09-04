@@ -22,7 +22,7 @@
     <div class="col-3">
       <form method="POST" action="{% url 'sair_tribo' tribe_slug=tribe.slug %}">
         {% csrf_token %}
-        <button type="submit" class="btn btn-danger">SAIR</button>
+        <button id="sair-tribo" type="submit" class="btn btn-danger">SAIR</button>
       </form>
     </div>
   </div>
@@ -166,8 +166,8 @@
                       <h3>Adicionar Usuário à Tribo</h3>
                       <form method="POST" action="{% url 'add_user_to_tribe' tribe_slug=tribe.slug %}" class="d-flex">
                           {% csrf_token %}
-                          <input type="text" name="username" placeholder="Nome de usuário" class="form-control me-2" required>
-                          <button type="submit" class="btn btn-outline-success">Adicionar</button>
+                          <input id="nome-usuario" type="text" name="username" placeholder="Nome de usuário" class="form-control me-2" required>
+                          <button id="adicionar-usuario" type="submit" class="btn btn-outline-success">Adicionar</button>
                       </form>
                     </div>
 
@@ -181,7 +181,7 @@
                                   <option value="{{ member.id }}">{{ member.username }}</option>
                               {% endfor %}
                           </select>
-                          <button type="submit" class="btn btn-outline-danger">Remover</button>
+                          <button id="remover" type="submit" class="btn btn-outline-danger">Remover</button>
                       </form>
                     </div>
 

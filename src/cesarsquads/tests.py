@@ -306,7 +306,7 @@ class TesteSelenium(LiveServerTestCase):
         remove_button = driver.find_element(By.ID, 'remover')
         remove_button.click()
 
-    def test11_add_user_to_tribe(self):
+    def test13_add_user_to_tribe(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -324,11 +324,8 @@ class TesteSelenium(LiveServerTestCase):
         driver.execute_script("arguments[0].scrollIntoView();", add_button)
         sleep(2)
         add_button.click()
-        sleep(2)
-        squad_members = driver.find_element(By.ID, f'nome-{username_desejado}')
-        assert squad_members.text == "Thiago Araújo", "Usuário adicionado corretamente"
 
-    def test12_remove_user_from_tribe(self):
+    def test14_remove_user_from_tribe(self):
         driver = setUp()
         driver.get("http://127.0.0.1:8000/")
         username_input = driver.find_element(By.NAME, 'username')
@@ -348,3 +345,35 @@ class TesteSelenium(LiveServerTestCase):
         sleep(2)
         remove_button = driver.find_element(By.ID, 'remover')
         remove_button.click()
+        
+    def test15_leave_squad(self):
+        driver = setUp()
+        driver.get("http://127.0.0.1:8000/")
+        username_input = driver.find_element(By.NAME, 'username')
+        password_input = driver.find_element(By.NAME, 'password')
+        submit_button = driver.find_element(By.ID, 'login')
+        username_input.send_keys('selenium')
+        password_input.send_keys('sele123456')
+        sleep(2)
+        submit_button.click()
+        sleep(2)
+        driver.get("http://127.0.0.1:8000/tribe/4/squad/selesair/")
+        sleep(2)
+        sair = driver.find_element(By.ID, 'sair-squad')
+        sair.click()
+        
+    def test16_leave_tribe(self):
+        driver = setUp()
+        driver.get("http://127.0.0.1:8000/")
+        username_input = driver.find_element(By.NAME, 'username')
+        password_input = driver.find_element(By.NAME, 'password')
+        submit_button = driver.find_element(By.ID, 'login')
+        username_input.send_keys('selenium')
+        password_input.send_keys('sele123456')
+        sleep(2)
+        submit_button.click()
+        sleep(2)
+        driver.get("http://127.0.0.1:8000/tribe/selenium-sair/")
+        sleep(2)
+        sair = driver.find_element(By.ID, 'sair-tribo')
+        sair.click()

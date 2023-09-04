@@ -5,7 +5,7 @@
   - [✅ Entrega 01](#-entrega-01)
   - [✅ Entrega 02](#-entrega-02)
   - [✅ Entrega 03](#-entrega-03)
-  - [🔲 Entrega 04](#-entrega-04)
+  - [✅ Entrega 04](#-entrega-04)
   - [🛠 Ferramentas](#-ferramentas)
   - [👨‍💻 Contribuidores](#-contribuidores)
 
@@ -109,7 +109,7 @@ python manage.py runserver
 
   
   - Acesso ao App em produção:
-    http://cesarsquads3-env.eba-shdehrq2.us-east-2.elasticbeanstalk.com/
+    [CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com](http://cesarsquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com/)
     
     Instruções:
     ```
@@ -157,13 +157,13 @@ python manage.py runserver
 15/05
   
   - Acesso ao App em produção:
-    http://cesarsquads3-env.eba-shdehrq2.us-east-2.elasticbeanstalk.com/
+    [CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com](http://cesarsquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com/)
     
     Instruções:
     ```
     Ao acessar o link acima:
     - Clicar em 'Entrar' ou 'Cadastrar'
-      - Entrar com usuário 'teste' 'senha1234' {{!!!!!!!!CRIAR USUÁRIO!!!!!!!!!!!!}}
+      - Entrar com usuário 'teste' 'senha1234'
       - (ou) Cadastrar novo usuário e entrar.
     - Na página do Perfil é possível:
       - Acessar tribos que faz parte.
@@ -223,41 +223,85 @@ python manage.py runserver
 
 ---
 
-### 🔲 Entrega 04
+### ✅ Entrega 04
 
 12/06
 
-- Seleção de mais histórias para implementar (pelo menos 3)
-    Criação de nova sprint no JIRA
+  - Acesso ao App em produção:
+    [CesarSquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com](http://cesarsquads-env.eba-hqizgypw.us-east-2.elasticbeanstalk.com/)
     
-- Atualização dos protótipos de Lo-Fi
-    Sketches e storyboards para as novas histórias
-    Envio de novo screencast (ênfase nas novas histórias)
+    Instruções:
+    ```
+    Ao acessar o link acima:
+    - Clicar em 'Entrar' ou 'Cadastrar'
+      - Entrar com usuário 'teste' 'senha1234'
+      - (ou) Cadastrar novo usuário e entrar.
+    - Na página do Perfil é possível:
+      - Acessar tribos que faz parte.
+      - Pesquisar tribos
+      - Criar tribo
+    - Na página da Tribo:
+      -  Alterar avatar da tribo
+      -  Alterar descrição da tribo
+      -  Criar squad
+      -  Participar de squad
+      -  Remover usuario da tribo
+      -  Sair da tribo
+    - Na página da Squad:
+      -  Alterar avatar da squad
+      -  Editar descrição da squad
+      -  Remover usuario da squad
+      -  Sair da Squad
     
-- Atualização do diagrama de atividades
+    ```
+   
+- Deploy
+    [Youtube](https://youtu.be/eoy0nFL6FWU)
 
-- Ambiente de versionamento atuante
-    Com commits frequentes (no mínimo semanais)
+    [![https://youtu.be/eoy0nFL6FWU](https://img.youtube.com/vi/eoy0nFL6FWU/0.jpg)](https://youtu.be/eoy0nFL6FWU)
     
-- Deploy das novas histórias
-    Envio de novo screencast (ênfase nas novas histórias)
-    
-- Issue/bug tracker atualizado (no GitHub)
-    Enviar print da tela no dia da entrega
     
 - Testes de Sistema (E2E) Automatizados
-    Enviar screencast da execução dos testes
+    [Youtube](https://youtu.be/n8R2FJ7mQjU)
+
+    [![https://youtu.be/n8R2FJ7mQjU](https://img.youtube.com/vi/n8R2FJ7mQjU/0.jpg)](https://youtu.be/n8R2FJ7mQjU)
     
 - CI/CD com build e deployment automatizado
-    Pipeline criada no Github
-    Enviar screencast do processo de build e deployment
-    
-- Atualização sobre o uso da programação em pares
+    [Youtube](https://youtu.be/jOkyyjQw71k)
 
-- Quadro da Sprint 03 atualizado refletindo a entrega
-    Enviar print do quadro da sprint
-    Documentação clara e objetiva conduzindo qualquer 
-    pessoa a montar o ambiente corretamente e contribuir com o projeto (README)
+    [![https://youtu.be/jOkyyjQw71k](https://img.youtube.com/vi/jOkyyjQw71k/0.jpg)](https://youtu.be/jOkyyjQw71k)
+    
+- Protótipo Lo-fi: 
+    [Youtube](https://youtu.be/AC1qABSSOCs)
+
+    [![https://youtu.be/AC1qABSSOCs](https://img.youtube.com/vi/AC1qABSSOCs/0.jpg)](https://youtu.be/AC1qABSSOCs)
+  
+ [FIGMA](https://www.figma.com/file/8MrwJKcy4XKxQdEP1Ywi44/Prototipo-Lo-fi?type=design&node-id=0%3A1&t=c8ICu2C5opbhbi4f-1)
+ 
+- Diagrama de atividades do sistema
+
+![Diagrama sem nome (1)](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/6ab701d1-b948-4c64-ab82-f371b9475530)
+
+    
+- Quadro da Sprint:
+![print_jira](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/00fc9acb-c26b-4218-8608-550098ac10bd)
+
+  **[Jira](https://projetofds.atlassian.net/jira/software/projects/SQUAD/boards/2/backlog)** 
+
+- Issue/bug tracker:
+![print_issuesbuggithub](https://github.com/pedro-coelho-dr/fdsproject/assets/111138996/ccb815bc-8bd1-4741-83ed-c8f1a2740d57)
+    
+- Atualização sobre o uso da programação em pares:
+	Para a entrega 04, continuamos a realizar sprints e adotando o modelo de pares fixos para o pair programming. Além disso, a extensão Live Share mostrou-se MUITO essencial para a conclusão das nossas entregas.
+
+	O pair programming com pares fixos e o uso da extensão Live Share trouxeram benefícios notáveis para nosso grupo. Essa abordagem foi essencial para alcançarmos os objetivos finais do projeto, fortalecendo nossa capacidade de trabalho em equipe. O pair programming se mostrou uma prática valiosa para o desenvolvimento ágil e aprimorou nossas habilidades.
+	
+- Apresentação final
+	
+	[Cesar Squads.pdf](https://github.com/pedro-coelho-dr/fdsproject/files/11724260/Cesar.Squads.pdf)
+	
+	[Canvas](https://www.canva.com/design/DAFliAkrGAo/SaFM9pRV7rXyTO0mcEokfw/view?utm_content=DAFliAkrGAo&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
+
 
 ---
 

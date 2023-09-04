@@ -18,7 +18,7 @@
       <div class="col-3">
         <form method="POST" action="{% url 'sair_squad' tribe_id=squad.tribe_id squad_slug=squad.slug %}">
           {% csrf_token %}
-          <button type="submit" class="btn btn-danger">SAIR</button>
+          <button id="sair-squad" type="submit" class="btn btn-danger">SAIR</button>
         </form>
       </div>  
         </div>
@@ -153,14 +153,14 @@
                     <h4>Remover Usuário</h4>
                     <form method="POST" action="{% url 'remove_user_from_squad' squad_slug=squad.slug tribe_id=tribe_id %}">
                       {% csrf_token %}
-                      <select name="user_id" required>
+                      <select class="form-control me-2" name="user_id" required>
                         {% for member in squad.members.all %}
                           <option value="{{ member.id }}">{{ member.username }}</option>
                         {% endfor %}
                       </select>
                       <br/>
                       <br/>
-                      <button id="remover" type="submit" class="btn btn-outline-success">Remover</button>
+                      <button id="remover" type="submit" class="btn btn-outline-danger">Remover</button>
                     </form>
                     {% for member in squad.members.all %}
                       <div class="col-md-3">
